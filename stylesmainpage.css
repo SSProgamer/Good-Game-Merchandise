@@ -1,10 +1,12 @@
-body {
-    margin: 0%;
-    padding: 0%;
+.web-text-color {
+    color: rgba(213, 216, 223) !important;
 }
 
-.main_page {
+.main-container {
     background-color: rgba(73, 79, 92);
-    width: 100%;
     height: 100%;
+}
+
+.main-navbar {
+    background-color: rgba(59, 62, 72);
 }
