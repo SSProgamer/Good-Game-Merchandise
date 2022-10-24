@@ -19,6 +19,11 @@
 }
 
 .search-nav {
-    margin-left: 65%;
-    width: 20%;
+    margin-left: 50%;
+    width: 30%;
+}
+
+.main-footer {
+    background-color: rgba(59, 62, 72) !important;
+    height: 10%;
 }
