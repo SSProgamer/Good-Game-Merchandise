@@ -4,7 +4,9 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        
+        $upcase = preg_match('@[A-Z]@', $password);
+        $lowcase = preg_match('@[a-z]@', $password);
+        $number = preg_match('@[0-9]@', $password);
         //check condition before create new user
         //used by php (optional)
         if(strlen($username) < 8){
@@ -19,13 +21,11 @@
             echo "alert(\"plength < 9\")";
             echo "</script>";
         }
-        // else if(!preg_match('[a-zA-Z0-9]', $password)){
-        //     echo "<script>";
-        //     // echo "alert(\"".$errmsg."\");";
-        //     echo "window.alert(\" case 3\");"; 
-        //     // echo "window.history.back()";
-        //     echo "</script>";
-        // }
+        else if(!$upcase || !$lowcase || !$number){
+            echo "<script>";
+            echo "window.alert(\" Password should atleast 1 lower&highercase character and number\");"; 
+            echo "</script>";
+        }
         // else if(){
 
         // }
@@ -40,7 +40,7 @@
 
         }
         else{
-            //echo $username, $password;
+            echo $username, $password;
             $sql = "INSERT INTO Customer (CustomerID, Username, Password)
             VALUES (NULL,'".$username."', '".$password."')";
             $result = $db->query($sql);
@@ -102,6 +102,7 @@
             </div>
             <button type="submit" name="submit">sign up</button>
         </form>
+        <button><a href="login.php">Already have account?</a></button>
     </div>
     
 </body>
