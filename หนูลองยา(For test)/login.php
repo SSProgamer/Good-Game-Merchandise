@@ -20,7 +20,7 @@
             while($row = $result->fetchArray(SQLITE3_ASSOC)){
                 $_SESSION["ID"] = $row["CustomerID"];
                 $_SESSION["username"] = $row["Username"];
-                echo $row["Username"];
+                // echo $row["Username"];
             }
             header("Location: session.php");
         }
