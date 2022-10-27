@@ -1,4 +1,32 @@
 .main-container {
     background-color: rgba(73, 79, 92);
-    height: 100%;
+    display: flex;
+}
+
+.merchandises-card {
+    border-radius: 0 !important;
+    background-color: rgb(40, 44, 52) !important;
+    box-shadow: 3px 3px 10px rgb(40, 44, 52);
+    color: rgb(212, 213, 214);
+}
+
+.merchandises-pic {
+    border-radius: 0 !important;
+    height: 25vh;
+}
+
+.price {
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+}
+
+.info {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
 }

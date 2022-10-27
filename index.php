@@ -38,26 +38,195 @@
                 </li>
             </ul>
         </nav>
-        <br><br><br><br>
         <div class="container">
+            <br><br><br><br>
             <h5 class="fw-bold text-white">Box Sets</h5>
             <div class="row">
                 <div class="col">
-                    <div class="card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text info">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
-                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top">
+                    <div class="card merchandises-card">
+                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text info">AZUR LANE | ETERNAL OATH COUPLES' RINGS | SUMMER SUPPLY 2022</p>
+                                </div>
+                                <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿1</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿180</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5 class="fw-bold text-white mt-5">Merchandises</h5>
+            <div class="row">
+                <div class="col">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card merchandises-card">
+                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 mb-5">
+                <div class="col">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card merchandises-card">
+                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 mb-5">
+                <div class="col">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card merchandises-card">
+                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
