@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Good Game Merchandise</title>
-    <link href="stylesmainpage.css" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesmerchandises.css">
     <link rel="stylesheet" href="stylesnavfoot.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -38,30 +38,6 @@
                 </li>
             </ul>
         </nav>
-        <br><br><br><br>
-        <div class="container">
-            <h5 class="fw-bold text-white">Box Sets</h5>
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top">
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- footer -->
     <footer class="main-navbar">

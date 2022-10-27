@@ -1,24 +1,4 @@
-.web-text-color {
-    color: rgba(213, 216, 223) !important;
-}
-
 .main-container {
     background-color: rgba(73, 79, 92);
     height: 100%;
-}
-
-.main-navbar {
-    background-color: rgba(59, 62, 72);
-}
-
-.text-in-nav {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.search-nav {
-    margin-left: 50%;
-    width: 30%;
 }
