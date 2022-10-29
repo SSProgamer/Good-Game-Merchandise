@@ -14,8 +14,9 @@
 </head>
 
 <body>
-    <div class="container-fluid main-container">
-        <nav class="navbar fixed-top main-navbar shadow-sm border border-dark">
+        <!-- use sticky-top it's better but it's not support some version of web browser -->
+        <nav class="navbar sticky-top bg-dark shadow-sm border border-dark">
+            <div class="container-fluid">
             <ul class="nav me-auto ms-5">
                 <li class="nav-item">
                     <h1 class="text-light">GoodGame</h1>
@@ -30,6 +31,7 @@
             <form class="d-flex text-in-nav search-nav" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             </form>
+            </div>
         </nav>
 
         <!-- <footer class="card-footer">
@@ -37,7 +39,7 @@
                 <h1>test</h1>
             </div>
         </footer> -->
-    </div>
+    
 </body>
 
 </html>
