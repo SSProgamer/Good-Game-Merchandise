@@ -12,8 +12,10 @@
 </head>
 
 <body>
+    <!-- class main-container ใน stylemainpage ทำพังตอนลองใช้แบบSticky-top บรรทัด 19-->
     <div class="container-fluid main-container">
         <!-- navbar -->
+        <!-- ทำไมนายไม่ลองใช้ sticky-top แทน fixed-top หล่ะ แต่ใช้fixed-top ก็ได้แต่ตั้งMargin ส่วน content ให้ด้วย-->
         <nav class="navbar fixed-top main-navbar shadow-sm border border-dark">
             <ul class="nav me-auto ms-5">
                 <li class="nav-item ms-5 mt-1">

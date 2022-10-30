@@ -30,5 +30,6 @@
             // echo $product['']
         }
     ?>
+    <?php include "footer.html";?>
 </body>
 </html>
