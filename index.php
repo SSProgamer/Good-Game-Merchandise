@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col">
                     <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <img src="image/1/preview.webp" alt="" class="card-img-top merchandises-pic">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
@@ -61,7 +61,7 @@
                 </div>
                 <div class="col">
                     <div class="card merchandises-card">
-                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
+                        <img src="image/2/preview.webp" alt="" class="card-img-top merchandises-pic">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
