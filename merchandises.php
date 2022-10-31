@@ -12,42 +12,96 @@
 </head>
 
 <body>
+    <!-- navbar -->
+    <nav class="navbar sticky-top main-navbar shadow-sm border border-dark">
+        <ul class="nav me-auto ms-5">
+            <li class="nav-item ms-5 mt-1">
+                <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
+            </li>
+            <li class="nav-item me-5">
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="merchandises.php">Box Sets</a>
+            </li>
+            <li class="nav-item ms-5">
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
+            </li>
+        </ul>
+        <form class="d-flex text-in-nav search-nav" role="search">
+            <input class="form-control me-2 text-white bg-dark fw-bold" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <ul class="nav me-5">
+            <li class="nav-item">
+                <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Log In</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- main content -->
     <div class="container-fluid main-container">
-        <!-- navbar -->
-        <nav class="navbar fixed-top main-navbar shadow-sm border border-dark">
-            <ul class="nav me-auto ms-5">
-                <li class="nav-item ms-5 mt-1">
-                    <h3><a class="nav-link text-white" href="https://www.youtube.com/watch?v=cErgMJSgpv0">GoodGame</a></h3>
-                </li>
-                <li class="nav-item me-5">
-                    <a class="nav-link web-text-color fw-bold text-in-nav" href="merchandises.php">Box Sets</a>
-                </li>
-                <li class="nav-item ms-5">
-                    <a class="nav-link web-text-color fw-bold text-in-nav" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
-                </li>
-            </ul>
-            <form class="d-flex text-in-nav search-nav" role="search">
-                <input class="form-control me-2 text-white bg-dark fw-bold" type="search" placeholder="Search" aria-label="Search">
-            </form>
-            <ul class="nav me-5">
-                <li class="nav-item">
-                    <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Log In</a>
-                </li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h3 class="result pt-5 pb-3">Results</h3>
+            <p class="filter-tab fw-bold pe-2">FILTER</p>
+            <p class="filter-tab pe-4">None</p>
+            <p class="filter-tab fw-bold pe-2">FILTER</p>
+            <p class="filter-tab pe-4">None</p>
+            <p class="filter-tab fw-bold pe-2">FILTER</p>
+            <p class="filter-tab pe-4">None</p>
+            <div class="row mt-5">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div class="card style-card">
+                        <img src="image/1/preview.webp" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div class="card style-card">
+                        <img src="image/1/preview.webp" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div class="card style-card">
+                        <img src="image/1/preview.webp" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div class="card style-card">
+                        <img src="image/1/preview.webp" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
     <!-- footer -->
     <footer class="main-navbar">
         <div class="container-fluid p-5">
             <div class="row">
                 <div class="col-3">
-                    <h3><a class="nav-link text-white" href="https://www.youtube.com/watch?v=cErgMJSgpv0">GoodGame</a></h3>
+                    <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-7">
-                    <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Box Set</a>
+                    <a class="nav-link web-text-color pb-3" href="merchandises.php">Box Set</a>
                     <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
                     <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">All Products</a>
                     <a class="nav-link web-text-color" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Products Popular</a>

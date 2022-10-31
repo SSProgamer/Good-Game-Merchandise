@@ -12,39 +12,38 @@
 </head>
 
 <body>
-    <!-- class main-container ใน stylemainpage ทำพังตอนลองใช้แบบSticky-top บรรทัด 19-->
+    <!-- navbar -->
+    <nav class="navbar sticky-top main-navbar shadow-sm border border-dark">
+        <ul class="nav me-auto ms-5">
+            <li class="nav-item ms-5 mt-1">
+                <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
+            </li>
+            <li class="nav-item me-5">
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="merchandises.php">Box Sets</a>
+            </li>
+            <li class="nav-item ms-5">
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
+            </li>
+        </ul>
+        <form class="d-flex text-in-nav search-nav" role="search">
+            <input class="form-control me-2 text-white bg-dark fw-bold" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <ul class="nav me-5">
+            <li class="nav-item">
+                <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Log In</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- main content -->
     <div class="container-fluid main-container">
-        <!-- navbar -->
-        <!-- ทำไมนายไม่ลองใช้ sticky-top แทน fixed-top หล่ะ แต่ใช้fixed-top ก็ได้แต่ตั้งMargin ส่วน content ให้ด้วย-->
-        <nav class="navbar fixed-top main-navbar shadow-sm border border-dark">
-            <ul class="nav me-auto ms-5">
-                <li class="nav-item ms-5 mt-1">
-                    <h3><a class="nav-link text-white" href="https://www.youtube.com/watch?v=cErgMJSgpv0">GoodGame</a></h3>
-                </li>
-                <li class="nav-item me-5">
-                    <a class="nav-link web-text-color fw-bold text-in-nav" href="merchandises.php">Box Sets</a>
-                </li>
-                <li class="nav-item ms-5">
-                    <a class="nav-link web-text-color fw-bold text-in-nav" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
-                </li>
-            </ul>
-            <form class="d-flex text-in-nav search-nav" role="search">
-                <input class="form-control me-2 text-white bg-dark fw-bold" type="search" placeholder="Search" aria-label="Search">
-            </form>
-            <ul class="nav me-5">
-                <li class="nav-item">
-                    <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Log In</a>
-                </li>
-            </ul>
-        </nav>
         <div class="container">
-            <br><br><br><br>
-            <h5 class="fw-bold text-white">Box Sets</h5>
+            <h5 class="fw-bold text-white mt-5">Box Sets</h5>
             <div class="row">
-                <div class="col">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                     <div class="card merchandises-card">
                         <img src="image/1/preview.webp" alt="" class="card-img-top merchandises-pic">
                         <div class="card-body">
@@ -59,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                     <div class="card merchandises-card">
                         <img src="image/2/preview.webp" alt="" class="card-img-top merchandises-pic">
                         <div class="card-body">
@@ -74,13 +73,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                     <div class="card merchandises-card">
                         <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                    <p class="card-text info">Elden Ring<br>[Collector's Edition]</p>
                                 </div>
                                 <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2">
                                     <p class="card-text price p-1 text-center">฿180</p>
@@ -92,7 +91,7 @@
             </div>
             <h5 class="fw-bold text-white mt-5">Merchandises</h5>
             <div class="row">
-                <div class="col">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                     <div class="card merchandises-card">
                         <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
                         <div class="card-body">
@@ -107,7 +106,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                     <div class="card merchandises-card">
                         <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
                         <div class="card-body">
@@ -122,7 +121,97 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                    <div class="card merchandises-card">
+                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                    <div class="card merchandises-card">
+                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                    <div class="card merchandises-card">
+                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-8 col-xl-9">
+                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
+                                </div>
+                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
+                                    <p class="card-text price p-1 text-center">฿18000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                     <div class="card merchandises-card">
                         <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
                         <div class="card-body">
@@ -139,110 +228,23 @@
                 </div>
             </div>
             <div class="row mt-5 mb-5">
-                <div class="col">
-                    <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card merchandises-card">
-                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div class="row mt-5 mb-5">
-                <div class="col">
-                    <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card merchandises-card">
-                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
+
     <!-- footer -->
     <footer class="main-navbar">
         <div class="container-fluid p-5">
             <div class="row">
                 <div class="col-3">
-                    <h3><a class="nav-link text-white" href="https://www.youtube.com/watch?v=cErgMJSgpv0">GoodGame</a></h3>
+                    <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-7">
-                    <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Box Set</a>
+                    <a class="nav-link web-text-color pb-3" href="merchandises.php">Box Set</a>
                     <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
                     <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">All Products</a>
                     <a class="nav-link web-text-color" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Products Popular</a>
