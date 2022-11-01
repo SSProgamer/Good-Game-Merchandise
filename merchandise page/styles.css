@@ -1,0 +1,102 @@
+.web-text-color {
+    color: rgba(213, 216, 223) !important;
+}
+
+.main-container {
+    background-color: rgba(73, 79, 92);
+    height: 100%;
+}
+
+.main-navbar {
+    background-color: rgba(59, 62, 72);
+}
+
+.text-in-nav {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-nav {
+    margin-left: 50%;
+    width: 30%;
+}
+.merchimagebig {
+    margin:60;
+    background:white;
+    padding: 50px;
+    width:30%;
+    
+}
+.merchaimage {
+    margin:auto;
+    width:30em;
+    height:30em;
+    z-index:-1;
+}
+.merchaimagecard {
+    margin-bottom: auto;
+    background-color: white;
+    padding:40px;
+    width:30em;
+    text-align: center;
+    z-index:-1;
+}
+.bigpricetag{
+    background:rgba(0, 0, 0, 0.308);
+    margin-top:20px;
+    margin-left:22px;
+    padding:5;
+    width:27em;
+    text-align: center;
+    border:5px solid rgba(255, 255, 255, 0.404);
+    border-radius: 10px;
+}
+.custombigbut{
+    background:rgb(155, 163, 172);
+    margin-top:15px;
+    text-align: center;
+    color:white;
+    padding:18px;
+    width:30em;
+    transition: ease-in-out 0.46s;
+    border:none;
+    outline:none;
+}
+.custombigbut:hover{
+    background:linear-gradient(white,white,white,rgb(255, 243, 209));
+    margin-top:15px;
+    text-align: center;
+    color:black;
+    padding:18px;
+    width:30em;
+    box-shadow: 11px 11px;
+    transform: translate(-1em, -0.6em);
+}
+#merchaninfo{
+    background: linear-gradient(rgb(235, 235, 235),rgb(206, 206, 206),rgb(167, 167, 167),rgb(114, 117, 117));
+    padding:30px;
+    width:103.26%;
+    min-height: 300px;
+    height:auto;
+    overflow: hidden;
+    
+}
+@media (min-width: 768px) {
+    
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+      transform: translateX(25%);
+    }
+    
+    .carousel-inner .carousel-item-start.active, 
+    .carousel-inner .carousel-item-prev {
+      transform: translateX(-25%);
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+  transform: translateX(0);
+}
