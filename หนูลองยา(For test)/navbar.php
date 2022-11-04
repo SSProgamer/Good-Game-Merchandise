@@ -15,26 +15,29 @@ session_start();
 
 <body>
     <!-- use sticky-top it's better but it's not support some version of web browser -->
-    <nav class="navbar sticky-top bg-dark shadow-sm border border-dark">
+    <nav class="navbar navbar-expand-lg sticky-top bg-dark shadow-sm border border-dark">
         <div class="container-fluid">
-            <ul class="nav me-auto ms-5">
-                <li class="nav-item">
-                    <h1 class="text-light">GoodGame</h1>
-                </li>
-                <li class="nav-item ms-3 me-5">
-                    <a class="nav-link web-text-color fw-bold text-in-nav" href="">Box Sets</a>
-                </li>
-                <li class="nav-item ms-5">
-                    <a class="nav-link web-text-color fw-bold text-in-nav" href="">Merchandises</a>
-                </li>
-            </ul>
-            <form class="d-flex text-in-nav search-nav" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
-            <div>
-                <?php
-                    if(!isset($_SESSION["username"])){
-                        echo'<ul class="nav me-5">
+            <h1 class="text-light">GoodGame</h1>
+            <button class="navbar-toggler collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="">
+                <ul class="navbar-nav me-auto mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link web-text-color fw-bold" href="">Box Sets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link web-text-color fw-bold" href="">Merchandises</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <div class="d-flex ">
+                    <?php
+                    if (!isset($_SESSION["username"])) {
+                        echo '<ul class="nav me-5">
                         <li class="nav-item">
                             <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Sign Up</a>
                         </li>
@@ -42,11 +45,15 @@ session_start();
                             <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Log In</a>
                         </li>
                     </ul>';
+                    } else {
+                        $sent = htmlspecialchars($_SERVER["PHP_SELF"]);
+                        echo '<a class="nav-link web-text-color fw-bold" href="#">Welcome, ' . $_SESSION["username"] . '</a>';
+                        echo'<form action="'.$sent.'" method="post">
+                        <button type="submit" name="logout">logout</button>
+                        </form>';
                     }
-                    else{
-                        echo'<a class="nav-link web-text-color fw-bold" href="#">Welcome, '.$_SESSION["username"].'</a>';
-                    }
-                ?>
+                    ?>
+                </div>
             </div>
         </div>
     </nav>
