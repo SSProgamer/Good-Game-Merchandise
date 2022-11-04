@@ -3,6 +3,7 @@
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
+        //
         $sql = "SELECT * FROM Customer 
         WHERE Username='".$username ."'
         AND Password='".$password."' ";
