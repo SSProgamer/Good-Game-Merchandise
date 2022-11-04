@@ -30,10 +30,10 @@
         </form>
         <ul class="nav me-5">
             <li class="nav-item">
-                <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Sign Up</a>
+                <a class="nav-link web-text-color fw-bold" href="signup.php">Sign Up</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Log In</a>
+                <a class="nav-link web-text-color fw-bold" href="login.php">Log In</a>
             </li>
         </ul>
     </nav>

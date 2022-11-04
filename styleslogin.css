@@ -1,0 +1,12 @@
+.main-container {
+    background-color: rgb(227, 227, 227);
+    display: flex;
+}
+
+.main-card {
+    width: 40%;
+}
+
+.our-card-button {
+    background-color: rgb(22, 156, 222) !important;
+}

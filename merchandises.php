@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product</title>
     <link rel="stylesheet" href="stylesmerchandises.css">
     <link rel="stylesheet" href="stylesnavfoot.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,10 +30,10 @@
         </form>
         <ul class="nav me-5">
             <li class="nav-item">
-                <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Sign Up</a>
+                <a class="nav-link web-text-color fw-bold" href="signup.php">Sign Up</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Log In</a>
+                <a class="nav-link web-text-color fw-bold" href="login.php">Log In</a>
             </li>
         </ul>
     </nav>
