@@ -42,191 +42,102 @@
     <div class="container-fluid main-container">
         <div class="container">
             <h5 class="fw-bold text-white mt-5">Box Sets</h5>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="image/1/preview.webp" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text info">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="image/2/preview.webp" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text info">AZUR LANE | ETERNAL OATH COUPLES' RINGS | SUMMER SUPPLY 2022</p>
-                                </div>
-                                <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿1</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text info">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿180</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+            //set up database
+            class MyDB extends SQLite3
+            {
+                function __construct()
+                {
+                    $this->open('merchandisedate.db');
+                }
+            }
+            $db = new MyDB();
+            $sql = "SELECT * from Merchandise";
+            $ret = $db->query($sql);
+            //set up json
+            $jsonString = file_get_contents('merchandise.json');
+            $datajson = json_decode($jsonString, true);
+            //set number for make row
+            $gamesetcou = 0;
+            //row gameset
+            while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+                if ($row['Type'] == "Box Set") {
+                    if ($gamesetcou % 3 == 0) {
+                        echo "<div class='row'>";
+                    }
+
+                    echo "<div class='col-lg-4 col-md-6 col-sm-12 mb-3'>";
+                    echo "<div class='card merchandises-card'>";
+                    foreach ($datajson as $good => $entry){
+                        if ($datajson[$good]['id'] == $row['ID']) {
+                            $strimage = $datajson[$good]['image'][0];
+                            echo "<img src='$strimage' alt='' class='card-img-top merchandises-pic'>";
+                        }
+                    
+                    }
+                                        echo "<div class='card-body'>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-sm-12 col-md-7 col-lg-8 col-xl-9'>";
+                    echo "<p class='card-text info'>" . $row['NameProduct'] . "</p>";
+                   
+                    echo "</div>";
+                    echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
+                    echo "<p class='card-text price p-1 text-center'>฿".$row['Price']."</p>";
+                    echo "</div></div></div></div></div>";
+                    $gamesetcou += 1;
+                    if ($gamesetcou % 3 == 0) {
+                        echo "</div>";
+                    }
+                }
+            }
+            if ($gamesetcou % 3 != 0) {
+                echo "</div>";
+            }
+            
+            ?>
+
             <h5 class="fw-bold text-white mt-5">Merchandises</h5>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="https://inwfile.com/s-da/fytr9j.jpg" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card merchandises-card">
-                        <img src="https://s.pacn.ws/1/p/12z/elden-ring-collectors-edition-701823.10.jpg?v=PX-117&quality=72&width=1024&crop=1998,975" alt="" class="card-img-top merchandises-pic">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-8 col-xl-9">
-                                    <p class="card-text">Elden Ring<br>[Collector's Edition]</p>
-                                </div>
-                                <div class="col-md-5 col-lg-4 col-xl-3 mt-2">
-                                    <p class="card-text price p-1 text-center">฿18000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+            //set number for make row Merchandises
+            $merchandisescou = 0;
+            //row Merchandises
+            while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+                if ($row['Type'] == "Merchandise") {
+                    if ($merchandisescou % 3 == 0) {
+                        echo "<div class='row'>";
+                    }
+
+                    echo "<div class='col-lg-4 col-md-6 col-sm-12 mb-3'>";
+                    echo "<div class='card merchandises-card'>";
+                    foreach ($datajson as $good => $entry){
+                        if ($datajson[$good]['id'] == $row['ID']) {
+                            $strimage = $datajson[$good]['image'][0];
+                            echo "<img src='$strimage' alt='' class='card-img-top merchandises-pic'>";
+                        }
+                    
+                    }
+                                        echo "<div class='card-body'>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-sm-12 col-md-7 col-lg-8 col-xl-9'>";
+                    echo "<p class='card-text info'>" . $row['NameProduct'] . "</p>";
+                   
+                    echo "</div>";
+                    echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
+                    echo "<p class='card-text price p-1 text-center'>฿".$row['Price']."</p>";
+                    echo "</div></div></div></div></div>";
+                    $merchandisescou += 1;
+                    if ($merchandisescou % 3 == 0) {
+                        echo "</div>";
+                    }
+                }
+            }
+            if ($gamesetcou % 3 != 0) {
+                echo "</div>";
+            }
+            
+            ?>
+
+            
             <div class="row mt-5 mb-5">
 
             </div>
