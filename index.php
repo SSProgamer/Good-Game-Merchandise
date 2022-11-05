@@ -60,40 +60,30 @@
             //set number for make row
             $gamesetcou = 0;
             //row gameset
+            echo "<div class='row'>";
             while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                 if ($row['Type'] == "Box Set") {
-                    if ($gamesetcou % 3 == 0) {
-                        echo "<div class='row'>";
-                    }
-
                     echo "<div class='col-lg-4 col-md-6 col-sm-12 mb-3'>";
                     echo "<div class='card merchandises-card'>";
-                    foreach ($datajson as $good => $entry){
+                    foreach ($datajson as $good => $entry) {
                         if ($datajson[$good]['id'] == $row['ID']) {
                             $strimage = $datajson[$good]['image'][0];
                             echo "<img src='$strimage' alt='' class='card-img-top merchandises-pic'>";
                         }
-                    
                     }
-                                        echo "<div class='card-body'>";
+                    echo "<div class='card-body'>";
                     echo "<div class='row'>";
                     echo "<div class='col-sm-12 col-md-7 col-lg-8 col-xl-9'>";
                     echo "<p class='card-text info'>" . $row['NameProduct'] . "</p>";
-                   
+
                     echo "</div>";
                     echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
-                    echo "<p class='card-text price p-1 text-center'>฿".$row['Price']."</p>";
+                    echo "<p class='card-text price p-1 text-center'>฿" . $row['Price'] . "</p>";
                     echo "</div></div></div></div></div>";
                     $gamesetcou += 1;
-                    if ($gamesetcou % 3 == 0) {
-                        echo "</div>";
-                    }
                 }
             }
-            if ($gamesetcou % 3 != 0) {
-                echo "</div>";
-            }
-            
+            echo "</div>";
             ?>
 
             <h5 class="fw-bold text-white mt-5">Merchandises</h5>
@@ -101,43 +91,33 @@
             //set number for make row Merchandises
             $merchandisescou = 0;
             //row Merchandises
+            echo "<div class='row'>";
             while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                 if ($row['Type'] == "Merchandise") {
-                    if ($merchandisescou % 3 == 0) {
-                        echo "<div class='row'>";
-                    }
-
                     echo "<div class='col-lg-4 col-md-6 col-sm-12 mb-3'>";
                     echo "<div class='card merchandises-card'>";
-                    foreach ($datajson as $good => $entry){
+                    foreach ($datajson as $good => $entry) {
                         if ($datajson[$good]['id'] == $row['ID']) {
                             $strimage = $datajson[$good]['image'][0];
                             echo "<img src='$strimage' alt='' class='card-img-top merchandises-pic'>";
                         }
-                    
                     }
-                                        echo "<div class='card-body'>";
+                    echo "<div class='card-body'>";
                     echo "<div class='row'>";
                     echo "<div class='col-sm-12 col-md-7 col-lg-8 col-xl-9'>";
                     echo "<p class='card-text info'>" . $row['NameProduct'] . "</p>";
-                   
+
                     echo "</div>";
                     echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
-                    echo "<p class='card-text price p-1 text-center'>฿".$row['Price']."</p>";
+                    echo "<p class='card-text price p-1 text-center'>฿" . $row['Price'] . "</p>";
                     echo "</div></div></div></div></div>";
                     $merchandisescou += 1;
-                    if ($merchandisescou % 3 == 0) {
-                        echo "</div>";
-                    }
                 }
             }
-            if ($gamesetcou % 3 != 0) {
-                echo "</div>";
-            }
-            
+            echo "</div>";
             ?>
 
-            
+
             <div class="row mt-5 mb-5">
 
             </div>
@@ -151,16 +131,16 @@
     <footer class="main-navbar">
         <div class="container-fluid p-5">
             <div class="row">
-                <div class="col-3">
+                <div class="col-6 col-md-3 col-lg-3">
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
-                <div class="col-7">
+                <div class="col-6 col-md-5 col-lg-6">
                     <a class="nav-link web-text-color pb-3" href="merchandises.php">Box Set</a>
                     <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
                     <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">All Products</a>
-                    <a class="nav-link web-text-color" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Products Popular</a>
+                    <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Products Popular</a>
                 </div>
-                <div class="col-2">
+                <div class="col-12 col-md-4 col-lg-3">
                     <p class="text-white">We sell many goody</p>
                 </div>
             </div>
