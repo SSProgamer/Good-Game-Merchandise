@@ -1,3 +1,58 @@
+<?php
+    include 'db_connect.php';
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $upcase = preg_match('@[A-Z]@', $password);
+        $lowcase = preg_match('@[a-z]@', $password);
+        $number = preg_match('@[0-9]@', $password);
+        //check condition before create new user
+        //used by php (optional)
+        if(strlen($email) < 8){
+            //if username < 8
+            echo "<script>";
+            echo "alert(\"nlength < 8\")";
+            echo "</script>";
+        }
+        else if(strlen($password) < 8){
+            //if password < 8
+            echo "<script>";
+            echo "alert(\"plength < 9\")";
+            echo "</script>";
+        }
+        else if(!$upcase || !$lowcase || !$number){
+            echo "<script>";
+            echo "window.alert(\" Password should atleast 1 lower&highercase character and number\");"; 
+            echo "</script>";
+        }
+        // else if(){
+
+        // }
+        // else if($password){
+
+        // }
+        else if($password != $_POST['c_pass']){
+            //if confirm != password
+            echo "<script>";
+            echo "alert(\"password not match\")";
+            echo "</script>";
+
+        }
+        else{
+            // echo $username, $password;
+            $sql = "INSERT INTO Customer (CustomerID, Email, Password)
+            VALUES (NULL,'".$email."', '".$password."')";
+            $result = $db->query($sql);
+            if(!$result){
+                echo $db->lastErrorMsg();
+            }
+            else{
+                header("Location: Login.php");
+            }
+        }
+    }
+?>
 <html lang="en">
 
 <head>
@@ -25,12 +80,15 @@
             <div class="card mx-auto mt-5 mb-3 main-card col-12">
                 <div class="card-body">
                     <h5 class="card-title fw-bold text-center mb-3 mt-3">Create an account</h5>
-                    <form action="">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="mb-3">
-                            <input class="form-control" type="email" placeholder="Email">
+                            <input class="form-control" type="email" placeholder="Email" name="email">
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="Password" name="password">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" placeholder="Password" name="c_pass">
                         </div>
                         <button type="submit" class="btn fw-bold p-3 container-fluid our-card-button text-white">SIGN UP</button>
                     </form>
@@ -61,5 +119,4 @@
         </div>
     </footer>
 </body>
-
 </html>

@@ -1,3 +1,32 @@
+<?php
+    include 'db_connect.php';
+    if (isset($_POST['submit'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        //
+        $sql = "SELECT * FROM Customer 
+        WHERE Email='".$email ."'
+        AND Password='".$password."' ";
+        $result = $db->query($sql);
+        if(!$result){
+            // $errmsg = $db->lastErrorMsg();
+            echo "<script>";
+            // echo "alert(\"".$errmsg."\");";
+            echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 
+            echo "window.history.back()";
+            echo "</script>";
+        }
+        else{
+            session_start();
+            while($row = $result->fetchArray(SQLITE3_ASSOC)){
+                $_SESSION["ID"] = $row["CustomerID"];
+                $_SESSION["username"] = $row["Username"];
+                // echo $row["Username"];
+            }
+            header("Location: index.php");
+        }
+    }
+?>
 <html lang="en">
 
 <head>
@@ -25,12 +54,12 @@
             <div class="card mx-auto mt-5 mb-3 main-card col-12">
                 <div class="card-body">
                     <h5 class="card-title fw-bold text-center mb-3 mt-3">Log In</h5>
-                    <form action="">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="mb-3">
-                            <input class="form-control" type="email" placeholder="Email">
+                            <input class="form-control" type="email" placeholder="Email" name="email">
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="Password" name="password">
                         </div>
                         <button type="submit" class="btn fw-bold p-3 container-fluid our-card-button text-white">LOG IN</button>
                     </form>
