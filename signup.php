@@ -88,7 +88,7 @@
                             <input type="password" class="form-control" placeholder="Password" name="password">
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control" placeholder="Password" name="c_pass">
+                            <input type="password" class="form-control" placeholder="Confirm Password" name="c_pass">
                         </div>
                         <button type="submit" class="btn fw-bold p-3 container-fluid our-card-button text-white">SIGN UP</button>
                     </form>

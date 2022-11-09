@@ -1,3 +1,8 @@
+<?php
+    // include "db_connect.php";
+    include "navbar.php";
+?>
+
 <html lang="en">
 
 <head>
@@ -13,7 +18,7 @@
 
 <body>
     <!-- navbar -->
-    <nav class="navbar sticky-top main-navbar shadow-sm border border-dark">
+    <!-- <nav class="navbar sticky-top main-navbar shadow-sm border border-dark">
         <ul class="nav me-auto ms-5">
             <li class="nav-item ms-5 mt-1">
                 <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
@@ -36,7 +41,7 @@
                 <a class="nav-link web-text-color fw-bold" href="login.php">Log In</a>
             </li>
         </ul>
-    </nav>
+    </nav> -->
 
     <!-- main content -->
     <div class="container-fluid main-container">
