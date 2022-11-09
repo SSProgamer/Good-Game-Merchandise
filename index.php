@@ -78,7 +78,7 @@
 
                     echo "</div>";
                     echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
-                    echo "<p class='card-text price p-1 text-center'>฿" . $row['Price'] . "</p>";
+                    echo "<p class='card-text price p-1 text-center'>฿" . $row['StrPrice'] . "</p>";
                     echo "</div></div></div></div></div>";
                     $gamesetcou += 1;
                 }
@@ -109,7 +109,7 @@
 
                     echo "</div>";
                     echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
-                    echo "<p class='card-text price p-1 text-center'>฿" . $row['Price'] . "</p>";
+                    echo "<p class='card-text price p-1 text-center'>฿" .  $row['StrPrice'] . "</p>";
                     echo "</div></div></div></div></div>";
                     $merchandisescou += 1;
                 }
