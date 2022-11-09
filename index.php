@@ -1,6 +1,6 @@
 <?php
-    // include "db_connect.php";
-    include "navbar.php";
+// include "db_connect.php";
+include "navbar.php";
 ?>
 
 <html lang="en">
@@ -114,7 +114,7 @@
 
                     echo "</div>";
                     echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
-                    echo "<p class='card-text price p-1 text-center'>฿" .number_format($row['Price']) . "</p>";
+                    echo "<p class='card-text price p-1 text-center'>฿" . number_format($row['Price']) . "</p>";
                     echo "</div></div></div></div></div>";
                     $merchandisescou += 1;
                 }
@@ -141,9 +141,9 @@
                 </div>
                 <div class="col-6 col-md-5 col-lg-6">
                     <a class="nav-link web-text-color pb-3" href="merchandises.php">Box Set</a>
-                    <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
-                    <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">All Products</a>
-                    <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Products Popular</a>
+                    <a class="nav-link web-text-color pb-3" href="merchandises.php">Merchandises</a>
+                    <a class="nav-link web-text-color pb-3" href="merchandises.php">All Products</a>
+                    <a class="nav-link web-text-color pb-3" href="merchandises.php">Products Popular</a>
                 </div>
                 <div class="col-12 col-md-4 col-lg-3">
                     <p class="text-white">We sell many goody</p>

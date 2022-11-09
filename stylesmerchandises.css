@@ -1,6 +1,7 @@
 .main-container {
     background-color: rgb(228, 231, 237);
     display: flex;
+    min-height: 100%;
 }
 
 .result {
@@ -15,4 +16,18 @@
 .style-card {
     border-radius: 0 !important;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.dropdown-text {
+    color: rgb(142, 147, 157) !important;
+    text-decoration: none !important;
+}
+
+.custom-droplist {
+    background-color: rgb(213, 217, 225) !important;
+
+}
+
+.custom-droplist-text {
+    color: #2c3e50 !important;
 }

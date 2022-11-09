@@ -22,7 +22,7 @@
                 <a class="nav-link web-text-color fw-bold text-in-nav" href="merchandises.php">Box Sets</a>
             </li>
             <li class="nav-item ms-5">
-                <a class="nav-link web-text-color fw-bold text-in-nav" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="merchandises.php">Merchandises</a>
             </li>
         </ul>
         <form class="d-flex text-in-nav search-nav" role="search">
@@ -43,11 +43,38 @@
         <div class="container">
             <h3 class="result pt-5 pb-3">Results</h3>
             <p class="filter-tab fw-bold pe-2">FILTER</p>
-            <p class="filter-tab pe-4">None</p>
+            <div class="dropdown filter-tab">
+                <button class="btn btn-link dropdown-toggle dropdown-text" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu custom-droplist">
+                    <li><a class="dropdown-item custom-droplist-text" href="#">Action</a></li>
+                    <li><a class="dropdown-item custom-droplist-text" href="#">Another action</a></li>
+                    <li><a class="dropdown-item custom-droplist-text" href="#">Something else here</a></li>
+                </ul>
+            </div>
             <p class="filter-tab fw-bold pe-2">FILTER</p>
-            <p class="filter-tab pe-4">None</p>
+            <div class="dropdown filter-tab">
+                <button class="btn btn-link dropdown-toggle dropdown-text" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu custom-droplist">
+                    <li><a class="dropdown-item custom-droplist-text" href="#">Action</a></li>
+                    <li><a class="dropdown-item custom-droplist-text" href="#">Another action</a></li>
+                    <li><a class="dropdown-item custom-droplist-text" href="#">Something else here</a></li>
+                </ul>
+            </div>
             <p class="filter-tab fw-bold pe-2">FILTER</p>
-            <p class="filter-tab pe-4">None</p>
+            <div class="dropdown filter-tab">
+                <button class="btn btn-link dropdown-toggle dropdown-text" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu custom-droplist">
+                    <li><a class="dropdown-item custom-droplist-text" href="#">Action</a></li>
+                    <li><a class="dropdown-item custom-droplist-text" href="#">Another action</a></li>
+                    <li><a class="dropdown-item custom-droplist-text" href="#">Something else here</a></li>
+                </ul>
+            </div>
             <div class="row mt-5">
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
                     <div class="card style-card">
@@ -90,6 +117,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -102,9 +130,9 @@
                 </div>
                 <div class="col-7">
                     <a class="nav-link web-text-color pb-3" href="merchandises.php">Box Set</a>
-                    <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
-                    <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">All Products</a>
-                    <a class="nav-link web-text-color" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Products Popular</a>
+                    <a class="nav-link web-text-color pb-3" href="merchandises.php">Merchandises</a>
+                    <a class="nav-link web-text-color pb-3" href="merchandises.php">All Products</a>
+                    <a class="nav-link web-text-color" href="merchandises.php">Products Popular</a>
                 </div>
                 <div class="col-2">
                     <p class="text-white">We sell many goody</p>

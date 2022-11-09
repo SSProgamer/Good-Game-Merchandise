@@ -1,57 +1,52 @@
 <?php
-    include 'db_connect.php';
+include 'db_connect.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $upcase = preg_match('@[A-Z]@', $password);
-        $lowcase = preg_match('@[a-z]@', $password);
-        $number = preg_match('@[0-9]@', $password);
-        //check condition before create new user
-        //used by php (optional)
-        if(strlen($email) < 8){
-            //if username < 8
-            echo "<script>";
-            echo "alert(\"nlength < 8\")";
-            echo "</script>";
-        }
-        else if(strlen($password) < 8){
-            //if password < 8
-            echo "<script>";
-            echo "alert(\"plength < 9\")";
-            echo "</script>";
-        }
-        else if(!$upcase || !$lowcase || !$number){
-            echo "<script>";
-            echo "window.alert(\" Password should atleast 1 lower&highercase character and number\");"; 
-            echo "</script>";
-        }
-        // else if(){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $upcase = preg_match('@[A-Z]@', $password);
+    $lowcase = preg_match('@[a-z]@', $password);
+    $number = preg_match('@[0-9]@', $password);
+    //check condition before create new user
+    //used by php (optional)
+    if (strlen($email) < 8) {
+        //if username < 8
+        echo "<script>";
+        echo "alert(\"nlength < 8\")";
+        echo "</script>";
+    } else if (strlen($password) < 8) {
+        //if password < 8
+        echo "<script>";
+        echo "alert(\"plength < 9\")";
+        echo "</script>";
+    } else if (!$upcase || !$lowcase || !$number) {
+        echo "<script>";
+        echo "window.alert(\" Password should atleast 1 lower&highercase character and number\");";
+        echo "</script>";
+    }
+    // else if(){
 
-        // }
-        // else if($password){
+    // }
+    // else if($password){
 
-        // }
-        else if($password != $_POST['c_pass']){
-            //if confirm != password
-            echo "<script>";
-            echo "alert(\"password not match\")";
-            echo "</script>";
-
-        }
-        else{
-            // echo $username, $password;
-            $sql = "INSERT INTO Customer (CustomerID, Email, Password)
-            VALUES (NULL,'".$email."', '".$password."')";
-            $result = $db->query($sql);
-            if(!$result){
-                echo $db->lastErrorMsg();
-            }
-            else{
-                header("Location: Login.php");
-            }
+    // }
+    else if ($password != $_POST['c_pass']) {
+        //if confirm != password
+        echo "<script>";
+        echo "alert(\"password not match\")";
+        echo "</script>";
+    } else {
+        // echo $username, $password;
+        $sql = "INSERT INTO Customer (CustomerID, Email, Password)
+            VALUES (NULL,'" . $email . "', '" . $password . "')";
+        $result = $db->query($sql);
+        if (!$result) {
+            echo $db->lastErrorMsg();
+        } else {
+            header("Location: Login.php");
         }
     }
+}
 ?>
 <html lang="en">
 
@@ -77,25 +72,33 @@
     <!-- main content -->
     <div class="container-fluid main-container d-flex justify-content-center">
         <div class="row">
-            <div class="card mx-auto mt-5 mb-3 main-card col-12">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold text-center mb-3 mt-3">Create an account</h5>
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <div class="mb-3">
-                            <input class="form-control" type="email" placeholder="Email" name="email">
-                        </div>
-                        <div class="mb-3">
-                            <input type="password" class="form-control" placeholder="Password" name="password">
-                        </div>
-                        <div class="mb-3">
-                            <input type="password" class="form-control" placeholder="Confirm Password" name="c_pass">
-                        </div>
-                        <button type="submit" class="btn fw-bold p-3 container-fluid our-card-button text-white">SIGN UP</button>
-                    </form>
+            <div class="row col-12">
+                <div class="col"></div>
+                <div class="card mx-auto mt-5 mb-3 main-card col-12">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-center mb-3 mt-3">Create an account</h5>
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                            <div class="mb-3">
+                                <input class="form-control" type="email" placeholder="Email" name="email">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" placeholder="Password" name="password">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" placeholder="Confirm Password" name="c_pass">
+                            </div>
+                            <button type="submit" class="btn fw-bold p-3 container-fluid our-card-button text-white">SIGN UP</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row col-12">
+                <div class="col">
+                    <h5 class="fw-bold text-center mb-3">Already have an account?</h5>
+                    <button type="button" class="btn btn-dark mb-5 page-change" onClick="location.href='login.php'">LOG IN</button>
                 </div>
             </div>
-            <h5 class="fw-bold text-center mb-3">Already have an account?</h5>
-            <button type="button" class="btn btn-dark mb-5" onClick="location.href='login.php'">LOG IN</button>
         </div>
     </div>
 
@@ -108,9 +111,9 @@
                 </div>
                 <div class="col-7">
                     <a class="nav-link web-text-color pb-3" href="merchandises.php">Box Set</a>
-                    <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
-                    <a class="nav-link web-text-color pb-3" href="https://www.youtube.com/watch?v=cErgMJSgpv0">All Products</a>
-                    <a class="nav-link web-text-color" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Products Popular</a>
+                    <a class="nav-link web-text-color pb-3" href="merchandises.php">Merchandises</a>
+                    <a class="nav-link web-text-color pb-3" href="merchandises.php">All Products</a>
+                    <a class="nav-link web-text-color" href="merchandises.php">Products Popular</a>
                 </div>
                 <div class="col-2">
                     <p class="text-white">We sell many goody</p>
@@ -119,4 +122,5 @@
         </div>
     </footer>
 </body>
+
 </html>

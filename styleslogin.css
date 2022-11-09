@@ -1,6 +1,7 @@
 .main-container {
     background-color: rgb(227, 227, 227);
     display: flex;
+    min-height: 70%;
 }
 
 .main-card {
@@ -9,4 +10,9 @@
 
 .our-card-button {
     background-color: rgb(22, 156, 222) !important;
+}
+
+.page-change {
+    width: 100%;
+    height: 30%;
 }
