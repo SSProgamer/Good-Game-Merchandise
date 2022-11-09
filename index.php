@@ -1,5 +1,5 @@
 <?php
-    // include "db_connect.php";
+    include "db_connect.php";
     include "navbar.php";
 ?>
 
@@ -49,14 +49,14 @@
             <h5 class="fw-bold text-white mt-5">Box Sets</h5>
             <?php
             //set up database
-            class MyDB extends SQLite3
-            {
-                function __construct()
-                {
-                    $this->open('merchandisedate.db');
-                }
-            }
-            $db = new MyDB();
+            // class MyDB extends SQLite3
+            // {
+            //     function __construct()
+            //     {
+            //         $this->open('merchandisedate.db');
+            //     }
+            // }
+            // $db = new MyDB();
             $sql = "SELECT * from Merchandise";
             $ret = $db->query($sql);
             //set up json
