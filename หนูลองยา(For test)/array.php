@@ -1,11 +1,22 @@
 <?php
     session_start();
+    if(!isset($_SESSION["cart"])){
+        $_SESSION["cart"];
+    }
+    else if(count){
+        unset($_SESSION["cart"]);
+    }
+    else{
+        //
+    }
     // $_SESSION["cart"] = array(1=>array("Product" => "Product1", "Price" => 5000, "Amount" => 1),
     // 2=>array("Product" => "Product1", "Price" => 5000, "Amount" => 1),
     // 3=>array("Product" => "Product1", "Price" => 5000, "Amount" => 1),
     // );
     // echo $test[1];
     // array_push($_SESSION["cart"],array("Product" => "Product1", "Price" => 5000, "Amount" => 1));
+    echo count($_SESSION['cart']);
+    
     foreach ($_SESSION['cart'] as $user => $cart){
         echo $user;
         echo $cart["Product"];
