@@ -13,16 +13,20 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="">
+
+    
     <?php
         while($user = $result->fetchArray(SQLITE3_ASSOC)){
-            echo "<p>".$user["FirstName"]."</p>";
-            echo $user["LastName"];
-            echo $user["Address"];
-            echo $user["City"];
-            echo $user["Province"];
-            echo $user["Postcode"];
-            echo $user["phonenumber"];
+            echo "<input id='#' value='".$user["FirstName"]."' disabled>";
+            echo "<input id='#' value='".$user["LastName"]."' disabled>";
+            echo "<input id='#' value='".$user["Address"]."' disabled>";
+            echo "<input id='#' value='".$user["City"]."' disabled>";
+            echo "<input id='#' value='".$user["Province"]."' disabled>";
+            echo "<input id='#' value='".$user["Postcode"]."' disabled>";
+            echo "<input id='#' value='".$user["phonenumber"]."' disabled>";
         }
-    ?>    
+    ?>
+        
 </body>
 </html>
