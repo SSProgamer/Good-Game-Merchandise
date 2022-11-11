@@ -31,3 +31,31 @@
 .custom-droplist-text {
     color: #2c3e50 !important;
 }
+
+.custom-height {
+    height: 50px;
+}
+
+.info {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.price:hover {
+    background-color: #97b147 !important;
+    border-color: #97b147 !important;
+    color: white !important;
+}
+
+.price:hover span {
+    display: none
+}
+
+.price:hover:before {
+    content: "Add"
+}

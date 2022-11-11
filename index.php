@@ -24,7 +24,7 @@ include "navbar.php";
                 <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
             </li>
             <li class="nav-item me-5">
-                <a class="nav-link web-text-color fw-bold text-in-nav" href="merchandises.php">Box Sets</a>
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php">Box Sets</a>
             </li>
             <li class="nav-item ms-5">
                 <a class="nav-link web-text-color fw-bold text-in-nav" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Merchandises</a>
@@ -140,10 +140,10 @@ include "navbar.php";
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-6 col-md-5 col-lg-6">
-                    <a class="nav-link web-text-color pb-3" href="merchandises.php">Box Set</a>
-                    <a class="nav-link web-text-color pb-3" href="merchandises.php">Merchandises</a>
-                    <a class="nav-link web-text-color pb-3" href="merchandises.php">All Products</a>
-                    <a class="nav-link web-text-color pb-3" href="merchandises.php">Products Popular</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php">Box Set</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php">Merchandises</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php">Products Popular</a>
                 </div>
                 <div class="col-12 col-md-4 col-lg-3">
                     <p class="text-white">We sell many goody</p>

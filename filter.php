@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product</title>
-    <link rel="stylesheet" href="stylesmerchandises.css">
+    <link rel="stylesheet" href="stylesfilter.css">
     <link rel="stylesheet" href="stylesnavfoot.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -19,10 +21,10 @@
                 <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
             </li>
             <li class="nav-item me-5">
-                <a class="nav-link web-text-color fw-bold text-in-nav" href="merchandises.php">Box Sets</a>
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php">Box Sets</a>
             </li>
             <li class="nav-item ms-5">
-                <a class="nav-link web-text-color fw-bold text-in-nav" href="merchandises.php">Merchandises</a>
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php">Merchandises</a>
             </li>
         </ul>
         <form class="d-flex text-in-nav search-nav" role="search">
@@ -42,6 +44,9 @@
     <div class="container-fluid main-container">
         <div class="container">
             <h3 class="result pt-5 pb-3">Results</h3>
+            <form class="d-flex" role="search">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </form>
             <p class="filter-tab fw-bold pe-2">FILTER</p>
             <div class="dropdown filter-tab">
                 <button class="btn btn-link dropdown-toggle dropdown-text" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,9 +85,11 @@
                     <div class="card style-card">
                         <img src="image/1/preview.webp" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title custom-height info fw-bold">Elder ring [Collector's Edition]gfffffffffffffffffffffffffffffffd</h5>
+                            <hr>
+                            <div class="d-flex justify-content-end">
+                                <a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,9 +97,11 @@
                     <div class="card style-card">
                         <img src="image/1/preview.webp" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title custom-height info fw-bold">Elder ring [Collector's Edition]gfffffffffffffffffffffffffffffffd</h5>
+                            <hr>
+                            <div class="d-flex justify-content-end">
+                                <a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,9 +109,11 @@
                     <div class="card style-card">
                         <img src="image/1/preview.webp" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title custom-height info fw-bold">Elder ring [Collector's Edition]gfffffffffffffffffffffffffffffffd</h5>
+                            <hr>
+                            <div class="d-flex justify-content-end">
+                                <a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,9 +121,23 @@
                     <div class="card style-card">
                         <img src="image/1/preview.webp" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title custom-height info fw-bold">Elder ring [Collector's Edition]gfffffffffffffffffffffffffffffffd</h5>
+                            <hr>
+                            <div class="d-flex justify-content-end">
+                                <a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div class="card style-card">
+                        <img src="image/1/preview.webp" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title custom-height info fw-bold">Elder ring [Collector's Edition]gfffffffffffffffffffffffffffffffd</h5>
+                            <hr>
+                            <div class="d-flex justify-content-end">
+                                <a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -129,10 +154,10 @@
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-7">
-                    <a class="nav-link web-text-color pb-3" href="merchandises.php">Box Set</a>
-                    <a class="nav-link web-text-color pb-3" href="merchandises.php">Merchandises</a>
-                    <a class="nav-link web-text-color pb-3" href="merchandises.php">All Products</a>
-                    <a class="nav-link web-text-color" href="merchandises.php">Products Popular</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php">Box Set</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php">Merchandises</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
+                    <a class="nav-link web-text-color" href="filter.php">Products Popular</a>
                 </div>
                 <div class="col-2">
                     <p class="text-white">We sell many goody</p>

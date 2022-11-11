@@ -26,10 +26,10 @@ if (isset($_POST['logout'])) {
                 <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
             </li>
             <li class="nav-item me-5">
-                <a class="nav-link web-text-color fw-bold text-in-nav" href="merchandises.php">Box Sets</a>
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php">Box Sets</a>
             </li>
             <li class="nav-item ms-5">
-                <a class="nav-link web-text-color fw-bold text-in-nav" href="merchandises.php">Merchandises</a>
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php">Merchandises</a>
             </li>
         </ul>
         <form class="d-flex text-in-nav search-nav" role="search">
