@@ -1,6 +1,15 @@
 <?php
 session_start();
+<<<<<<< Updated upstream
 if (isset($_SESSION["email"])) {
+=======
+if(!isset($_SESSION["cart"])){
+    $_SESSION["cart"] = array();
+}
+include "db_connect.php";
+if(isset($_SESSION["email"])){
+
+>>>>>>> Stashed changes
 }
 //ถ้ากดปุ่มLogout
 if (isset($_POST['logout'])) {

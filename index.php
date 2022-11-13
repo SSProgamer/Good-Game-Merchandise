@@ -1,6 +1,23 @@
 <?php
 // include "db_connect.php";
 include "navbar.php";
+if(isset($_POST['additem'])){
+    if(!isset($_SESSION["email"])){
+        //Maybe add alert message ot not?
+        header("location: login.php");
+    }
+    else{
+        $sql2 = "SELECT * FROM Merchandise WHERE ID = ".$_POST['additem']."";
+        $result2 = $db->query($sql2);
+        while($item = $result2->fetchArray(SQLITE3_ASSOC)){
+            array_push($_SESSION["cart"], array("user" => $_SESSION['email'], "ProductID" => $item["ID"], "Proname" => $item["NameProduct"], "Price" => $item["Price"], "Amount" => 1));
+        }
+        header("location: index.php");
+        // if(!isset($_SESSION["cart"])){
+        
+        // }
+    }
+}
 ?>
 
 <html lang="en">
@@ -52,14 +69,14 @@ include "navbar.php";
             <h5 class="fw-bold text-white mt-5">Box Sets</h5>
             <?php
             //set up database
-            class MyDB extends SQLite3
-            {
-                function __construct()
-                {
-                    $this->open('merchandisedate.db');
-                }
-            }
-            $db = new MyDB();
+            // class MyDB extends SQLite3
+            // {
+            //     function __construct()
+            //     {
+            //         $this->open('merchandisedate.db');
+            //     }
+            // }
+            // $db = new MyDB();
             $sql = "SELECT * from Merchandise";
             $ret = $db->query($sql);
             //set up json
@@ -86,7 +103,9 @@ include "navbar.php";
 
                     echo "</div>";
                     echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
-                    echo "<p class='card-text price p-1 text-center'>฿" . number_format($row['Price']) . "</p>";
+                    echo "<form action='".htmlspecialchars($_SERVER["PHP_SELF"])."' method='post'>";
+                    echo "<button class='card-text price p-1 text-center' name='additem' value='".$row["Price"]."'>฿" . number_format($row['Price']) . "</button>";
+                    echo "</form>";
                     echo "</div></div></div></div></div>";
                     $gamesetcou += 1;
                 }
@@ -117,7 +136,9 @@ include "navbar.php";
 
                     echo "</div>";
                     echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
-                    echo "<p class='card-text price p-1 text-center'>฿" . number_format($row['Price']) . "</p>";
+                    echo "<form action='".htmlspecialchars($_SERVER["PHP_SELF"])."' method='post'>";
+                    echo "<button class='card-text price p-1 text-center' name='additem' value='".$row["Price"]."'>฿" . number_format($row['Price']) . "</button>";
+                    echo "</form>";
                     echo "</div></div></div></div></div>";
                     $merchandisescou += 1;
                 }
