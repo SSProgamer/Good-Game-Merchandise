@@ -1,9 +1,12 @@
 <?php
 session_start();
+if(isset($_SESSION["email"])){
+    
+}
 //ถ้ากดปุ่มLogout
 if (isset($_POST['logout'])) {
-    session_destroy(); //ทำลายตัวแปรSession
-
+    unset($_SESSION["email"]); //unsetตัวแปรSession
+    unset($_SESSION["ID"]);
 }
 ?>
 <html lang="en">
@@ -38,6 +41,7 @@ if (isset($_POST['logout'])) {
         <ul class="nav me-5">
             <?php
             if (!isset($_SESSION["email"])) {
+                //if not set session variable 
                 echo '<ul class="nav me-5">
                         <li class="nav-item">
                             <a class="nav-link web-text-color fw-bold" href="signup.php">Sign Up</a>
@@ -47,6 +51,7 @@ if (isset($_POST['logout'])) {
                         </li>
                     </ul>';
             } else {
+                //if set will show username or email just like you want
                 $sent = htmlspecialchars($_SERVER["PHP_SELF"]);
                 echo '<a class="nav-link web-text-color fw-bold" href="#">Welcome, ' . $_SESSION["email"] . '</a>';
                 echo '<form action="' . $sent . '" method="post">

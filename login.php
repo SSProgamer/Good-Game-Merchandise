@@ -22,6 +22,8 @@ if (isset($_POST['submit'])) {
             $_SESSION["ID"] = $row["CustomerID"];
             $_SESSION["email"] = $row["Email"];
             // echo $row["Username"];
+            // $_SESSION["cart"] = array();
+            // array_push($_SESSION["cart"], "user" => $row["Email"]);
         }
         header("Location: index.php");
     }

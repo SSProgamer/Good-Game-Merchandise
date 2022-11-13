@@ -1,3 +1,15 @@
+<?php
+session_start();
+include "navbar.php";
+include "db_connect.php";
+$sql = "SELECT * FROM Merchandise WHERE ID =" . $_POST[""] . "";
+$result = $db->query($sql);
+// while($detail = $result->fetchArray(SQLITE3_ASSOC)){
+
+// }
+if (isset($_POST["addcart"])) {
+}
+?>
 <html lang="en">
 
 <head>
@@ -5,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Good Game Merchandise</title>
-    <link href="styles.css" rel="stylesheet">
+    <link href="productview.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
@@ -13,9 +25,9 @@
 </head>
 
 <body>
-    
+
     <div class="container-fluid main-container">
-        <nav class="navbar fixed-top main-navbar shadow-sm border border-dark">
+        <!-- <nav class="navbar fixed-top main-navbar shadow-sm border border-dark">
             <ul class="nav me-auto ms-5">
                 <li class="nav-item ms-5">
                     <h1><a class="nav-link text-white" href="https://www.youtube.com/watch?v=cErgMJSgpv0">GoodGame</a></h1>
@@ -38,26 +50,32 @@
                     <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Log In</a>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
         <div class="container-flex">
             <div class="row">
             </div>
             <div class="row m-5 p-5">
-                <div class ="col-lg-5 p-3">
+                <div class="col-lg-5 p-3">
                     <div class="merchaimagebig">
                         <img class="merchaimage" src="https://media.discordapp.net/attachments/1015671875583623209/1015913475702259772/unknown.png">
-                        <label class ="merchaimagecard">lol</label>
+                        <label class="merchaimagecard">lol</label>
                     </div>
                 </div>
-                <div class ="col-lg-2 m-5 p-5">
+                <div class="col-lg-2 m-5 p-5">
                     <h1 class="text-white">PENIS|PENIS</h1><br>
-                    <div class="bigpricetag"><h1 class="text-white">1678</h1></div>
+                    <div class="bigpricetag">
+                        <h1 class="text-white">1678</h1>
+                    </div>
                     <br>
-                    <button class="custombigbut">Add to cart</button>
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                        <button class="custombigbut" type="submit" name="addcart">Add to cart</button>
+                    </form>
+
                     <button class="custombigbut">Purchase</button>
                 </div>
             </div>
-            <div class ="row">
+            <!-- gallery -->
+            <div class="row">
                 <div class="container text-center my-3">
                     <div class="mx-auto my-auto justify-content-center">
                         <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -134,12 +152,15 @@
                 </div>
             </div>
             <div class="row">
-                <div id="merchaninfo"><p>jhiasoiSD<br>KOASP<br>DSLKA<br>dhujdjdioo<br>ijajoijiasdkjoadsjkldslkjsdajsdajlkasjdkaskdlajdajsodlajdokajodajsoidkjaodjsaoidjhaoidjhoqowjhdoiqjhdoisajldksja<br>jaosidjoiaskoasjdok<br>asjdsoka</p></div>
+                <div id="merchaninfo">
+                    <p>jhiasoiSD<br>KOASP<br>DSLKA<br>dhujdjdioo<br>ijajoijiasdkjoadsjkldslkjsdajsdajlkasjdkaskdlajdajsodlajdokajodajsoidkjaodjsaoidjhaoidjhoqowjhdoiqjhdoisajldksja<br>jaosidjoiaskoasjdok<br>asjdsoka</p>
+                </div>
             </div>
         </div>
-        <br>
+
+        <!-- Recommend other product -->
         <h1>Recommended Merchandise</h1>
-        <div class ="row">
+        <div class="row">
             <div class="container text-center my-3">
                 <div class="mx-auto my-auto justify-content-center">
                     <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -153,8 +174,8 @@
                                         <div class="card-img-overlay">Slide 1</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
+                                <!-- </div> -->
+                                <!-- <div class="carousel-item"> -->
                                 <div class="col-md-2 m-4">
                                     <div class="card">
                                         <div class="card-img">
@@ -163,8 +184,8 @@
                                         <div class="card-img-overlay">Slide 2</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
+                                <!-- </div> -->
+                                <!-- <div class="carousel-item"> -->
                                 <div class="col-md-2 m-4">
                                     <div class="card">
                                         <div class="card-img">
@@ -173,8 +194,8 @@
                                         <div class="card-img-overlay">Slide 3</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
+                                <!-- </div> -->
+                                <!-- <div class="carousel-item"> -->
                                 <div class="col-md-2 m-4">
                                     <div class="card">
                                         <div class="card-img">
@@ -183,8 +204,8 @@
                                         <div class="card-img-overlay">Slide 4</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
+                                <!-- </div> -->
+                                <!-- <div class="carousel-item"> -->
                                 <div class="col-md-2 m-4">
                                     <div class="card">
                                         <div class="card-img">
@@ -193,8 +214,8 @@
                                         <div class="card-img-overlay">Slide 5</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
+                                <!-- </div> -->
+                                <!-- <div class="carousel-item"> -->
                                 <div class="col-md-2 m-4">
                                     <div class="card">
                                         <div class="card-img">
@@ -205,17 +226,18 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+                        <!-- <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         </a>
                         <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <footer class="main-navbar">
         <div class="container-flex p-5">
             <div class="row">

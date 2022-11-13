@@ -1,11 +1,21 @@
 <?php
     include "db_connect.php";
     include "navbar.php";
-
+    session_start();
     $sql = "SELECT * FROM Merchandise"; 
     $result = $db->query($sql);
-    if(isset($_POST["sumbit"])){
+    if(isset($_POST["submit"])){
         //Do nothing
+        if(!isset($_SESSION["cart"])){
+            $_SESSION["cart"] = array();
+        }
+        $sql2 = "SELECT * FROM Merchandise WHERE ID = ".$_POST["submit"]."";
+        $result2 = $db->query($sql2);
+        while($item = $result2->fetchArray(SQLITE3_ASSOC)){
+            array_push($_SESSION["cart"],array("User" => "customer","ProductID" => $item["ID"] ,"Product" => $item["NameProduct"], "Price" => $item["Price"], "Amount" => 1));
+        }
+        
+        
     }    
 ?>
 <!DOCTYPE html>
@@ -29,7 +39,11 @@
                 echo "<tr>
                 <td>".$product["NameProduct"]."</td>
                 <td>".number_format($product["Price"],2)."</td>
-                <td><button>Bruh</button></td>
+                <td>
+                    <form target='".htmlspecialchars($_SERVER["PHP_SELF"])."' method='post'>
+                        <input type='submit' name='submit' value='".$product["ID"]."'>
+                    </form>
+                </td>
             </tr>";
             }
         ?>
