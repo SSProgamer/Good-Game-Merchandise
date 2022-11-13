@@ -1,6 +1,12 @@
 <html lang="en">
 <?php
+
 session_start();
+if ($_SESSION == NULL) {
+    $_SESSION['priceInput'] = "None";
+    $_SESSION['typeInput'] = "None";
+    $_SESSION['titleInput'] = "None";
+}
 ?>
 
 <head>
@@ -52,7 +58,6 @@ session_start();
     $filter_price = "None";
     $filter_type = "None";
     $filter_title = "None";
-
     ?>
     <?php
     if (isset($_POST['priceInput'])) {
@@ -60,7 +65,7 @@ session_start();
         $_SESSION["priceInput"] = $_POST['priceInput'];
         $filter_price = $_POST['priceInput'];
         $filter_type = $_SESSION["typeInput"];
-        $filter_title = $_SESSION['titleInput'];
+        $filter_title =  $_SESSION["titleInput"];
         if (strcmp($_POST['priceInput'], "Clean") == 0) {
             $filter_price = "None";
             $_SESSION["priceInput"] = "None";
@@ -71,11 +76,14 @@ session_start();
         $filter_type = $_POST['typeInput'];
         $filter_price = $_SESSION["priceInput"];
         $filter_title = $_SESSION['titleInput'];
+
+
         if (strcmp($_POST['typeInput'], "Clean") == 0) {
             $filter_type = "None";
-            $_SESSION["typeInput"] = "None";
+            $_SESSION['typeInput'] = "None";
         }
     }
+
     if (isset($_POST['titleInput'])) {
         $_SESSION["titleInput"] = $_POST['titleInput'];
         $filter_title = $_POST['titleInput'];
@@ -102,6 +110,11 @@ session_start();
     //set up json
     $jsonString = file_get_contents('merchandise.json');
     $datajson = json_decode($jsonString, true);
+    //set price array
+    while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+        $price_array[] = $row["Price"];
+    }
+
     ?>
     <!-- main content -->
     <div class="container-fluid main-container">
@@ -150,23 +163,58 @@ session_start();
             </form>
             <div class="row mt-5">
                 <?php
-                while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
-                    if (($row['Type'] == $filter_type or strcmp($filter_type, "None") == 0) and ($row['Title'] == $filter_title or strcmp($filter_title, "None") == 0)) {
-                        echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
-                        echo "<div class='card style-card'>";
-                        foreach ($datajson as $good => $entry) {
-                            if ($datajson[$good]['id'] == $row['ID']) {
-                                $strimage = $datajson[$good]['image'][0];
-                                echo "<img src='$strimage' alt='' class='card-img-top'>";
+                if ((strcmp($filter_price, "None") != 0)) {
+                    if (strcmp($filter_price, "Lowest to Highest") == 0) {
+                        //low to high
+                        sort($price_array);
+                    }
+                    if (strcmp($filter_price, "Highest to Lowest") == 0) {
+                        //high to low
+                        rsort($price_array);
+                    }
+                    foreach ($price_array as $price_in_array) {
+                        while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+                            if ($row['Price'] == $price_in_array) {
+                                if (($row['Type'] == $filter_type or strcmp($filter_type, "None") == 0) and ($row['Title'] == $filter_title or strcmp($filter_title, "None") == 0)) {
+                                    echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
+                                    echo "<div class='card style-card'>";
+                                    foreach ($datajson as $good => $entry) {
+                                        if ($datajson[$good]['id'] == $row['ID']) {
+                                            $strimage = $datajson[$good]['image'][0];
+                                            echo "<img src='$strimage' alt='' class='card-img-top'>";
+                                        }
+                                    }
+                                    //echo "<img src='image/1/preview.webp' class='card-img-top'>";
+                                    echo "<div class='card-body'>";
+                                    echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
+                                    echo "<hr>";
+                                    echo "<div class='d-flex justify-content-end'>";
+                                    echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
+                                    echo "</div></div></div></div>";
+                                }
                             }
                         }
-                        //echo "<img src='image/1/preview.webp' class='card-img-top'>";
-                        echo "<div class='card-body'>";
-                        echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
-                        echo "<hr>";
-                        echo "<div class='d-flex justify-content-end'>";
-                        echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
-                        echo "</div></div></div></div>";
+                    }
+                } else {
+                    while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+                        if (($row['Type'] == $filter_type or strcmp($filter_type, "None") == 0) and ($row['Title'] == $filter_title or strcmp($filter_title, "None") == 0)) {
+                            //if(strcmp($filter_price,"Lowest to Highest") == 0 and $row['Price'] == )
+                            echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
+                            echo "<div class='card style-card'>";
+                            foreach ($datajson as $good => $entry) {
+                                if ($datajson[$good]['id'] == $row['ID']) {
+                                    $strimage = $datajson[$good]['image'][0];
+                                    echo "<img src='$strimage' alt='' class='card-img-top'>";
+                                }
+                            }
+                            //echo "<img src='image/1/preview.webp' class='card-img-top'>";
+                            echo "<div class='card-body'>";
+                            echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
+                            echo "<hr>";
+                            echo "<div class='d-flex justify-content-end'>";
+                            echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
+                            echo "</div></div></div></div>";
+                        }
                     }
                 }
                 ?>
