@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if(isset($_SESSION["email"])){
+    
+}
 //ถ้ากดปุ่มLogout
 if (isset($_POST['logout'])) {
     unset($_SESSION["email"]); //unsetตัวแปรSession

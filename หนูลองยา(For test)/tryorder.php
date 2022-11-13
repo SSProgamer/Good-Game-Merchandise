@@ -12,7 +12,7 @@
         $sql2 = "SELECT * FROM Merchandise WHERE ID = ".$_POST["submit"]."";
         $result2 = $db->query($sql2);
         while($item = $result2->fetchArray(SQLITE3_ASSOC)){
-            array_push($_SESSION["cart"],array("ProductID" => $item["ID"] ,"Product" => $item["NameProduct"], "Price" => $item["Price"], "Amount" => 1));
+            array_push($_SESSION["cart"],array("User" => "customer","ProductID" => $item["ID"] ,"Product" => $item["NameProduct"], "Price" => $item["Price"], "Amount" => 1));
         }
         
         
