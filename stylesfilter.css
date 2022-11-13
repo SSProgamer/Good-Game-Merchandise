@@ -61,5 +61,5 @@ body {
 }
 
 .price:hover:before {
-    content: "Add"
+    content: "Add to cart"
 }

@@ -42,7 +42,6 @@ if ($_SESSION == NULL) {
         </form>
         <img src="image/webelement/cart.png" alt="" class="me-3">
         <div class="justify-content-end me-5">
-
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle user-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="image/webelement/user.png" alt="">
@@ -51,6 +50,7 @@ if ($_SESSION == NULL) {
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="user.php">Account</a></li>
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Purchases</a></li>
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Wish List</a></li>
+                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Log Out</a></li>
                 </ul>
             </div>
         </div>
@@ -215,9 +215,10 @@ if ($_SESSION == NULL) {
                             echo "<div class='card-body'>";
                             echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
                             echo "<hr>";
-                            echo "<div class='d-flex justify-content-end'>";
+                            echo "<div class='row'>";
+                            echo "<div class='col d-grid'>";
                             echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
-                            echo "</div></div></div></div>";
+                            echo "</div></div></div></div></div>";
                         }
                     }
                 }
