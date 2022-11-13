@@ -1,3 +1,12 @@
+<?php
+    include "navbar.php";
+    include "db_connect.php";
+    $sql = "SELECT * FROM Merchandise WHERE ID =".$_POST[""]."";
+    $result = $db->query($sql);
+    // while($detail = $result->fetchArray(SQLITE3_ASSOC)){
+        
+    // }
+?>
 <html lang="en">
 
 <head>
@@ -15,7 +24,7 @@
 <body>
     
     <div class="container-fluid main-container">
-        <nav class="navbar fixed-top main-navbar shadow-sm border border-dark">
+        <!-- <nav class="navbar fixed-top main-navbar shadow-sm border border-dark">
             <ul class="nav me-auto ms-5">
                 <li class="nav-item ms-5">
                     <h1><a class="nav-link text-white" href="https://www.youtube.com/watch?v=cErgMJSgpv0">GoodGame</a></h1>
@@ -38,7 +47,7 @@
                     <a class="nav-link web-text-color fw-bold" href="https://www.youtube.com/watch?v=cErgMJSgpv0">Log In</a>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
         <div class="container-flex">
             <div class="row">
             </div>

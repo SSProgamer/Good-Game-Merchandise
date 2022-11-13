@@ -3,9 +3,9 @@
     if(!isset($_SESSION["cart"])){
         $_SESSION["cart"];
     }
-    else if(count){
-        unset($_SESSION["cart"]);
-    }
+    // else if(count($_SESSION["cart"]) == 0){
+    //     unset($_SESSION["cart"]);
+    // }
     else{
         //
     }
@@ -15,7 +15,7 @@
     // );
     // echo $test[1];
     // array_push($_SESSION["cart"],array("Product" => "Product1", "Price" => 5000, "Amount" => 1));
-    echo count($_SESSION['cart']);
+    echo count($_SESSION['cart']) + "<br>";
     
     foreach ($_SESSION['cart'] as $user => $cart){
         echo $user;
@@ -31,6 +31,8 @@
         //
         // array_pop($_SESSION["cart"]);
         unset($_SESSION["cart"][$_POST['delete']]);
+        unset($_POST['detele']);
+        // header("Location: array.php");
 
     }
     
