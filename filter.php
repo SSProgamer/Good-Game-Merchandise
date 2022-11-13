@@ -13,7 +13,7 @@ if ($_SESSION == NULL) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>Filter</title>
     <link rel="stylesheet" href="stylesfilter.css">
     <link rel="stylesheet" href="stylesnavfoot.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@ if ($_SESSION == NULL) {
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm" aria-labelledby="dropdownMenuLink">
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="user.php">Account</a></li>
-                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Purchases</a></li>
+                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="purchases.php">Purchases</a></li>
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Wish List</a></li>
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Log Out</a></li>
                 </ul>

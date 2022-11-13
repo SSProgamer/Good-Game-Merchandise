@@ -39,8 +39,9 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm">
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="user.php">Account</a></li>
-                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Purchases</a></li>
+                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="purchases.php">Purchases</a></li>
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Wish List</a></li>
+                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Log Out</a></li>
                 </ul>
             </div>
         </div>
@@ -49,7 +50,7 @@
     <div class="container-fluid main-container">
         <div class="container">
             <h2 class="mt-3 mb-3 fw-bold">Account Information</h2>
-            <div class="container account-div p-5 mb-5">
+            <div class="container account-div p-5 mb-5 rounded">
                 <div class="row align-items-center mb-3">
                     <div class="col-2">
                         <h5 class="fw-bold text-end"><label for="infoemail" class="col-form-label">Email Address</label></h5>

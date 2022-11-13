@@ -1,0 +1,16 @@
+body {
+    font-family: 'Chakra Petch', sans-serif !important;
+}
+
+.main-container {
+    background-color: rgb(228, 231, 237);
+    display: flex;
+    min-height: 70%;
+}
+
+.purchases-contain {
+    background-color: rgb(221, 224, 231);
+    border-style: solid;
+    border-color: rgb(200, 205, 213);
+    border-width: thin;
+}
