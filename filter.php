@@ -12,6 +12,9 @@ session_start();
     <link rel="stylesheet" href="stylesnavfoot.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -31,8 +34,9 @@ session_start();
         <form class="d-flex text-in-nav search-nav" role="search">
             <input class="form-control me-2 text-white bg-dark fw-bold" type="search" placeholder="Search" aria-label="Search">
         </form>
-
+        <img src="image/webelement/cart.png" alt="" class="me-3">
         <div class="justify-content-end me-5">
+
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle user-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="image/webelement/user.png" alt="">

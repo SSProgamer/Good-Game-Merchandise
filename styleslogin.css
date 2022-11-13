@@ -1,3 +1,7 @@
+body {
+    font-family: 'Chakra Petch', sans-serif !important;
+}
+
 .main-container {
     background-color: rgb(227, 227, 227);
     display: flex;

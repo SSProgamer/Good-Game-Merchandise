@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="stylesnavfoot.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -34,7 +37,7 @@
                 <a class="btn btn-secondary dropdown-toggle user-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="image/webelement/user.png" alt="">
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm" aria-labelledby="dropdownMenuLink">
+                <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm">
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="user.php">Account</a></li>
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Purchases</a></li>
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Wish List</a></li>
@@ -46,8 +49,15 @@
     <div class="container-fluid main-container">
         <div class="container">
             <h2 class="mt-3 mb-3 fw-bold">Account Information</h2>
-            <div class="bg-secondary">
-                <h2>test</h2>
+            <div class="container account-div p-5">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        <h5 class="fw-bold"><label for="infoemail" class="col-form-label">Email Address</label></h5>
+                    </div>
+                    <div class="col">
+                        <input type="email" id="infoemail" class="form-control">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
