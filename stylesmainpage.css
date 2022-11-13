@@ -1,7 +1,7 @@
 .main-container {
     background-color: rgba(73, 79, 92);
     display: flex;
-    min-height: 100%;
+    min-height: 70%;
 }
 
 .merchandises-card {

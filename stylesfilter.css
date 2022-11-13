@@ -1,7 +1,7 @@
 .main-container {
     background-color: rgb(228, 231, 237);
     display: flex;
-    min-height: 100%;
+    min-height: 70%;
 }
 
 .result {
