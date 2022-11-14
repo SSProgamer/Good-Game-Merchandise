@@ -24,6 +24,9 @@ body {
     border-style: solid;
     border-width: thin;
     border-radius: 5px;
+    border-color: rgb(85, 87, 89) !important;
+    color: white;
+    background-color: rgb(29, 32, 37) !important;
 }
 
 .info {

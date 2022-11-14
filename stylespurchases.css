@@ -14,3 +14,12 @@ body {
     border-color: rgb(200, 205, 213);
     border-width: thin;
 }
+
+.custom-line {
+    opacity: 1;
+    border-color: rgb(200, 205, 213);
+}
+
+.head-list {
+    background-color: rgb(161, 167, 178) !important;
+}

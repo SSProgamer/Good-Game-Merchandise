@@ -40,7 +40,7 @@
                 <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm">
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="user.php">Account</a></li>
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="purchases.php">Purchases</a></li>
-                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Wish List</a></li>
+                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="wishlist.php">Wish List</a></li>
                     <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Log Out</a></li>
                 </ul>
             </div>
