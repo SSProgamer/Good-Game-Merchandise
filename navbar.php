@@ -11,6 +11,12 @@ if (isset($_POST['logout'])) {
     unset($_SESSION["email"]); //unsetตัวแปรSession
     unset($_SESSION["ID"]);
 }
+if ($_SESSION == NULL) {
+    $_SESSION['priceInput'] = "None";
+    $_SESSION['typeInput'] = "None";
+    $_SESSION['titleInput'] = "None";
+    $_SESSION['searchName'] = "";
+}
 ?>
 <html lang="en">
 
