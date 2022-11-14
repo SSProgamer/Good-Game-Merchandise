@@ -1,20 +1,19 @@
 <?php
 // include "db_connect.php";
 include "navbar.php";
-if(isset($_POST['additem'])){
-    if(!isset($_SESSION["email"])){
+if (isset($_POST['additem'])) {
+    if (!isset($_SESSION["email"])) {
         //Maybe add alert message ot not?
         header("location: login.php");
-    }
-    else{
-        $sql2 = "SELECT * FROM Merchandise WHERE ID = ".$_POST['additem']."";
+    } else {
+        $sql2 = "SELECT * FROM Merchandise WHERE ID = " . $_POST['additem'] . "";
         $result2 = $db->query($sql2);
-        while($item = $result2->fetchArray(SQLITE3_ASSOC)){
+        while ($item = $result2->fetchArray(SQLITE3_ASSOC)) {
             array_push($_SESSION["cart"], array("user" => $_SESSION['email'], "ProductID" => $item["ID"], "Proname" => $item["NameProduct"], "Price" => $item["Price"], "Amount" => 1));
         }
         header("location: index.php");
         // if(!isset($_SESSION["cart"])){
-        
+
         // }
     }
 }
@@ -103,8 +102,8 @@ if(isset($_POST['additem'])){
 
                     echo "</div>";
                     echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
-                    echo "<form action='".htmlspecialchars($_SERVER["PHP_SELF"])."' method='post'>";
-                    echo "<button class='card-text price p-1 text-center' name='additem' value='".$row["Price"]."'>฿" . number_format($row['Price']) . "</button>";
+                    echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='post'>";
+                    echo "<button class='card-text price p-1 text-center p-2' name='additem' value='" . $row["Price"] . "'>฿" . number_format($row['Price']) . "</button>";
                     echo "</form>";
                     echo "</div></div></div></div></div>";
                     $gamesetcou += 1;
@@ -136,8 +135,8 @@ if(isset($_POST['additem'])){
 
                     echo "</div>";
                     echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
-                    echo "<form action='".htmlspecialchars($_SERVER["PHP_SELF"])."' method='post'>";
-                    echo "<button class='card-text price p-1 text-center' name='additem' value='".$row["Price"]."'>฿" . number_format($row['Price']) . "</button>";
+                    echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='post'>";
+                    echo "<button class='card-text price p-2 text-center' name='additem' value='" . $row["Price"] . "'>฿" . number_format($row['Price']) . "</button>";
                     echo "</form>";
                     echo "</div></div></div></div></div>";
                     $merchandisescou += 1;

@@ -29,11 +29,14 @@ body {
 
 .custom-droplist {
     background-color: rgb(213, 217, 225) !important;
-
 }
 
 .custom-droplist-text {
     color: #2c3e50 !important;
+}
+
+.custom-droplist-text:active {
+    background-color: rgb(233, 236, 239) !important;
 }
 
 .custom-height {
