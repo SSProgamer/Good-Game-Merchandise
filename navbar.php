@@ -1,5 +1,7 @@
 <?php
 session_start();
+include "db_connect.php";
+
 if ($_SESSION == NULL) {
     $_SESSION['priceInput'] = "None";
     $_SESSION['typeInput'] = "None";
@@ -9,15 +11,17 @@ if ($_SESSION == NULL) {
 if (!isset($_SESSION["cart"])) {
     $_SESSION["cart"] = array();
 }
-include "db_connect.php";
+
 if (isset($_SESSION["email"])) {
 }
 //ถ้ากดปุ่มLogout
 if (isset($_POST['logout'])) {
     unset($_SESSION["email"]); //unsetตัวแปรSession
     unset($_SESSION["ID"]);
+    // header("location: index.php");
 }
 ?>
+
 <html lang="en">
 
 <head>
@@ -63,17 +67,26 @@ if (isset($_POST['logout'])) {
                         <li class="nav-item">
                             <a class="nav-link web-text-color fw-bold" href="login.php">Log In</a>
                         </li>
-                    </ul>';
-            } else {
-                //if set will show username or email just like you want
-                $sent = htmlspecialchars($_SERVER["PHP_SELF"]);
-                echo '<a class="nav-link web-text-color fw-bold" href="#">Welcome, ' . $_SESSION["email"] . '</a>';
-                echo '<form action="' . $sent . '" method="post">
-                        <button type="submit" name="logout">logout</button>
-                        </form>';
-            }
-            ?>
-        </ul>
+                    </ul></ul>';
+        } else {
+            //if set will show username or email just like you want
+            $sent = htmlspecialchars($_SERVER["PHP_SELF"]);
+            echo '<div class="justify-content-end me-5">
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle user-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="image/webelement/user.png" alt="">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="user.php">Account</a></li>
+                                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="purchases.php">Purchases</a></li>
+                                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="wishlist.php">Wish List</a></li>
+                                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Log Out</a></li>
+                                </ul>
+                            </div>
+                        </div>';
+        }
+        ?>
+
     </nav>
 
     <!-- <footer class="card-footer">
