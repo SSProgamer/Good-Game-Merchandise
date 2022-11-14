@@ -77,7 +77,7 @@ if(!$result){
                         <h5 class="fw-bold text-end"><label for="infofname" class="col-form-label">Firstname</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infofname" class="form-control" value="'.$info["Firstname"].'" disabled>
+                        <input type="text" id="infofname" class="form-control" value="'.$info["FirstName"].'" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -85,7 +85,7 @@ if(!$result){
                         <h5 class="fw-bold text-end"><label for="infolname" class="col-form-label">Lastname</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infolname" class="form-control" value="'.$info["Lastname"].'" disabled>
+                        <input type="text" id="infolname" class="form-control" value="'.$info["LastName"].'" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
