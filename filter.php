@@ -62,6 +62,8 @@ if ($_SESSION == NULL) {
     $filter_price = "None";
     $filter_type = "None";
     $filter_title = "None";
+        //กันไม่ให้ออกสินค้าซ้ำ
+    $id_array = [];
     ?>
     <?php
     if (isset($_POST['priceInput'])) {
@@ -126,7 +128,8 @@ if ($_SESSION == NULL) {
             <h3 class="result pt-5 pb-3">Results</h3>
             <div class="dropdown filter-tab">
                 <form class="d-flex" role="search" method="post">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                    <input type="submit" name="submitName">
             </div>
             <p class="filter-tab fw-bold pe-2">Price</p>
             <div class="dropdown filter-tab">
@@ -179,7 +182,8 @@ if ($_SESSION == NULL) {
                     foreach ($price_array as $price_in_array) {
                         while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                             if ($row['Price'] == $price_in_array) {
-                                if (($row['Type'] == $filter_type or strcmp($filter_type, "None") == 0) and ($row['Title'] == $filter_title or strcmp($filter_title, "None") == 0)) {
+                                if (($row['Type'] == $filter_type or strcmp($filter_type, "None") == 0) and ($row['Title'] == $filter_title or strcmp($filter_title, "None") == 0)
+                                and !in_array($row['ID'], $id_array)) {
                                     echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
                                     echo "<div class='card style-card'>";
                                     foreach ($datajson as $good => $entry) {
@@ -195,6 +199,7 @@ if ($_SESSION == NULL) {
                                     echo "<div class='d-flex justify-content-end'>";
                                     echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
                                     echo "</div></div></div></div>";
+                                    $id_array[] = $row['ID'];
                                 }
                             }
                         }
