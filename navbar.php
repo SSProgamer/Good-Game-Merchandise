@@ -37,37 +37,37 @@ if (isset($_POST['logout'])) {
 <body>
     <!-- use sticky-top it's better but it's not support some version of web browser -->
     <nav class="navbar sticky-top main-navbar shadow-sm border border-dark">
-    <ul class="nav me-auto ms-5">
+        <ul class="nav me-auto ms-5">
             <li class="nav-item ms-5 mt-1">
                 <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
             </li>
             <li class="nav-item me-5">
-                <a class='nav-link web-text-color fw-bold text-in-nav' href='filter.php?filter_type=Box Set'>Box Sets</a>      
+                <a class='nav-link web-text-color fw-bold text-in-nav' href='filter.php?filter_type=Box Set'>Box Sets</a>
             </li>
             <li class="nav-item ms-5">
                 <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php?filter_type=Merchandise">Merchandises</a>
-                
+
             </li>
         </ul>
         <form class="d-flex text-in-nav search-nav" role="search" method="post" action="filter.php">
             <?php
-            echo "<input class='form-control me-2 text-white bg-dark fw-bold' type='text' placeholder='Search' aria-label='Search' name='searchName' value='".$_SESSION['searchName'] ."'>";
+            echo "<input class='form-control me-2 text-white bg-dark fw-bold' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
             echo "<input type='submit' name='submitName'>";
             ?>
-            
+
         </form>
-        <ul class="nav me-5">
-            <?php
-            if (!isset($_SESSION["email"])) {
-                //if not set session variable 
-                echo '<ul class="nav me-5">
+
+        <?php
+        if (!isset($_SESSION["email"])) {
+            //if not set session variable 
+            echo '<ul class="nav me-5">
                         <li class="nav-item">
                             <a class="nav-link web-text-color fw-bold" href="signup.php">Sign Up</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link web-text-color fw-bold" href="login.php">Log In</a>
                         </li>
-                    </ul></ul>';
+                    </ul>';
         } else {
             //if set will show username or email just like you want
             $sent = htmlspecialchars($_SERVER["PHP_SELF"]);
