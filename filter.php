@@ -9,55 +9,56 @@ if ($_SESSION == NULL) {
     $_SESSION['searchName'] = "";
 }
 ?>
-    <?php
-    //all variable
-    $filter_price = "None";
-    $filter_type = "None";
-    $filter_title = "None";
-        //กันไม่ให้ออกสินค้าซ้ำ
-    $id_array = [];
-    if(isset($_GET['filter_type'])){
-        $_SESSION["filter_type"] = $_GET['filter_type'];
-        $filter_type = $_SESSION["filter_type"];
-    }
-    if (isset($_POST['submitName'])) {
-        $_SESSION['searchName'] = $_POST['searchName'];
-        }
-    if (isset($_POST['priceInput'])) {
+<?php
+//all variable
+$filter_price = "None";
+$filter_type = "None";
+$filter_title = "None";
+//กันไม่ให้ออกสินค้าซ้ำ
+$id_array = [];
+if (isset($_GET['filter_type'])) {
+    $_SESSION["filter_type"] = $_GET['filter_type'];
+    $filter_type = $_SESSION["filter_type"];
+}
+if (isset($_POST['submitName'])) {
+    $_SESSION['searchName'] = $_POST['searchName'];
+}
+if (isset($_POST['priceInput'])) {
 
-        $_SESSION["priceInput"] = $_POST['priceInput'];
-        $filter_price = $_POST['priceInput'];
-        $filter_type = $_SESSION["typeInput"];
-        $filter_title =  $_SESSION["titleInput"];
-        if (strcmp($_POST['priceInput'], "Clean") == 0) {
-            $filter_price = "None";
-            $_SESSION["priceInput"] = "None";
-        }
+    $_SESSION["priceInput"] = $_POST['priceInput'];
+    $filter_price = $_POST['priceInput'];
+    $filter_type = $_SESSION["typeInput"];
+    $filter_title =  $_SESSION["titleInput"];
+    if (strcmp($_POST['priceInput'], "Clean") == 0) {
+        $filter_price = "None";
+        $_SESSION["priceInput"] = "None";
     }
-    if (isset($_POST['typeInput'])) {
-        $_SESSION["typeInput"] = $_POST['typeInput'];
-        $filter_type = $_POST['typeInput'];
-        $filter_price = $_SESSION["priceInput"];
-        $filter_title = $_SESSION['titleInput'];
+}
+if (isset($_POST['typeInput'])) {
+    $_SESSION["typeInput"] = $_POST['typeInput'];
+    $filter_type = $_POST['typeInput'];
+    $filter_price = $_SESSION["priceInput"];
+    $filter_title = $_SESSION['titleInput'];
 
 
-        if (strcmp($_POST['typeInput'], "Clean") == 0) {
-            $filter_type = "None";
-            $_SESSION['typeInput'] = "None";
-        }
+    if (strcmp($_POST['typeInput'], "Clean") == 0) {
+        $filter_type = "None";
+        $_SESSION['typeInput'] = "None";
     }
+}
 
-    if (isset($_POST['titleInput'])) {
-        $_SESSION["titleInput"] = $_POST['titleInput'];
-        $filter_title = $_POST['titleInput'];
-        $filter_price = $_SESSION["priceInput"];
-        $filter_type = $_SESSION['typeInput'];
-        if (strcmp($_POST['titleInput'], "Clean") == 0) {
-            $filter_title = "None";
-            $_SESSION["titleInput"] = "None";
-        }
+if (isset($_POST['titleInput'])) {
+    $_SESSION["titleInput"] = $_POST['titleInput'];
+    $filter_title = $_POST['titleInput'];
+    $filter_price = $_SESSION["priceInput"];
+    $filter_type = $_SESSION['typeInput'];
+    if (strcmp($_POST['titleInput'], "Clean") == 0) {
+        $filter_title = "None";
+        $_SESSION["titleInput"] = "None";
     }
-    ?>
+}
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,25 +76,27 @@ if ($_SESSION == NULL) {
 <body>
     <!-- navbar -->
     <nav class="navbar sticky-top main-navbar shadow-sm border border-dark">
-        
+
         <ul class="nav me-auto ms-5">
             <li class="nav-item ms-5 mt-1">
                 <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
             </li>
             <li class="nav-item me-5">
-                <a class='nav-link web-text-color fw-bold text-in-nav' href='filter.php?filter_type=Box Set'>Box Sets</a>      
+                <a class='nav-link web-text-color fw-bold text-in-nav' href='filter.php?filter_type=Box Set'>Box Sets</a>
             </li>
             <li class="nav-item ms-5">
                 <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php?filter_type=Merchandise">Merchandises</a>
-                
+
             </li>
         </ul>
         <form class="d-flex text-in-nav search-nav" role="search" method="post" action="filter.php">
             <?php
-            echo "<input class='form-control me-2 text-white bg-dark fw-bold' type='text' placeholder='Search' aria-label='Search' name='searchName' value='".$_SESSION['searchName'] ."'>";
-            echo "<input type='submit' name='submitName'>";
+            echo "<div class='input-group'>";
+            echo "<input class='form-control me-2 text-white bg-dark fw-bold' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
+            echo "<input type='submit' name='submitName' class='btn btn-outline-secondary'>";
+            echo "</div>";
             ?>
-            
+
         </form>
         <img src="image/webelement/cart.png" alt="" class="me-3">
         <div class="justify-content-end me-5">
@@ -139,10 +142,12 @@ if ($_SESSION == NULL) {
             <div class="dropdown filter-tab">
                 <form class="d-flex" role="search" method="post">
                     <?php
-                    echo "<input class='form-control' type='text' placeholder='Search' aria-label='Search' name='searchName' value='".$_SESSION['searchName'] ."'>";
-                    echo "<input type='submit' name='submitName'>";
+                    echo "<div class='input-group'>";
+                    echo "<input class='form-control' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
+                    echo "<input type='submit' name='submitName' class='btn bg-white search-button-filter'>";
+                    echo "</div>";
                     ?>
-                    
+
             </div>
             <p class="filter-tab fw-bold pe-2">Price</p>
             <div class="dropdown filter-tab">
@@ -196,25 +201,26 @@ if ($_SESSION == NULL) {
                         while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                             if ($row['Price'] == $price_in_array) {
                                 if (($row['Type'] == $filter_type or strcmp($filter_type, "None") == 0) and ($row['Title'] == $filter_title or strcmp($filter_title, "None") == 0)
-                                and !in_array($row['ID'], $id_array)) {
-                                    if(strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false){
-                                    echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
-                                    echo "<div class='card style-card'>";
-                                    foreach ($datajson as $good => $entry) {
-                                        if ($datajson[$good]['id'] == $row['ID']) {
-                                            $strimage = $datajson[$good]['image'][0];
-                                            echo "<img src='$strimage' alt='' class='card-img-top'>";
+                                    and !in_array($row['ID'], $id_array)
+                                ) {
+                                    if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false) {
+                                        echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
+                                        echo "<div class='card style-card'>";
+                                        foreach ($datajson as $good => $entry) {
+                                            if ($datajson[$good]['id'] == $row['ID']) {
+                                                $strimage = $datajson[$good]['image'][0];
+                                                echo "<img src='$strimage' alt='' class='card-img-top'>";
+                                            }
                                         }
+                                        //echo "<img src='image/1/preview.webp' class='card-img-top'>";
+                                        echo "<div class='card-body'>";
+                                        echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
+                                        echo "<hr>";
+                                        echo "<div class='d-flex justify-content-end'>";
+                                        echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
+                                        echo "</div></div></div></div>";
+                                        $id_array[] = $row['ID'];
                                     }
-                                    //echo "<img src='image/1/preview.webp' class='card-img-top'>";
-                                    echo "<div class='card-body'>";
-                                    echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
-                                    echo "<hr>";
-                                    echo "<div class='d-flex justify-content-end'>";
-                                    echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
-                                    echo "</div></div></div></div>";
-                                    $id_array[] = $row['ID'];
-                                }
                                 }
                             }
                         }
@@ -222,23 +228,23 @@ if ($_SESSION == NULL) {
                 } else {
                     while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                         if (($row['Type'] == $filter_type or strcmp($filter_type, "None") == 0) and ($row['Title'] == $filter_title or strcmp($filter_title, "None") == 0)) {
-                            if(strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false){
-                            echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
-                            echo "<div class='card style-card'>";
-                            foreach ($datajson as $good => $entry) {
-                                if ($datajson[$good]['id'] == $row['ID']) {
-                                    $strimage = $datajson[$good]['image'][0];
-                                    echo "<img src='$strimage' alt='' class='card-img-top'>";
+                            if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false) {
+                                echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
+                                echo "<div class='card style-card'>";
+                                foreach ($datajson as $good => $entry) {
+                                    if ($datajson[$good]['id'] == $row['ID']) {
+                                        $strimage = $datajson[$good]['image'][0];
+                                        echo "<img src='$strimage' alt='' class='card-img-top'>";
+                                    }
                                 }
-                            }
-                            //echo "<img src='image/1/preview.webp' class='card-img-top'>";
-                            echo "<div class='card-body'>";
-                            echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
-                            echo "<hr>";
-                            echo "<div class='row'>";
-                            echo "<div class='col d-grid'>";
-                            echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
-                            echo "</div></div></div></div></div>";
+                                //echo "<img src='image/1/preview.webp' class='card-img-top'>";
+                                echo "<div class='card-body'>";
+                                echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
+                                echo "<hr>";
+                                echo "<div class='row'>";
+                                echo "<div class='col d-grid'>";
+                                echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
+                                echo "</div></div></div></div></div>";
                             }
                         }
                     }
