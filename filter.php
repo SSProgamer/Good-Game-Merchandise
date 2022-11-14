@@ -6,66 +6,23 @@ if ($_SESSION == NULL) {
     $_SESSION['priceInput'] = "None";
     $_SESSION['typeInput'] = "None";
     $_SESSION['titleInput'] = "None";
+    $_SESSION['searchName'] = "";
 }
 ?>
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filter</title>
-    <link rel="stylesheet" href="stylesfilter.css">
-    <link rel="stylesheet" href="stylesnavfoot.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <!-- navbar -->
-    <nav class="navbar sticky-top main-navbar shadow-sm border border-dark">
-        <ul class="nav me-auto ms-5">
-            <li class="nav-item ms-5 mt-1">
-                <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
-            </li>
-            <li class="nav-item me-5">
-                <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php">Box Sets</a>
-            </li>
-            <li class="nav-item ms-5">
-                <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php">Merchandises</a>
-            </li>
-        </ul>
-        <form class="d-flex text-in-nav search-nav" role="search">
-            <input class="form-control me-2 text-white bg-dark fw-bold" type="search" placeholder="Search" aria-label="Search">
-        </form>
-        <img src="image/webelement/cart.png" alt="" class="me-3">
-        <div class="justify-content-end me-5">
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle user-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="image/webelement/user.png" alt="">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="user.php">Account</a></li>
-                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="purchases.php">Purchases</a></li>
-                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="wishlist.php">Wish List</a></li>
-                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Log Out</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <?php
     //all variable
-
     $filter_price = "None";
     $filter_type = "None";
     $filter_title = "None";
         //กันไม่ให้ออกสินค้าซ้ำ
     $id_array = [];
-    ?>
-    <?php
+    if(isset($_GET['filter_type'])){
+        $_SESSION["filter_type"] = $_GET['filter_type'];
+        $filter_type = $_SESSION["filter_type"];
+    }
+    if (isset($_POST['submitName'])) {
+        $_SESSION['searchName'] = $_POST['searchName'];
+        }
     if (isset($_POST['priceInput'])) {
 
         $_SESSION["priceInput"] = $_POST['priceInput'];
@@ -101,6 +58,59 @@ if ($_SESSION == NULL) {
         }
     }
     ?>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <link rel="stylesheet" href="stylesfilter.css">
+    <link rel="stylesheet" href="stylesnavfoot.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar sticky-top main-navbar shadow-sm border border-dark">
+        
+        <ul class="nav me-auto ms-5">
+            <li class="nav-item ms-5 mt-1">
+                <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
+            </li>
+            <li class="nav-item me-5">
+                <a class='nav-link web-text-color fw-bold text-in-nav' href='filter.php?filter_type=Box Set'>Box Sets</a>      
+            </li>
+            <li class="nav-item ms-5">
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php?filter_type=Merchandise">Merchandises</a>
+                
+            </li>
+        </ul>
+        <form class="d-flex text-in-nav search-nav" role="search" method="post" action="filter.php">
+            <?php
+            echo "<input class='form-control me-2 text-white bg-dark fw-bold' type='text' placeholder='Search' aria-label='Search' name='searchName' value='".$_SESSION['searchName'] ."'>";
+            echo "<input type='submit' name='submitName'>";
+            ?>
+            
+        </form>
+        <img src="image/webelement/cart.png" alt="" class="me-3">
+        <div class="justify-content-end me-5">
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle user-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="image/webelement/user.png" alt="">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="user.php">Account</a></li>
+                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="purchases.php">Purchases</a></li>
+                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="wishlist.php">Wish List</a></li>
+                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <?php
     //set up database
     class MyDB extends SQLite3
@@ -128,8 +138,11 @@ if ($_SESSION == NULL) {
             <h3 class="result pt-5 pb-3">Results</h3>
             <div class="dropdown filter-tab">
                 <form class="d-flex" role="search" method="post">
-                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                    <input type="submit" name="submitName">
+                    <?php
+                    echo "<input class='form-control' type='text' placeholder='Search' aria-label='Search' name='searchName' value='".$_SESSION['searchName'] ."'>";
+                    echo "<input type='submit' name='submitName'>";
+                    ?>
+                    
             </div>
             <p class="filter-tab fw-bold pe-2">Price</p>
             <div class="dropdown filter-tab">
@@ -184,6 +197,7 @@ if ($_SESSION == NULL) {
                             if ($row['Price'] == $price_in_array) {
                                 if (($row['Type'] == $filter_type or strcmp($filter_type, "None") == 0) and ($row['Title'] == $filter_title or strcmp($filter_title, "None") == 0)
                                 and !in_array($row['ID'], $id_array)) {
+                                    if(strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false){
                                     echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
                                     echo "<div class='card style-card'>";
                                     foreach ($datajson as $good => $entry) {
@@ -201,13 +215,14 @@ if ($_SESSION == NULL) {
                                     echo "</div></div></div></div>";
                                     $id_array[] = $row['ID'];
                                 }
+                                }
                             }
                         }
                     }
                 } else {
                     while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                         if (($row['Type'] == $filter_type or strcmp($filter_type, "None") == 0) and ($row['Title'] == $filter_title or strcmp($filter_title, "None") == 0)) {
-                            //if(strcmp($filter_price,"Lowest to Highest") == 0 and $row['Price'] == )
+                            if(strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false){
                             echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
                             echo "<div class='card style-card'>";
                             foreach ($datajson as $good => $entry) {
@@ -224,6 +239,7 @@ if ($_SESSION == NULL) {
                             echo "<div class='col d-grid'>";
                             echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
                             echo "</div></div></div></div></div>";
+                            }
                         }
                     }
                 }
@@ -240,8 +256,8 @@ if ($_SESSION == NULL) {
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-7">
-                    <a class="nav-link web-text-color pb-3" href="filter.php">Box Set</a>
-                    <a class="nav-link web-text-color pb-3" href="filter.php">Merchandises</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Box Set">Box Set</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Merchandise">Merchandises</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
                     <a class="nav-link web-text-color" href="filter.php">Products Popular</a>
                 </div>
