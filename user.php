@@ -6,15 +6,14 @@ if (!$result) {
     // echo "bruh";
     header("location: login.php");
 }
-if(isset($_POST["submit"])){
+if (isset($_POST["submit"])) {
     $sql2 = 'UPDATE Customer
-    SET FirstName = "'.$_POST['fname'].'", LastName = "'.$_POST['lname'].'", Address= "'.$_POST['address'].'", City= "'.$_POST['city'].'",Province="'.$_POST['province'].'",Postcode="'.$_POST['postcode'].'",phonenumber="'.$_POST['phone'].'"
-    WHERE CustomerID = "'.$_SESSION["ID"].'"';
+    SET FirstName = "' . $_POST['fname'] . '", LastName = "' . $_POST['lname'] . '", Address= "' . $_POST['address'] . '", City= "' . $_POST['city'] . '",Province="' . $_POST['province'] . '",Postcode="' . $_POST['postcode'] . '",phonenumber="' . $_POST['phone'] . '"
+    WHERE CustomerID = "' . $_SESSION["ID"] . '"';
     $result2 = $db->query($sql2);
-    if(!$result2){
+    if (!$result2) {
         // 
     }
-    
 }
 
 ?>
@@ -73,7 +72,7 @@ if(isset($_POST["submit"])){
         <div class="container">
             <h2 class="mt-3 mb-3 fw-bold">Account Information</h2>
             <div class="container account-div p-5 mb-5 rounded">
-            <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+            <form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="post">
                 <div class="row align-items-center mb-3">
                     <div class="col-2">
                         <h5 class="fw-bold text-end"><label for="infoemail" class="col-form-label">Email Address</label></h5>
@@ -140,7 +139,7 @@ if(isset($_POST["submit"])){
                 </div>
     
     <div class="d-flex justify-content-end">
-        <button onclick="edit_info()" id="edit">Edit</button>
+        <button onclick="edit_info()" id="edit" class="btn btn-primary change-button me-3">Edit</button>
         
             <button type="submit" class="btn btn-primary change-button" id="submit" disabled>Update</button>
         </form>
@@ -149,7 +148,7 @@ if(isset($_POST["submit"])){
         </div>
         </div>';
     } ?>
-    
+
 
     <!-- footer -->
     <footer class="main-navbar">
@@ -159,13 +158,12 @@ if(isset($_POST["submit"])){
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-7">
-                    <a class="nav-link web-text-color pb-3" href="filter.php">Box Set</a>
-                    <a class="nav-link web-text-color pb-3" href="filter.php">Merchandises</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
-                    <a class="nav-link web-text-color" href="filter.php">Products Popular</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Box Set">Box Set</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Merchandise">Merchandises</a>
                 </div>
                 <div class="col-2">
-                    <p class="text-white">We sell many goody</p>
+                    <p class="text-white">We sell a lot of game merchandise from many games around the world at very cheap prices and the best quality product.</p>
                 </div>
             </div>
         </div>
@@ -180,9 +178,9 @@ if(isset($_POST["submit"])){
     // let province = document.getElementById("").value;
     // let postcode = document.getElementById("").value;
     // let number = document.getElementById("").value;
-    
 
-    function edit_info(){
+
+    function edit_info() {
         document.getElementById("submit").disabled = false;
         document.getElementById("edit").disabled = true;
         document.getElementById("infofname").disabled = false;
@@ -194,4 +192,5 @@ if(isset($_POST["submit"])){
         document.getElementById("infophone").disabled = false;
     }
 </script>
+
 </html>

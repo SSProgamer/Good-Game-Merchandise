@@ -76,13 +76,13 @@ if (isset($_POST['logout'])) {
             // echo '<form action="' . $sent . '" method="post">
             //         <button type="submit" name="logout">logout</button>
             //         </form>';
-            echo '<a href="#"><img src="image/webelement/cart.png" alt="" class="me-3"></a>';
-            echo '<div class="dropdown">
+            echo '<a href="#"><img src="image/webelement/cart.png" alt="" class="me-4"></a>';
+            echo '<div class="dropdown me-5">
             <a class="btn btn-secondary dropdown-toggle user-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="image/webelement/user.png" alt="">
             </a>
             <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm">
-                <li><a class="dropdown-item text-white user-dropdown-list-item" href="user.php">Account</a></li>
+                <li><a class="dropdown-item text-white user-dropdown-list-item mt-2" href="user.php">Account</a></li>
                 <li><a class="dropdown-item text-white user-dropdown-list-item" href="purchases.php">Purchases</a></li>
                 <li><a class="dropdown-item text-white user-dropdown-list-item" href="wishlist.php">Wish List</a></li>
                 <li>
@@ -95,10 +95,6 @@ if (isset($_POST['logout'])) {
         </div>';
         }
         ?>
-    </ul>
-        }
-        ?>
-
     </nav>
 
     <!-- <footer class="card-footer">
