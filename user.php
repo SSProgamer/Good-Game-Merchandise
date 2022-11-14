@@ -3,8 +3,18 @@ include "navbar.php";
 $sql = "SELECT * FROM Customer WHERE CustomerID =" . $_SESSION["ID"] . "";
 $result = $db->query($sql);
 if (!$result) {
-    echo "bruh";
+    // echo "bruh";
     header("location: login.php");
+}
+if(isset($_POST["submit"])){
+    $sql2 = 'UPDATE Customer
+    SET FirstName = "'.$_POST['fname'].'", LastName = "'.$_POST['lname'].'", Address= "'.$_POST['address'].'", City= "'.$_POST['city'].'",Province="'.$_POST['province'].'",Postcode="'.$_POST['postcode'].'",phonenumber="'.$_POST['phone'].'"
+    WHERE CustomerID = "'.$_SESSION["ID"].'"';
+    $result2 = $db->query($sql2);
+    if(!$result2){
+        // 
+    }
+    
 }
 
 ?>
@@ -63,6 +73,7 @@ if (!$result) {
         <div class="container">
             <h2 class="mt-3 mb-3 fw-bold">Account Information</h2>
             <div class="container account-div p-5 mb-5 rounded">
+            <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
                 <div class="row align-items-center mb-3">
                     <div class="col-2">
                         <h5 class="fw-bold text-end"><label for="infoemail" class="col-form-label">Email Address</label></h5>
@@ -76,7 +87,7 @@ if (!$result) {
                         <h5 class="fw-bold text-end"><label for="infofname" class="col-form-label">Firstname</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infofname" class="form-control" value="' . $info["FirstName"] . '" disabled>
+                        <input type="text" id="infofname" name="fname" class="form-control" value="' . $info["FirstName"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -84,7 +95,7 @@ if (!$result) {
                         <h5 class="fw-bold text-end"><label for="infolname" class="col-form-label">Lastname</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infolname" class="form-control" value="' . $info["LastName"] . '" disabled>
+                        <input type="text" id="infolname" name="lname" class="form-control" value="' . $info["LastName"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -92,7 +103,7 @@ if (!$result) {
                         <h5 class="fw-bold text-end"><label for="infoaddress" class="col-form-label">Address</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infoaddress" class="form-control" value="' . $info["Address"] . '" disabled>
+                        <input type="text" id="infoaddress" name="address" class="form-control" value="' . $info["Address"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -100,7 +111,7 @@ if (!$result) {
                         <h5 class="fw-bold text-end"><label for="infocity" class="col-form-label">City</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infocity" class="form-control" value="' . $info["City"] . '" disabled>
+                        <input type="text" id="infocity" name="city" class="form-control" value="' . $info["City"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -108,7 +119,7 @@ if (!$result) {
                         <h5 class="fw-bold text-end"><label for="infoprovince" class="col-form-label">Province</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infoprovince" class="form-control" value="' . $info["Province"] . '" disabled>
+                        <input type="text" id="infoprovince" name="province" class="form-control" value="' . $info["Province"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -116,7 +127,7 @@ if (!$result) {
                         <h5 class="fw-bold text-end"><label for="infopostcode" class="col-form-label">Postcode</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infopostcode" class="form-control" value="' . $info["Postcode"] . '" disabled>
+                        <input type="text" id="infopostcode" name="postcode" class="form-control" value="' . $info["Postcode"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-4">
@@ -124,16 +135,21 @@ if (!$result) {
                         <h5 class="fw-bold text-end"><label for="infophone" class="col-form-label">Phone Number</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infophone" class="form-control" value="' . $info["phonenumber"] . '" disabled>
+                        <input type="text" id="infophone" name="phone" class="form-control" value="' . $info["phonenumber"] . '" disabled>
                     </div>
-                </div>';
-    } ?>
+                </div>
+    
     <div class="d-flex justify-content-end">
-        <button type="button" class="btn btn-primary change-button">Update</button>
-    </div>
-    </div>
-    </div>
-    </div>
+        <button onclick="edit_info()" id="edit">Edit</button>
+        
+            <button type="submit" class="btn btn-primary change-button" id="submit" disabled>Update</button>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>';
+    } ?>
+    
 
     <!-- footer -->
     <footer class="main-navbar">
@@ -143,16 +159,39 @@ if (!$result) {
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-7">
+                    <a class="nav-link web-text-color pb-3" href="filter.php">Box Set</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php">Merchandises</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
-                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Box Set">Box Set</a>
-                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Merchandise">Merchandises</a>
+                    <a class="nav-link web-text-color" href="filter.php">Products Popular</a>
                 </div>
                 <div class="col-2">
-                    <p class="text-white">We sell a lot of game merchandise from many games around the world at very cheap prices and the best quality product.</p>
+                    <p class="text-white">We sell many goody</p>
                 </div>
             </div>
         </div>
     </footer>
 </body>
+<script>
+    // get value from input เผื่อจะมีกดยกเลิกแก้ไขก็เอาจับยัดเข้าที่
+    // let name = document.getElementById("").value;
+    // let lname = document.getElementById("").value;
+    // let addr = document.getElementById("").value;
+    // let city = document.getElementById("").value;
+    // let province = document.getElementById("").value;
+    // let postcode = document.getElementById("").value;
+    // let number = document.getElementById("").value;
+    
 
+    function edit_info(){
+        document.getElementById("submit").disabled = false;
+        document.getElementById("edit").disabled = true;
+        document.getElementById("infofname").disabled = false;
+        document.getElementById("infolname").disabled = false;
+        document.getElementById("infoaddress").disabled = false;
+        document.getElementById("infocity").disabled = false;
+        document.getElementById("infoprovince").disabled = false;
+        document.getElementById("infopostcode").disabled = false;
+        document.getElementById("infophone").disabled = false;
+    }
+</script>
 </html>

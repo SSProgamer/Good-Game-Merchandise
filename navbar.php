@@ -72,20 +72,30 @@ if (isset($_POST['logout'])) {
         } else {
             //if set will show username or email just like you want
             $sent = htmlspecialchars($_SERVER["PHP_SELF"]);
-            echo '<img src="image/webelement/cart.png" alt="" class="me-3">
-                        <div class="justify-content-end me-5">
-                            <div class="dropdown">
-                                <a class="btn btn-secondary dropdown-toggle user-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="image/webelement/user.png" alt="">
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="user.php">Account</a></li>
-                                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="purchases.php">Purchases</a></li>
-                                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="wishlist.php">Wish List</a></li>
-                                    <li><a class="dropdown-item text-white user-dropdown-list-item" href="#">Log Out</a></li>
-                                </ul>
-                            </div>
-                        </div>';
+            // echo '<a class="nav-link web-text-color fw-bold" href="user.php">Welcome, ' . $_SESSION["email"] . '</a>';
+            // echo '<form action="' . $sent . '" method="post">
+            //         <button type="submit" name="logout">logout</button>
+            //         </form>';
+            echo '<a href="#"><img src="image/webelement/cart.png" alt="" class="me-3"></a>';
+            echo '<div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle user-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="image/webelement/user.png" alt="">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm">
+                <li><a class="dropdown-item text-white user-dropdown-list-item" href="user.php">Account</a></li>
+                <li><a class="dropdown-item text-white user-dropdown-list-item" href="purchases.php">Purchases</a></li>
+                <li><a class="dropdown-item text-white user-dropdown-list-item" href="wishlist.php">Wish List</a></li>
+                <li>
+                    <form action="' . $sent . '" method="post">
+                        <input type="hidden" name="logout">
+                        <a class="dropdown-item text-white user-dropdown-list-item" onclick="this.parentNode.submit();">Log Out</a>
+                    </form>
+                </li>
+            </ul>
+        </div>';
+        }
+        ?>
+    </ul>
         }
         ?>
 
