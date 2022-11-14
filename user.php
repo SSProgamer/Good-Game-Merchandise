@@ -1,9 +1,8 @@
 <?php
-session_start();
 include "navbar.php";
 $sql = "SELECT * FROM Customer WHERE CustomerID =" . $_SESSION["ID"] . "";
 $result = $db->query($sql);
-if(!$result){
+if (!$result) {
     echo "bruh";
     header("location: login.php");
 }
@@ -69,7 +68,7 @@ if(!$result){
                         <h5 class="fw-bold text-end"><label for="infoemail" class="col-form-label">Email Address</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="email" id="infoemail" class="form-control" value="'.$info["Email"].'" disabled>
+                        <input type="email" id="infoemail" class="form-control" value="' . $info["Email"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -77,7 +76,7 @@ if(!$result){
                         <h5 class="fw-bold text-end"><label for="infofname" class="col-form-label">Firstname</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infofname" class="form-control" value="'.$info["FirstName"].'" disabled>
+                        <input type="text" id="infofname" class="form-control" value="' . $info["FirstName"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -85,7 +84,7 @@ if(!$result){
                         <h5 class="fw-bold text-end"><label for="infolname" class="col-form-label">Lastname</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infolname" class="form-control" value="'.$info["LastName"].'" disabled>
+                        <input type="text" id="infolname" class="form-control" value="' . $info["LastName"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -93,7 +92,7 @@ if(!$result){
                         <h5 class="fw-bold text-end"><label for="infoaddress" class="col-form-label">Address</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infoaddress" class="form-control" value="'.$info["Address"].'" disabled>
+                        <input type="text" id="infoaddress" class="form-control" value="' . $info["Address"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -101,7 +100,7 @@ if(!$result){
                         <h5 class="fw-bold text-end"><label for="infocity" class="col-form-label">City</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infocity" class="form-control" value="'.$info["City"].'" disabled>
+                        <input type="text" id="infocity" class="form-control" value="' . $info["City"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -109,7 +108,7 @@ if(!$result){
                         <h5 class="fw-bold text-end"><label for="infoprovince" class="col-form-label">Province</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infoprovince" class="form-control" value="'.$info["Province"].'" disabled>
+                        <input type="text" id="infoprovince" class="form-control" value="' . $info["Province"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-3">
@@ -117,7 +116,7 @@ if(!$result){
                         <h5 class="fw-bold text-end"><label for="infopostcode" class="col-form-label">Postcode</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infopostcode" class="form-control" value="'.$info["Postcode"].'" disabled>
+                        <input type="text" id="infopostcode" class="form-control" value="' . $info["Postcode"] . '" disabled>
                     </div>
                 </div>
                 <div class="row align-items-center mb-4">
@@ -125,7 +124,7 @@ if(!$result){
                         <h5 class="fw-bold text-end"><label for="infophone" class="col-form-label">Phone Number</label></h5>
                     </div>
                     <div class="col-9">
-                        <input type="text" id="infophone" class="form-control" value="'.$info["phonenumber"].'" disabled>
+                        <input type="text" id="infophone" class="form-control" value="' . $info["phonenumber"] . '" disabled>
                     </div>
                 </div>';
     } ?>
