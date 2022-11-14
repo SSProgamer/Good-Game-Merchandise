@@ -262,13 +262,12 @@ if (isset($_POST['titleInput'])) {
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-7">
+                    <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Box Set">Box Set</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Merchandise">Merchandises</a>
-                    <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
-                    <a class="nav-link web-text-color" href="filter.php">Products Popular</a>
                 </div>
                 <div class="col-2">
-                    <p class="text-white">We sell many goody</p>
+                    <p class="text-white">We sell a lot of game merchandise from many games around the world at very cheap prices and the best quality product.</p>
                 </div>
             </div>
         </div>

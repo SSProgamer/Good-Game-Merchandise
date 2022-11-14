@@ -159,17 +159,16 @@ if (isset($_POST['additem'])) {
     <footer class="main-navbar">
         <div class="container-fluid p-5">
             <div class="row">
-                <div class="col-6 col-md-3 col-lg-3">
+                <div class="col-3">
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
-                <div class="col-6 col-md-5 col-lg-6">
-                    <a class="nav-link web-text-color pb-3" href="filter.php">Box Set</a>
-                    <a class="nav-link web-text-color pb-3" href="filter.php">Merchandises</a>
+                <div class="col-7">
                     <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
-                    <a class="nav-link web-text-color pb-3" href="filter.php">Products Popular</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Box Set">Box Set</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Merchandise">Merchandises</a>
                 </div>
-                <div class="col-12 col-md-4 col-lg-3">
-                    <p class="text-white">We sell many goody</p>
+                <div class="col-2">
+                    <p class="text-white">We sell a lot of game merchandise from many games around the world at very cheap prices and the best quality product.</p>
                 </div>
             </div>
         </div>
