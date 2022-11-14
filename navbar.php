@@ -2,6 +2,12 @@
 session_start();
 include "db_connect.php";
 
+if ($_SESSION == NULL) {
+    $_SESSION['priceInput'] = "None";
+    $_SESSION['typeInput'] = "None";
+    $_SESSION['titleInput'] = "None";
+    $_SESSION['searchName'] = "";
+}
 if (!isset($_SESSION["cart"])) {
     $_SESSION["cart"] = array();
 }
@@ -36,20 +42,25 @@ if (isset($_POST['logout'])) {
                 <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
             </li>
             <li class="nav-item me-5">
-                <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php">Box Sets</a>
+                <a class='nav-link web-text-color fw-bold text-in-nav' href='filter.php?filter_type=Box Set'>Box Sets</a>
             </li>
             <li class="nav-item ms-5">
-                <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php">Merchandises</a>
+                <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php?filter_type=Merchandise">Merchandises</a>
+
             </li>
         </ul>
-        <form class="d-flex text-in-nav search-nav" role="search">
-            <input class="form-control me-2 text-white bg-dark fw-bold" type="search" placeholder="Search" aria-label="Search">
-        </form>
-        <ul class="nav me-5">
+        <form class="d-flex text-in-nav search-nav" role="search" method="post" action="filter.php">
             <?php
-            if (!isset($_SESSION["email"])) {
-                //if not set session variable 
-                echo '<ul class="nav me-5">
+            echo "<input class='form-control me-2 text-white bg-dark fw-bold' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
+            echo "<input type='submit' name='submitName'>";
+            ?>
+
+        </form>
+
+        <?php
+        if (!isset($_SESSION["email"])) {
+            //if not set session variable 
+            echo '<ul class="nav me-5"><ul class="nav me-5">
                         <li class="nav-item">
                             <a class="nav-link web-text-color fw-bold" href="signup.php">Sign Up</a>
                         </li>

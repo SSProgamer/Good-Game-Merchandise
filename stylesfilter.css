@@ -66,3 +66,12 @@ body {
 .price:hover:before {
     content: "Add to cart"
 }
+
+.search-button-filter {
+    border-color: rgb(208, 214, 220) !important;
+}
+
+.search-button-filter:hover {
+    background-color: rgb(53, 53, 53) !important;
+    color: rgb(192, 192, 192) !important;
+}
