@@ -93,7 +93,7 @@ if (isset($_POST['titleInput'])) {
             <?php
             echo "<div class='input-group'>";
             echo "<input class='form-control me-2 text-white bg-dark fw-bold' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
-            echo "<input type='submit' name='submitName' class='btn btn-outline-secondary'>";
+            echo "<input type='submit' name='submitName' class='btn btn-outline-secondary search-button-nav fw-bold' value='Submit'>";
             echo "</div>";
             ?>
 
@@ -144,7 +144,7 @@ if (isset($_POST['titleInput'])) {
                     <?php
                     echo "<div class='input-group'>";
                     echo "<input class='form-control' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
-                    echo "<input type='submit' name='submitName' class='btn bg-white search-button-filter'>";
+                    echo "<input type='submit' name='submitName' class='btn bg-white search-button-filter' value='Submit'>";
                     echo "</div>";
                     ?>
 

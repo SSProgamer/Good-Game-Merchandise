@@ -51,10 +51,11 @@ if (isset($_POST['logout'])) {
         </ul>
         <form class="d-flex text-in-nav search-nav" role="search" method="post" action="filter.php">
             <?php
+            echo "<div class='input-group'>";
             echo "<input class='form-control me-2 text-white bg-dark fw-bold' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
-            echo "<input type='submit' name='submitName'>";
+            echo "<input type='submit' name='submitName' class='btn btn-outline-secondary search-button-nav fw-bold' value='Submit'>";
+            echo "</div>";
             ?>
-
         </form>
 
         <?php
@@ -71,7 +72,8 @@ if (isset($_POST['logout'])) {
         } else {
             //if set will show username or email just like you want
             $sent = htmlspecialchars($_SERVER["PHP_SELF"]);
-            echo '<div class="justify-content-end me-5">
+            echo '<img src="image/webelement/cart.png" alt="" class="me-3">
+                        <div class="justify-content-end me-5">
                             <div class="dropdown">
                                 <a class="btn btn-secondary dropdown-toggle user-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="image/webelement/user.png" alt="">
