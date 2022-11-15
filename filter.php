@@ -1,24 +1,11 @@
-<html lang="en">
-<?php
 
-session_start();
-if ($_SESSION == NULL) {
-    $_SESSION['priceInput'] = "None";
-    $_SESSION['typeInput'] = "None";
-    $_SESSION['titleInput'] = "None";
-    $_SESSION['searchName'] = "";
-}
-?>
 <?php
+include "navbar.php";
 //all variable
-$filter_price = "None";
-$filter_type = "None";
-$filter_title = "None";
 //กันไม่ให้ออกสินค้าซ้ำ
 $id_array = [];
 if (isset($_GET['filter_type'])) {
-    $_SESSION["filter_type"] = $_GET['filter_type'];
-    $filter_type = $_SESSION["filter_type"];
+    $_SESSION["typeInput"] = $_GET['filter_type'];
 }
 if (isset($_POST['submitName'])) {
     $_SESSION['searchName'] = $_POST['searchName'];
@@ -26,39 +13,27 @@ if (isset($_POST['submitName'])) {
 if (isset($_POST['priceInput'])) {
 
     $_SESSION["priceInput"] = $_POST['priceInput'];
-    $filter_price = $_POST['priceInput'];
-    $filter_type = $_SESSION["typeInput"];
-    $filter_title =  $_SESSION["titleInput"];
     if (strcmp($_POST['priceInput'], "Clean") == 0) {
-        $filter_price = "None";
         $_SESSION["priceInput"] = "None";
     }
 }
 if (isset($_POST['typeInput'])) {
     $_SESSION["typeInput"] = $_POST['typeInput'];
-    $filter_type = $_POST['typeInput'];
-    $filter_price = $_SESSION["priceInput"];
-    $filter_title = $_SESSION['titleInput'];
 
 
     if (strcmp($_POST['typeInput'], "Clean") == 0) {
-        $filter_type = "None";
         $_SESSION['typeInput'] = "None";
     }
 }
 
 if (isset($_POST['titleInput'])) {
     $_SESSION["titleInput"] = $_POST['titleInput'];
-    $filter_title = $_POST['titleInput'];
-    $filter_price = $_SESSION["priceInput"];
-    $filter_type = $_SESSION['typeInput'];
     if (strcmp($_POST['titleInput'], "Clean") == 0) {
-        $filter_title = "None";
         $_SESSION["titleInput"] = "None";
     }
 }
 ?>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -66,15 +41,13 @@ if (isset($_POST['titleInput'])) {
     <title>Filter</title>
     <link rel="stylesheet" href="stylesfilter.css">
     <link rel="stylesheet" href="stylesnavfoot.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- navbar -->
+    <!-- navbar 
     <nav class="navbar sticky-top main-navbar shadow-sm border border-dark">
 
         <ul class="nav me-auto ms-5">
@@ -113,19 +86,19 @@ if (isset($_POST['titleInput'])) {
             </div>
         </div>
     </nav>
-
+-->
     <?php
     //set up database
-    class MyDB extends SQLite3
+    class MyDBe extends SQLite3
     {
         function __construct()
         {
             $this->open('merchandisedate.db');
         }
     }
-    $db = new MyDB();
+    $dbe = new MyDBe();
     $sql = "SELECT * from Merchandise";
-    $ret = $db->query($sql);
+    $ret = $dbe->query($sql);
     //set up json
     $jsonString = file_get_contents('merchandise.json');
     $datajson = json_decode($jsonString, true);
@@ -152,7 +125,7 @@ if (isset($_POST['titleInput'])) {
             <p class="filter-tab fw-bold pe-2">Price</p>
             <div class="dropdown filter-tab">
                 <button class="btn btn-link dropdown-toggle dropdown-text" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span><?php echo $filter_price; ?></span>
+                    <span><?php echo $_SESSION["priceInput"]; ?></span>
                 </button>
                 <ul class="dropdown-menu custom-droplist">
                     <li><input class="dropdown-item custom-droplist-text" type="submit" name="priceInput" value="Lowest to Highest" /></li>
@@ -163,7 +136,7 @@ if (isset($_POST['titleInput'])) {
             <p class="filter-tab fw-bold pe-2">Type</p>
             <div class="dropdown filter-tab list" name="location">
                 <button class="btn btn-link dropdown-toggle dropdown-text" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span><?php echo $filter_type; ?></span>
+                    <span><?php echo $_SESSION["typeInput"]; ?></span>
                 </button>
                 <ul class="dropdown-menu custom-droplist">
                     <li><input class="dropdown-item custom-droplist-text" type="submit" name="typeInput" value="Box Set" /></li>
@@ -174,7 +147,7 @@ if (isset($_POST['titleInput'])) {
             <p class="filter-tab fw-bold pe-2">Title</p>
             <div class="dropdown filter-tab">
                 <button class="btn btn-link dropdown-toggle dropdown-text" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span><?php echo $filter_title; ?></span>
+                    <span><?php echo $_SESSION['titleInput']; ?></span>
                 </button>
                 <ul class="dropdown-menu custom-droplist">
                     <li><input class="dropdown-item custom-droplist-text" type="submit" name="titleInput" value="Game" /></li>
@@ -188,19 +161,19 @@ if (isset($_POST['titleInput'])) {
             </form>
             <div class="row mt-5">
                 <?php
-                if ((strcmp($filter_price, "None") != 0)) {
-                    if (strcmp($filter_price, "Lowest to Highest") == 0) {
+                if ((strcmp($_SESSION["priceInput"], "None") != 0)) {
+                    if (strcmp($_SESSION["priceInput"], "Lowest to Highest") == 0) {
                         //low to high
                         sort($price_array);
                     }
-                    if (strcmp($filter_price, "Highest to Lowest") == 0) {
+                    if (strcmp($_SESSION["priceInput"], "Highest to Lowest") == 0) {
                         //high to low
                         rsort($price_array);
                     }
                     foreach ($price_array as $price_in_array) {
                         while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                             if ($row['Price'] == $price_in_array) {
-                                if (($row['Type'] == $filter_type or strcmp($filter_type, "None") == 0) and ($row['Title'] == $filter_title or strcmp($filter_title, "None") == 0)
+                                if (($row['Type'] == $_SESSION["typeInput"] or strcmp($_SESSION["typeInput"], "None") == 0) and ($row['Title'] == $_SESSION["titleInput"] or strcmp($_SESSION["titleInput"], "None") == 0)
                                     and !in_array($row['ID'], $id_array)
                                 ) {
                                     if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false) {
@@ -227,7 +200,7 @@ if (isset($_POST['titleInput'])) {
                     }
                 } else {
                     while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
-                        if (($row['Type'] == $filter_type or strcmp($filter_type, "None") == 0) and ($row['Title'] == $filter_title or strcmp($filter_title, "None") == 0)) {
+                        if (($row['Type'] == $_SESSION["typeInput"] or strcmp($_SESSION["typeInput"], "None") == 0) and ($row['Title'] == $_SESSION["titleInput"] or strcmp($_SESSION["titleInput"], "None") == 0)) {
                             if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false) {
                                 echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
                                 echo "<div class='card style-card'>";
@@ -262,7 +235,7 @@ if (isset($_POST['titleInput'])) {
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-7">
-                    <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=None">All Products</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Box Set">Box Set</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Merchandise">Merchandises</a>
                 </div>

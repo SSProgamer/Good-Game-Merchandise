@@ -2,11 +2,17 @@
 session_start();
 include "db_connect.php";
 
-if ($_SESSION == NULL) {
-    $_SESSION['priceInput'] = "None";
-    $_SESSION['typeInput'] = "None";
-    $_SESSION['titleInput'] = "None";
-    $_SESSION['searchName'] = "";
+if (!isset($_SESSION["priceInput"])) {
+    $_SESSION["priceInput"] = "None";
+}
+if (!isset($_SESSION["typeInput"])) {
+    $_SESSION["typeInput"] = "None";
+}
+if (!isset($_SESSION["titleInput"])) {
+    $_SESSION["titleInput"] = "None";
+}
+if (!isset($_SESSION["searchName"])) {
+    $_SESSION["searchName"] = "";
 }
 if (!isset($_SESSION["cart"])) {
     $_SESSION["cart"] = array();
