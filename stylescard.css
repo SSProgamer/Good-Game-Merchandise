@@ -8,6 +8,24 @@ body {
     min-height: 70%;
 }
 
-.cart-card-list {
-    background-color: rgb(239, 242, 251) !important;
+.cart-card {
+    border-color: rgb(199, 203, 212);
+}
+
+.cart-table {
+    border-color: rgb(199, 203, 212);
+}
+
+.cart-list-delete {
+    width: 5%;
+}
+
+.pay-button {
+    background-color: rgb(135, 158, 66);
+    border: transparent;
+}
+
+.pay-button:hover {
+    background-color: rgb(104, 122, 51);
+    border: transparent;
 }

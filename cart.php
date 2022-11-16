@@ -1,37 +1,16 @@
 <?php
-    // session_start();
-    include "navbar.php";
-    
-    if(!isset($_SESSION['email'])){
-        header("location: login.php");
-    }
-    // array_push($_SESSION['cart'], array("User" => "Customer"));
-    // print_r($_SESSION['cart']);
+// session_start();
+include "navbar.php";
+
+if (!isset($_SESSION['email'])) {
+    header("location: login.php");
+}
+// array_push($_SESSION['cart'], array("User" => "Customer"));
+// print_r($_SESSION['cart']);
 ?>
 
 <html lang="en">
 
-<body>
-    <table>
-        <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Unit</th>
-            <th></th>
-        </tr>
-        <?php
-            foreach ($_SESSION['cart'] as $user=> $cart){
-                if($cart["User"] == $_SESSION["email"]){
-                    echo '<tr>
-                        <td>'.$cart['Proname'].'</td>
-                        <td>'.$cart['Price'].'</td>
-                        <td>'.$cart['Amount'].'</td>
-                        <td>'.$user.'</td>
-                    </tr>';
-                }
-            }
-        ?>
-        <tr>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,8 +27,8 @@
     <div class="container-fluid main-container">
         <div class="container">
             <h2 class="mt-3 mb-3 fw-bold"><img src="image/webelement/cartpage.png" alt=""> Shopping Cart</h2>
-            <div class="card">
-                <ul class="list-group list-group-flush">
+            <div class="card cart-card">
+                <!-- <ul class="list-group list-group-flush">
                     <li class="list-group-item cart-card-list">
                         <div class="row">
                             <p class="col-6">AZUR LANE | ETERNAL OATH COUPLES' RINGS | SUMMER SUPPLY 2022</p>
@@ -69,8 +48,35 @@
                             <button type="button" class="btn btn-danger col-1">Delete</button>
                         </div>
                     </li>
-                </ul>
+                </ul> -->
+                <table class="table cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Unit</th>
+                            <th class="cart-list-delete"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($_SESSION['cart'] as $user => $cart) {
+                            if ($cart["User"] == $_SESSION["email"]) {
+                                echo '<tr>
+                                        <td>' . $cart['Proname'] . '</td>
+                                        <td>' . $cart['Price'] . '</td>
+                                        <td>' . $cart['Amount'] . '</td>
+                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                    </tr>';
+                            }
+                        }
+                        ?>
+                    </tbody>
+                </table>
+                <h2 class="text-center">Checkout</h2>
+                <button type="button" class="btn btn-success m-3 pay-button">Pay with card</button>
             </div>
+
         </div>
 
         <!-- <table>
