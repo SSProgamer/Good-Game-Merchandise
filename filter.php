@@ -186,9 +186,10 @@ if (isset($_POST['titleInput'])) {
                                         echo "<div class='card-body'>";
                                         echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
                                         echo "<hr>";
-                                        echo "<div class='d-flex justify-content-end'>";
+                                        echo "<div class='row'>";
+                                        echo "<div class='col d-grid'>";
                                         echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
-                                        echo "</div></div></div></div>";
+                                        echo "</div></div></div></div></div>";
                                         $id_array[] = $row['ID'];
                                     }
                                 }
