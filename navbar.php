@@ -20,6 +20,11 @@ if (!isset($_SESSION["cart"])) {
 
 if (isset($_SESSION["email"])) {
 }
+
+if (isset($_POST['submitName'])) {
+    $_SESSION['searchName'] = $_POST['searchName'];
+}
+
 //ถ้ากดปุ่มLogout
 if (isset($_POST['logout'])) {
     unset($_SESSION["email"]); //unsetตัวแปรSession
@@ -59,7 +64,7 @@ if (isset($_POST['logout'])) {
             <?php
             echo "<div class='input-group'>";
             echo "<input class='form-control me-2 text-white bg-dark fw-bold' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
-            echo "<input type='submit' name='submitName' class='btn btn-outline-secondary search-button-nav fw-bold' value='Submit'>";
+            echo "<input type='submit' name='submitName' class='btn btn-outline-secondary search-button-nav fw-bold' value='Search'>";
             echo "</div>";
             ?>
         </form>

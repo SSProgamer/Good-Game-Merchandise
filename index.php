@@ -88,7 +88,7 @@ if (isset($_POST['additem'])) {
             while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                 if ($row['Type'] == "Box Set") {
                     echo "<div class='col-lg-4 col-md-6 col-sm-12 mb-3'>";
-                    echo "<div class='card merchandises-card'>";
+                    echo "<div class='card merchandises-card' onclick=\"location.href = 'item.php';\">";
                     foreach ($datajson as $good => $entry) {
                         if ($datajson[$good]['id'] == $row['ID']) {
                             $strimage = $datajson[$good]['image'][0];

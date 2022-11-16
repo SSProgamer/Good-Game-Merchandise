@@ -1,0 +1,441 @@
+body {
+    font-family: 'Chakra Petch', sans-serif !important;
+}
+
+.totalborder {
+    width: 100%;
+    color: rgb(88, 88, 88);
+    border-bottom: 4px solid;
+    border-top: 4px solid;
+    border-collapse: collapse;
+}
+
+.cartprice {
+    padding-right: 25px;
+    text-align: right;
+
+}
+
+#cartpricetotal {
+    text-align: right;
+    font-weight: 900;
+    padding: 20px;
+
+}
+
+.cartitem {
+    padding-right: 25px;
+}
+
+#cartitemtotal {
+    padding: 20px;
+    font-weight: 500;
+}
+
+.row-bordered:after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid #ccc;
+    margin: 0 15px;
+}
+
+.balance {
+    font-weight: bold;
+    float: right;
+    padding: 5px;
+
+}
+
+nav {
+    z-index: 300;
+}
+
+.navhead {
+    text-align: center;
+    padding-top: 2px;
+    font-size: 30px;
+}
+
+footer {
+    z-index: 300;
+}
+
+.web-text-color {
+    color: rgba(213, 216, 223) !important;
+}
+
+.main-container {
+    background-color: rgba(73, 79, 92);
+    display: flex;
+    min-height: 70%;
+}
+
+.main-navbar {
+    background-color: rgba(59, 62, 72);
+}
+
+.text-in-nav {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.popupnav {
+    background-color: grey;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    height: 55px;
+
+}
+
+.search-nav {
+    margin-left: 50%;
+    width: 30%;
+}
+
+.merchimagebig {
+    margin: 60;
+    background: white;
+    padding: 50px;
+    width: 30%;
+
+}
+
+.merchaimage {
+    margin: auto;
+    width: 30em;
+    height: 30em;
+    z-index: -1;
+}
+
+.merchaimagecard {
+    margin-bottom: auto;
+    background-color: white;
+    padding: 40px;
+    width: 30em;
+    text-align: center;
+    z-index: -1;
+}
+
+.bigpricetag {
+    background: rgba(0, 0, 0, 0.308);
+    margin-top: 20px;
+    margin-left: 22px;
+    padding: 5;
+    width: 27em;
+    text-align: center;
+    border: 5px solid rgba(255, 255, 255, 0.404);
+    border-radius: 10px;
+}
+
+.custombigbut {
+    background: rgb(155, 163, 172);
+    margin-top: 15px;
+    text-align: center;
+    color: white;
+    padding: 18px;
+    width: 30em;
+    transition: ease-in-out 0.46s;
+    border: none;
+    outline: none;
+}
+
+.custombigbut:hover {
+    background: linear-gradient(white, white, white, rgb(255, 243, 209));
+    margin-top: 15px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding: 18px;
+    width: 30em;
+    box-shadow: 11px 11px;
+    transform: translate(-1em, -0.6em);
+}
+
+.custombigbut:active {
+    background: linear-gradient(white, white, white, rgb(255, 255, 255));
+    margin-top: 15px;
+    text-align: center;
+    color: rgb(199, 199, 199);
+    padding: 18px;
+    width: 30em;
+    transition: ease-in-out 0.07s;
+    box-shadow: calc(11px - 5px) calc(11px - 5px);
+    transform: translate(-0.5em, -0.3em);
+}
+
+.customsmallbut {
+    background: rgb(70, 156, 255);
+    margin-top: 15px;
+    margin-left: 155px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    width: 10em;
+    height: 3em;
+    transition: ease-in-out 0.1s;
+    border: none;
+    outline: none;
+}
+
+.customsmallbut:hover {
+    background: linear-gradient(white, white, white, rgb(255, 209, 249));
+    margin-top: 15px;
+    margin-left: 155px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    width: 10em;
+    height: 3em;
+    box-shadow: 11px 11px;
+    transform: translate(-1em, -0.6em);
+}
+
+.customsmallbut:active {
+    background: linear-gradient(white, white, white, rgb(255, 255, 255));
+    margin-top: 15px;
+    margin-left: 155px;
+    text-align: center;
+    color: rgb(199, 199, 199);
+    padding: 10px;
+    width: 10em;
+    height: 3em;
+    transition: ease-in-out 0.07s;
+    box-shadow: calc(11px - 5px) calc(11px - 5px);
+    transform: translate(-0.5em, -0.3em);
+}
+
+.customsmallpopupbut {
+    background: rgb(70, 156, 255);
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+    width: 10em;
+    height: 3em;
+    transition: ease-in-out 0.1s;
+    border: none;
+    outline: none;
+}
+
+.customsmallpopupbut:hover {
+    background: linear-gradient(white, white, white, rgb(255, 209, 249));
+    margin-top: 30px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    width: 10em;
+    height: 3em;
+    box-shadow: 11px 11px;
+    transform: translate(-1em, -0.6em);
+}
+
+.customsmallpopupbut:active {
+    background: linear-gradient(white, white, white, rgb(255, 255, 255));
+    margin-top: 35px;
+    text-align: center;
+    color: rgb(199, 199, 199);
+    width: 10em;
+    height: 3em;
+    transition: ease-in-out 0.07s;
+    box-shadow: calc(11px - 5px) calc(11px - 5px);
+    transform: translate(-0.5em, -0.3em);
+}
+
+#merchaninfo {
+    background: linear-gradient(rgb(235, 235, 235), rgb(206, 206, 206), rgb(167, 167, 167), rgb(114, 117, 117));
+    padding: 30px;
+    width: 103.26%;
+    min-height: 300px;
+    height: auto;
+    overflow: hidden;
+
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.521);
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    width: 700px;
+    height: 700px;
+    margin-left: -375px;
+    /*Half the value of width to center div*/
+    margin-top: -300px;
+    /*Half the value of height to center div*/
+    transition: ease-in-out 0.3;
+    z-index: 200;
+    animation: glow 0.65s linear 1;
+}
+
+#popupaddcart {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    width: 700px;
+    height: 200px;
+    margin-left: -375px;
+    /*Half the value of width to center div*/
+    margin-top: -250px;
+    /*Half the value of height to center div*/
+    z-index: 200;
+    transition: ease-in-out 0.3;
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px 5px rgba(24, 24, 24, 0.192);
+    animation: glow 0.5s linear 1;
+}
+
+.popupclose {
+    color: rgb(207, 207, 207);
+    transform: translate(-0.2em, 0);
+}
+
+.popupclose:hover {
+    box-shadow: 3px 6px;
+    background-color: rgb(255, 255, 255);
+    transform: translate(-0.4em, -0.2em);
+    transition: ease-in-out 0.1s;
+    color: rgb(255, 0, 0);
+}
+
+.popupclose:active {
+    color: rgb(255, 144, 144);
+    box-shadow: 1px 3px;
+    transform: translate(-0.2em, -0.1em);
+}
+
+
+
+@keyframes glow {
+    0% {
+        box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.555);
+    }
+
+    5% {
+        box-shadow: 0px 0.3px 2px 3px rgba(0, 0, 0, 0.555);
+    }
+
+    10% {
+        box-shadow: 5px 5px 2px 3px rgba(65, 64, 56, 0.555);
+    }
+
+    20% {
+        box-shadow: 15px 12px 2px 3px rgba(204, 196, 119, 0.555);
+    }
+
+    30% {
+        box-shadow: 12px 15px 2px 3px rgba(231, 221, 130, 0.555);
+    }
+
+    40% {
+        box-shadow: 7px 15px 2px 3px rgba(255, 233, 108);
+    }
+
+    50% {
+        box-shadow: 0px 15px 2px 3px rgb(255, 247, 201);
+    }
+
+    60% {
+        box-shadow: -7px 12px 2px 3px rgb(255, 247, 201);
+    }
+
+    70% {
+        box-shadow: -12px 7px 2px 3px rgb(255, 247, 201);
+    }
+
+    80% {
+        box-shadow: -15px -7px 2px 3px rgb(255, 247, 201);
+    }
+
+    85% {
+        box-shadow: -12px -12px 2px 3px rgb(255, 247, 201);
+    }
+
+    90% {
+        box-shadow: -7px -50px 2px 3px rgb(252, 235, 142);
+    }
+
+    93% {
+        box-shadow: 0px -50px 2px 3px rgb(252, 235, 142);
+    }
+
+    94% {
+        box-shadow: 0px -50px 0px 3px rgb(255, 223, 43);
+    }
+
+    95% {
+        box-shadow: 0px -15px 50px 10px rgb(255, 223, 43);
+    }
+
+    100% {
+        box-shadow: 0px 0px 50px 5px rgb(255, 226, 60);
+    }
+}
+
+.popupclose {
+    float: right;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.popupcontent {
+    height: 224px;
+}
+
+.popupcontentaddcart {
+    text-align: center;
+    padding-top: 50px;
+}
+
+#button {
+    cursor: pointer;
+}
+
+
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item>div {
+        display: none;
+    }
+
+    .carousel-inner .carousel-item>div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(25%);
+    }
+
+    .carousel-inner .carousel-item-start.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%);
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start {
+    transform: translateX(0);
+}

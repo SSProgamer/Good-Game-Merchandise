@@ -6,9 +6,6 @@ $id_array = [];
 if (isset($_GET['filter_type'])) {
     $_SESSION["typeInput"] = $_GET['filter_type'];
 }
-if (isset($_POST['submitName'])) {
-    $_SESSION['searchName'] = $_POST['searchName'];
-}
 if (isset($_POST['priceInput'])) {
 
     $_SESSION["priceInput"] = $_POST['priceInput'];
@@ -117,7 +114,7 @@ if (isset($_POST['titleInput'])) {
                     <?php
                     echo "<div class='input-group'>";
                     echo "<input class='form-control' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
-                    echo "<input type='submit' name='submitName' class='btn bg-white search-button-filter' value='Submit'>";
+                    echo "<input type='submit' name='submitName' class='btn bg-white search-button-filter' value='Search'>";
                     echo "</div>";
                     ?>
 
