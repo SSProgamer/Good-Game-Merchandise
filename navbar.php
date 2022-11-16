@@ -85,7 +85,7 @@ if (isset($_POST['logout'])) {
             // echo '<form action="' . $sent . '" method="post">
             //         <button type="submit" name="logout">logout</button>
             //         </form>';
-            echo '<a href="#"><img src="image/webelement/cart.png" alt="" class="me-4"></a>';
+            echo '<a href="cart.php"><img src="image/webelement/cart.png" alt="" class="me-4"></a>';
             echo '<div class="dropdown me-5">
             <a class="btn btn-secondary dropdown-toggle user-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="image/webelement/user.png" alt="">

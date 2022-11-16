@@ -86,16 +86,16 @@ if (isset($_POST['titleInput'])) {
 -->
     <?php
     //set up database
-    class MyDBe extends SQLite3
-    {
-        function __construct()
-        {
-            $this->open('merchandisedate.db');
-        }
-    }
-    $dbe = new MyDBe();
+    // class MyDBe extends SQLite3
+    // {
+    //     function __construct()
+    //     {
+    //         $this->open('merchandisedate.db');
+    //     }
+    // }
+    // $dbe = new MyDBe();
     $sql = "SELECT * from Merchandise";
-    $ret = $dbe->query($sql);
+    $ret = $db->query($sql);
     //set up json
     $jsonString = file_get_contents('merchandise.json');
     $datajson = json_decode($jsonString, true);
@@ -187,7 +187,7 @@ if (isset($_POST['titleInput'])) {
                                         echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
                                         echo "<hr>";
                                         echo "<div class='d-flex justify-content-end'>";
-                                        echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
+                                        echo "<a href='addcart.php?addproid=".$row['ID']."' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
                                         echo "</div></div></div></div>";
                                         $id_array[] = $row['ID'];
                                     }
@@ -213,7 +213,7 @@ if (isset($_POST['titleInput'])) {
                                 echo "<hr>";
                                 echo "<div class='row'>";
                                 echo "<div class='col d-grid'>";
-                                echo "<a href='' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
+                                echo "<a href='addcart.php?addproid=".$row['ID']."' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
                                 echo "</div></div></div></div></div>";
                             }
                         }

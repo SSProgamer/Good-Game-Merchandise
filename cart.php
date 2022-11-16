@@ -2,6 +2,11 @@
     // session_start();
     include "navbar.php";
     
+    if(!isset($_SESSION['email'])){
+        header("location: login.php");
+    }
+    // array_push($_SESSION['cart'], array("User" => "Customer"));
+    // print_r($_SESSION['cart']);
 ?>
 
 <html lang="en">
@@ -15,13 +20,13 @@
             <th></th>
         </tr>
         <?php
-            foreach ($_SESSION['cart'] as $user=> $car){
+            foreach ($_SESSION['cart'] as $user=> $cart){
                 if($cart["User"] == $_SESSION["email"]){
                     echo '<tr>
-                        <td>'.$cart['ProductName'].'</td>
+                        <td>'.$cart['Proname'].'</td>
                         <td>'.$cart['Price'].'</td>
                         <td>'.$cart['Amount'].'</td>
-                        <td></td>
+                        <td>'.$user.'</td>
                     </tr>';
                 }
             }
