@@ -1,0 +1,31 @@
+body {
+    font-family: 'Chakra Petch', sans-serif !important;
+}
+
+.main-container {
+    background-color: rgb(228, 231, 237);
+    display: flex;
+    min-height: 70%;
+}
+
+.cart-card {
+    border-color: rgb(199, 203, 212);
+}
+
+.cart-table {
+    border-color: rgb(199, 203, 212);
+}
+
+.pay-button {
+    background-color: rgb(135, 158, 66);
+    border: transparent;
+}
+
+.pay-button:hover {
+    background-color: rgb(104, 122, 51);
+    border: transparent;
+}
+
+.pay-button:active {
+    background-color: rgb(74, 86, 36) !important;
+}

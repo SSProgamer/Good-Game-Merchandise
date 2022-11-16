@@ -397,6 +397,10 @@ body {
     color: rgb(161, 167, 178);
 }
 
+.merchandises-card {
+    cursor: pointer;
+}
+
 /*
 @media (max-width: 767px) {
     .carousel-inner .carousel-item > div {
