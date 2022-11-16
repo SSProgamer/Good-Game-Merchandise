@@ -160,9 +160,9 @@ $datajson = json_decode($jsonString, true);
             <div class="row">
                 <?php
                 while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
-                    if ($row['ID'] == "1") {
+                    if ($row['ID'] == $_GET['idmer']) {
                         foreach ($datajson as $good => $entry) {
-                            if ($datajson[$good]['id'] == 5) {
+                            if ($datajson[$good]['id'] == $_GET['idmer']) {
                                 $strimage = $datajson[$good]['image'][1];
                                 echo "<div class='col-6 show-main-img'>";
                                 echo " <img class='merchaimage' src='$strimage' style='width: 100%; height: 100%; object-fit: scale-down;'>";
@@ -184,7 +184,7 @@ $datajson = json_decode($jsonString, true);
                     <div class="slides">
                         <?php
                         foreach ($datajson as $good => $entry) {
-                            if ($datajson[$good]['id'] == 2) {
+                            if ($datajson[$good]['id'] == $_GET['idmer']) {
                                 for ($x = 1; $x < sizeof($datajson[$good]['image']); $x++) {
                                     $strimage = $datajson[$good]["image"][$x];
                                     echo "<div id='slide-1'>";
@@ -242,7 +242,8 @@ $datajson = json_decode($jsonString, true);
                     while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                         if ($row['ID'] == $randomnum) {
                             echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-5 mincol'>";
-                            echo "<div class='card style-card'>";
+                            $ID=$row['ID'];
+                            echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
                             foreach ($datajson as $good => $entry) {
                                 if ($datajson[$good]['id'] == $randomnum) {
                                     $strimage = $datajson[$good]['image'][0];

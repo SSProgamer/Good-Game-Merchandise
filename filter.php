@@ -5,6 +5,8 @@ include "navbar.php";
 $id_array = [];
 if (isset($_GET['filter_type'])) {
     $_SESSION["typeInput"] = $_GET['filter_type'];
+    $_SESSION["priceInput"] = "None";
+    $_SESSION["titleInput"] = "None";
 }
 if (isset($_POST['priceInput'])) {
 
@@ -110,7 +112,7 @@ if (isset($_POST['titleInput'])) {
         <div class="container">
             <h3 class="result pt-5 pb-3">Results</h3>
             <div class="dropdown filter-tab">
-                <form class="d-flex" role="search" method="post">
+                <form class="d-flex" role="search" method="post" action="filter.php">
                     <?php
                     echo "<div class='input-group'>";
                     echo "<input class='form-control' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
@@ -175,7 +177,8 @@ if (isset($_POST['titleInput'])) {
                                 ) {
                                     if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false) {
                                         echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
-                                        echo "<div class='card style-card'>";
+                                        $ID=$row['ID'];
+                                        echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
                                         foreach ($datajson as $good => $entry) {
                                             if ($datajson[$good]['id'] == $row['ID']) {
                                                 $strimage = $datajson[$good]['image'][0];
@@ -200,7 +203,8 @@ if (isset($_POST['titleInput'])) {
                         if (($row['Type'] == $_SESSION["typeInput"] or strcmp($_SESSION["typeInput"], "None") == 0) and ($row['Title'] == $_SESSION["titleInput"] or strcmp($_SESSION["titleInput"], "None") == 0)) {
                             if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false) {
                                 echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
-                                echo "<div class='card style-card'>";
+                                $ID=$row['ID'];
+                                echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
                                 foreach ($datajson as $good => $entry) {
                                     if ($datajson[$good]['id'] == $row['ID']) {
                                         $strimage = $datajson[$good]['image'][0];
