@@ -110,9 +110,9 @@ if (isset($_POST['additem'])) {
 
                     echo "</div>";
                     echo "<div class='col-sm-12 col-md-5 col-lg-4 col-xl-3 mt-2'>";
-                    echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='post'>";
+                    // echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='post'>";
                     echo "<button class='card-text price p-1 text-center p-2' name='additem' value='" . $row["Price"] . "'>฿" . number_format($row['Price']) . "</button>";
-                    echo "</form>";
+                    // echo "</form>";
                     echo "</div></div></div></div></div>";
                     $gamesetcou += 1;
                 }
