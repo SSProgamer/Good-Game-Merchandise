@@ -3,8 +3,8 @@
     include "db_connect.php";
     // print_r($_SESSION['cart']);
     // add order first
-    $sql = "INSERT INTO Order (Order_ID, CustomerID, Order_Status)
-    VALUES (NULL,'".$_SESSION["ID"]."', 'wait_payment')";
+    $sql = "INSERT INTO Order (Order_ID, CustomerID, Order_Status, Ord_name, Ord_lname, Ord_address, Ord_city, Ord_province, Ord_post, Ord_phone)
+    VALUES (NULL,'".$_SESSION["ID"]."', 'wait_payment', 'postname', 'postlname', 'postaddr', 'postcity', 'postprovince', 'postcode','postphone')";
     $result = $db->query($sql);
     if(!$result){
         echo "Bruh";
