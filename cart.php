@@ -74,7 +74,11 @@ if (!isset($_SESSION['email'])) {
                     </tbody>
                 </table>
                 <h2 class="text-center">Checkout</h2>
-                <button type="button" class="btn btn-success m-3 pay-button">Pay with card</button>
+                <a href="#" name="order" class="btn btn-success m-3 pay-button">Pay with card</a>
+                
+                <!-- <form action="<?php //htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <button type="submit" name="order" class="btn btn-success m-3 pay-button">Pay with card</button>
+                </form> -->
             </div>
 
         </div>
