@@ -29,3 +29,7 @@ body {
     background-color: rgb(104, 122, 51);
     border: transparent;
 }
+
+.pay-button:active {
+    background-color: rgb(74, 86, 36) !important;
+}

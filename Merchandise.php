@@ -19,7 +19,7 @@ include "navbar.php";
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        /*slider*/
+        /* slider */
         .slider {
             width: 100%;
             text-align: center;
@@ -55,7 +55,7 @@ include "navbar.php";
             height: auto;
             margin-right: 50px;
             border-radius: 10px;
-            background: #eee;
+            background: transparent;
             transform-origin: center center;
             transform: scale(1);
             transition: transform 0.5s;
@@ -93,10 +93,6 @@ include "navbar.php";
             .slider>a {
                 display: none;
             }
-        }
-
-        .mincol {
-            min-height: 100%;
         }
     </style>
 </head>
@@ -166,28 +162,29 @@ $datajson = json_decode($jsonString, true);
                 while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                     if ($row['ID'] == "1") {
                         foreach ($datajson as $good => $entry) {
-                            if ($datajson[$good]['id'] == 1) {
+                            if ($datajson[$good]['id'] == 5) {
                                 $strimage = $datajson[$good]['image'][1];
-                                echo "<div class='col-6'>";
+                                echo "<div class='col-6 show-main-img'>";
                                 echo " <img class='merchaimage' src='$strimage' style='width: 100%; height: 100%; object-fit: scale-down;'>";
                                 echo "</div>";
                             }
                         }
-                        echo "<div class='col-6'>";
-                        echo "<h1 class='text-white'>" . $row['NameProduct'] . "</h1><br>";
+                        echo "<div class='col-1'></div>";
+                        echo "<div class='col-5 p-3 item-price'>";
+                        echo "<h1 class='text-white fw-bold'>" . $row['NameProduct'] . "</h1><br>";
                         echo "<div class='bigpricetag'><h1 class='text-white'>฿" . number_format($row['Price']) . "</h1></div><br>";
                         //add to cart
-                        echo "<button type='button' class='custombigbut' onclick='addtocartPopUp()'>Add to cart</button>";
-                        echo "<button type='button' class='custombigbut' onclick='purchasePopUp()'>Add to wishlist</button>";
-                        echo "</div>";
+                        echo "<div class='d-grid gap-2'><button type='button' class='btn add-cart' onclick='addtocartPopUp()'><h4 class='mt-2 fw-bold'>Add to cart</h4></button>";
+                        echo "<button type='button' class='btn add-wishlist' onclick='addtocartPopUp()'><h5 class='mt-1 fw-bold'>Add to wishlist</h5></button>";
+                        echo "</div></div>";
                 ?>
             </div>
-            <div class="container text-center my-3">
+            <div class="container text-center mt-3 mb-5">
                 <div class="slider">
                     <div class="slides">
                         <?php
                         foreach ($datajson as $good => $entry) {
-                            if ($datajson[$good]['id'] == 1) {
+                            if ($datajson[$good]['id'] == 2) {
                                 for ($x = 1; $x < sizeof($datajson[$good]['image']); $x++) {
                                     $strimage = $datajson[$good]["image"][$x];
                                     echo "<div id='slide-1'>";
@@ -203,32 +200,30 @@ $datajson = json_decode($jsonString, true);
             <div class="row">
                 <div id="merchaninfo">
                     <div>
-                        <h1>
-                            <li>Info</li>
-                        </h1>
-                        <ul>
+                        <h1 class="fw-bold">Info</h1>
+                        <ul style="list-style: none;">
                             <li>
-                                <?php
-                                echo $row['Description']
-                                ?>
+                                <h5>
+                                    <?php
+                                    echo $row['Description']
+                                    ?>
+                                </h5>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <h1>
-                            <li>
-                                <?php
-                                echo $row['Details1']
-                                ?>
-                            </li>
+                        <h1 class="fw-bold">
+                            <?php
+                            echo $row['Details1']
+                            ?>
                         </h1>
                         <ul>
                     <?php
-                        $numDetails = 1;
+                        $numDetails = 2;
                         $strDetails = 'Details' . $numDetails;
                         while ($row[$strDetails] != NULL) {
 
-                            echo "<li>$row[$strDetails]</li>";
+                            echo "<li><h5>$row[$strDetails]</h5></li>";
                             $numDetails += 1;
                             $strDetails = 'Details' . $numDetails;
                         }
@@ -239,8 +234,8 @@ $datajson = json_decode($jsonString, true);
                     </div>
                 </div>
             </div>
-            <h1>Recommended Merchandise</h1>
-            <div class="row mt-5">
+            <h3 class="recommended-text fw-bold mt-5">Recommended Merchandise</h3>
+            <div class="row mt-2">
                 <?php
                 for ($x = 1; $x < 5; $x++) {
                     $randomnum = rand(1, 65);
@@ -269,7 +264,6 @@ $datajson = json_decode($jsonString, true);
                 ?>
             </div>
         </div>
-
     </div>
 
     <!-- footer -->

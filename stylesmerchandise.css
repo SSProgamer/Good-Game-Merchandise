@@ -3,8 +3,7 @@ body {
 }
 
 /* img {
-    max-width: 100%;
-    max-height: 100%;
+    max-height: 100px;
 } */
 
 .totalborder {
@@ -45,7 +44,7 @@ body {
 }
 
 .main-container {
-    background-color: rgba(73, 79, 92);
+    background-color: rgba(40, 44, 52, 255);
     display: flex;
     min-height: 70%;
 }
@@ -100,8 +99,7 @@ body {
 
 .bigpricetag {
     background: rgba(0, 0, 0, 0.308);
-    margin-top: 20px;
-    margin-left: 22px;
+    margin: auto;
     padding: 5;
     width: 27em;
     text-align: center;
@@ -221,7 +219,7 @@ body {
 }
 
 #merchaninfo {
-    background: linear-gradient(rgb(235, 235, 235), rgb(206, 206, 206), rgb(167, 167, 167), rgb(114, 117, 117));
+    background: rgb(228, 231, 237);
     padding: 30px;
     width: 103.26%;
     min-height: 300px;
@@ -297,74 +295,6 @@ body {
     transform: translate(-0.2em, -0.1em);
 }
 
-
-
-@keyframes glow {
-    0% {
-        box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.555);
-    }
-
-    5% {
-        box-shadow: 0px 0.3px 2px 3px rgba(0, 0, 0, 0.555);
-    }
-
-    10% {
-        box-shadow: 5px 5px 2px 3px rgba(65, 64, 56, 0.555);
-    }
-
-    20% {
-        box-shadow: 15px 12px 2px 3px rgba(204, 196, 119, 0.555);
-    }
-
-    30% {
-        box-shadow: 12px 15px 2px 3px rgba(231, 221, 130, 0.555);
-    }
-
-    40% {
-        box-shadow: 7px 15px 2px 3px rgba(255, 233, 108);
-    }
-
-    50% {
-        box-shadow: 0px 15px 2px 3px rgb(255, 247, 201);
-    }
-
-    60% {
-        box-shadow: -7px 12px 2px 3px rgb(255, 247, 201);
-    }
-
-    70% {
-        box-shadow: -12px 7px 2px 3px rgb(255, 247, 201);
-    }
-
-    80% {
-        box-shadow: -15px -7px 2px 3px rgb(255, 247, 201);
-    }
-
-    85% {
-        box-shadow: -12px -12px 2px 3px rgb(255, 247, 201);
-    }
-
-    90% {
-        box-shadow: -7px -50px 2px 3px rgb(252, 235, 142);
-    }
-
-    93% {
-        box-shadow: 0px -50px 2px 3px rgb(252, 235, 142);
-    }
-
-    94% {
-        box-shadow: 0px -50px 0px 3px rgb(255, 223, 43);
-    }
-
-    95% {
-        box-shadow: 0px -15px 50px 10px rgb(255, 223, 43);
-    }
-
-    100% {
-        box-shadow: 0px 0px 50px 5px rgb(255, 226, 60);
-    }
-}
-
 .popupclose {
     float: right;
     padding: 10px;
@@ -416,6 +346,55 @@ body {
 
 .price:hover:before {
     content: "Add to cart"
+}
+
+.show-main-img {
+    max-height: 400px;
+    background-color: rgba(161, 167, 179, 0.3);
+}
+
+.item-price {
+    background-color: rgb(27, 30, 27);
+}
+
+.add-cart {
+    background-color: rgb(156, 185, 70);
+    border-color: transparent;
+    color: white;
+}
+
+.add-cart:hover {
+    background-color: rgb(116, 137, 52) !important;
+    border-color: transparent !important;
+    color: white !important;
+}
+
+.add-cart:active {
+    background-color: rgb(78, 92, 35) !important;
+    border-color: transparent !important;
+    color: rgb(47, 55, 21) !important;
+}
+
+.add-wishlist {
+    background-color: rgb(244, 157, 37);
+    border-color: transparent;
+    color: white;
+}
+
+.add-wishlist:hover {
+    background-color: rgb(166, 111, 23) !important;
+    border-color: transparent !important;
+    color: white !important;
+}
+
+.add-wishlist:active {
+    background-color: rgb(10, 11, 10) !important;
+    border-color: transparent !important;
+    color: rgb(77, 75, 73) !important;
+}
+
+.recommended-text {
+    color: rgb(161, 167, 178);
 }
 
 /*
