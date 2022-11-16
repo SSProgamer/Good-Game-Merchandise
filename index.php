@@ -163,7 +163,7 @@ if (isset($_POST['additem'])) {
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-7">
-                    <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=None">All Products</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Box Set">Box Set</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Merchandise">Merchandises</a>
                 </div>

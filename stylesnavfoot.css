@@ -32,6 +32,10 @@
     border-radius: 2.5% !important;
 }
 
+.user-dropdown-list-item {
+    cursor: pointer;
+}
+
 .user-dropdown-list-item:hover {
     background-color: transparent !important;
     text-decoration: underline;

@@ -1,3 +1,13 @@
+<?php
+include "navbar.php";
+$sql = "SELECT * FROM Customer WHERE CustomerID =" . $_SESSION["ID"] . "";
+$result = $db->query($sql);
+if (!$result) {
+    // echo "bruh";
+    header("location: login.php");
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -7,8 +17,8 @@
     <title>Purchases</title>
     <link rel="stylesheet" href="stylespurchases.css">
     <link rel="stylesheet" href="stylesnavfoot.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
@@ -16,7 +26,7 @@
 
 <body>
     <!-- navbar -->
-    <nav class="navbar sticky-top main-navbar shadow-sm border border-dark">
+    <!-- <nav class="navbar sticky-top main-navbar shadow-sm border border-dark">
         <ul class="nav me-auto ms-5">
             <li class="nav-item ms-5 mt-1">
                 <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
@@ -45,7 +55,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <div class="container-fluid main-container">
         <div class="container mt-5 mb-5 purchases-contain rounded">
@@ -188,7 +198,7 @@
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-7">
-                    <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=None">All Products</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Box Set">Box Set</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Merchandise">Merchandises</a>
                 </div>

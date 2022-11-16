@@ -6,11 +6,11 @@ if (!$result) {
     // echo "bruh";
     header("location: login.php");
 }
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     #
     $sql2 = 'UPDATE Customer
-    SET "FirstName" = "'.$_POST['fname'].'", "LastName" = "'.$_POST['lname'].'", "Address"= "'.$_POST['address'].'", "City"= "'.$_POST['city'].'","Province"="'.$_POST['province'].'",Postcode="'.$_POST['postcode'].'",phonenumber="'.$_POST['phone'].'"
-    WHERE "CustomerID" = "'.$_SESSION["ID"].'"';
+    SET "FirstName" = "' . $_POST['fname'] . '", "LastName" = "' . $_POST['lname'] . '", "Address"= "' . $_POST['address'] . '", "City"= "' . $_POST['city'] . '","Province"="' . $_POST['province'] . '",Postcode="' . $_POST['postcode'] . '",phonenumber="' . $_POST['phone'] . '"
+    WHERE "CustomerID" = "' . $_SESSION["ID"] . '"';
     $result2 = $db->query($sql2);
     // if (!$result2) {
     //     // 
@@ -162,7 +162,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <h3><a class="nav-link text-white" href="index.php">GoodGame</a></h3>
                 </div>
                 <div class="col-7">
-                    <a class="nav-link web-text-color pb-3" href="filter.php">All Products</a>
+                    <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=None">All Products</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Box Set">Box Set</a>
                     <a class="nav-link web-text-color pb-3" href="filter.php?filter_type=Merchandise">Merchandises</a>
                 </div>

@@ -13,6 +13,7 @@ body {
     background-color: rgb(40, 44, 52) !important;
     box-shadow: 3px 3px 10px rgb(40, 44, 52);
     color: rgb(212, 213, 214);
+    cursor: pointer;
 }
 
 .merchandises-pic {
