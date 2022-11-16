@@ -1,6 +1,8 @@
 <?php
 // include "db_connect.php";
 include "navbar.php";
+
+//ถ้ากดสั่ง (เดี๋ยวย้ายไปหน้า page สินค้านั้นๆ แทน)
 if (isset($_POST['additem'])) {
     if (!isset($_SESSION["email"])) {
         //Maybe add alert message ot not?
@@ -8,10 +10,16 @@ if (isset($_POST['additem'])) {
     } else {
         $sql2 = "SELECT * FROM Merchandise WHERE ID = " . $_POST['additem'] . "";
         $result2 = $db->query($sql2);
-        while ($item = $result2->fetchArray(SQLITE3_ASSOC)) {
-            array_push($_SESSION["cart"], array("user" => $_SESSION['email'], "ProductID" => $item["ID"], "Proname" => $item["NameProduct"], "Price" => $item["Price"], "Amount" => 1));
+        if(!$result2){
+            print "bruh";
         }
-        header("location: index.php");
+        if (!isset($_SESSION["cart"])) {
+            $_SESSION["cart"] = array();
+        }
+        while ($item = $result2->fetchArray(SQLITE3_ASSOC)) {
+            array_push($_SESSION["cart"], array("User" => $_SESSION['email'], "ProductID" => $item["ID"], "Proname" => $item["NameProduct"], "Price" => $item["Price"], "Amount" => 1));
+        }
+        // header("location: index.php");
         // if(!isset($_SESSION["cart"])){
 
         // }

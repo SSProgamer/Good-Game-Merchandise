@@ -7,9 +7,9 @@ $result = $db->query($sql);
 // while($detail = $result->fetchArray(SQLITE3_ASSOC)){
 
 // }
-if (isset($_POST["addcart"])) {
-}
-?>
+// if (isset($_POST["addcart"])) {
+// }
+// ?>
 <html lang="en">
 
 <head>
