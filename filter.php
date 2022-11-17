@@ -69,7 +69,7 @@ if (isset($_POST['titleInput'])) {
         <form class="d-flex text-in-nav search-nav" role="search" method="post" action="filter.php">
             <?php
             echo "<div class='input-group'>";
-            echo "<input class='form-control me-2 text-white bg-dark fw-bold' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
+            echo "<input class='form-control me-2 text-white bg-dark fw-bold' type='text' placeholder='Product name' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
             echo "<input type='submit' name='submitName' class='btn btn-outline-secondary search-button-nav fw-bold' value='Submit'>";
             echo "</div>";
             ?>
@@ -120,7 +120,7 @@ if (isset($_POST['titleInput'])) {
                 <form class="d-flex" role="search" method="post" action="filter.php">
                     <?php
                     echo "<div class='input-group'>";
-                    echo "<input class='form-control' type='text' placeholder='Search' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
+                    echo "<input class='form-control' type='text' placeholder='Product name' aria-label='Search' name='searchName' value='" . $_SESSION['searchName'] . "'>";
                     echo "<input type='submit' name='submitName' class='btn bg-white search-button-filter' value='Search'>";
                     echo "</div>";
                     ?>
