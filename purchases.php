@@ -120,103 +120,13 @@ if (!$result) {
                                     <p class="">'.$order['Order_Status'].'</p>
                                 </div>
                                 <div class="col-1">
-                                    <a href="#" class="button">See Detail</a>
+                                    <a href="orderdetail.php?id='.$order['Order_ID'].'" class="button">See Detail</a>
                                 </div>
                             </div>
                         </li>';
                         }
                     ?>
-                    <li class="list-group-item">
-                        <div class="row mt-3">
-                            <div class="col-8">
-                                <p class="">Sekiro Shadows Die Twice Collector's Edition</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">22/10/1911</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">$15,099</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row mt-3">
-                            <div class="col-8">
-                                <p class="">Monster Hunter: World [Collector's Edition]</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">2/7/1776</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">$11,690</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row mt-3">
-                            <div class="col-8">
-                                <p class="">Monster Hunter: World [Collector's Edition]</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">2/7/1776</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">$11,690</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row mt-3">
-                            <div class="col-8">
-                                <p class="">Monster Hunter: World [Collector's Edition]</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">2/7/1776</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">$11,690</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row mt-3">
-                            <div class="col-8">
-                                <p class="">Monster Hunter: World [Collector's Edition]</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">2/7/1776</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">$11,690</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row mt-3">
-                            <div class="col-8">
-                                <p class="">Monster Hunter: World [Collector's Edition]</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">2/7/1776</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">$11,690</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row mt-3">
-                            <div class="col-8">
-                                <p class="">Monster Hunter: World [Collector's Edition]</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">2/7/1776</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="">$11,690</p>
-                            </div>
-                        </div>
-                    </li>
+                    
                     <!-- Insert New List Here -->
                 </ul>
             </div>
