@@ -1,9 +1,9 @@
 <?php
 include "navbar.php";
-if(!isset($_SESSION['email'])){
+if (!isset($_SESSION['email'])) {
     header("location: login.php");
 }
-$sql = "SELECT * FROM 'Order' WHERE CustomerID =".$_SESSION["ID"]."";
+$sql = "SELECT * FROM 'Order' WHERE CustomerID =" . $_SESSION["ID"] . "";
 $result = $db->query($sql);
 if (!$result) {
     echo "bruh";
@@ -18,8 +18,8 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchases</title>
-    <link rel="stylesheet" href="stylespurchases.css">
+    <title>Orders</title>
+    <link rel="stylesheet" href="stylesorders.css">
     <link rel="stylesheet" href="stylesnavfoot.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> -->
@@ -89,44 +89,44 @@ if (!$result) {
                     <!-- <li class="list-group-item">
                         <div class="row mt-3">
                             <div class="col-8"> -->
-                                <!-- Product Name -->
-                                <!-- <p class="">Elder ring [Collector's Edition]</p>
+                    <!-- Product Name -->
+                    <!-- <p class="">Elder ring [Collector's Edition]</p>
                             </div>
                             <div class="col-2"> -->
-                                <!-- Purchased Date -->
-                                <!-- <p class="">18/1/1944</p>
+                    <!-- Purchased Date -->
+                    <!-- <p class="">18/1/1944</p>
                             </div>
                             <div class="col-2"> -->
-                                <!-- Price -->
-                                <!-- <p class="">$18,000</p>
+                    <!-- Price -->
+                    <!-- <p class="">$18,000</p>
                             </div>
                         </div>
                     </li> -->
                     <!-- Example End -->
                     <?php
-                        while($order = $result->fetchArray(SQLITE3_ASSOC)){
-                            echo '<li class="list-group-item">
+                    while ($order = $result->fetchArray(SQLITE3_ASSOC)) {
+                        echo '<li class="list-group-item">
                             <div class="row mt-3">
                                 <div class="col-5">
-                                    <p class=""> Order Number: '.$order['Order_ID'].'</p>
+                                    <p class=""> Order Number: ' . $order['Order_ID'] . '</p>
                                 </div>
                                 <div class="col-2">
-                                    <p class="">'.$order['Ord_date'].'</p>
+                                    <p class="">' . $order['Ord_date'] . '</p>
                                 </div>
                                 <div class="col-2">
-                                    <p class="">'.$order['Ord_total'].'</p>
+                                    <p class="">' . $order['Ord_total'] . '</p>
                                 </div>
                                 <div class="col-2">
-                                    <p class="">'.$order['Order_Status'].'</p>
+                                    <p class="">' . $order['Order_Status'] . '</p>
                                 </div>
                                 <div class="col-1">
-                                    <a href="orderdetail.php?id='.$order['Order_ID'].'" class="button">See Detail</a>
+                                    <a href="orderdetail.php?id=' . $order['Order_ID'] . '" class="button">See Detail</a>
                                 </div>
                             </div>
                         </li>';
-                        }
+                    }
                     ?>
-                    
+
                     <!-- Insert New List Here -->
                 </ul>
             </div>
