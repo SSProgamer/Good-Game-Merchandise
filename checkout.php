@@ -68,7 +68,7 @@ if (!isset($_SESSION['email'])) {
             <div class="card cart-card mt-3 mb-3">
                 <h3>Address for shipping</h3>
                 <?php while ($info = $result->fetchArray(SQLITE3_ASSOC)) {
-                echo'<form action="#" method="post">
+                echo'<form action="order.php" method="post">
                     <div class="row align-items-center mb-3 mt-3">
                         <div class="col-2">
                             <h5 class="fw-bold text-end"><label for="infofname" class="col-form-label">Firstname</label></h5>
