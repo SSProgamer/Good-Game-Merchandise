@@ -7,6 +7,9 @@ if (!$result2) {
     echo $db->lastErrorMsg();
     // header("location: login.php");
 }
+if(!isset($_SESSION["email"])){
+    header("location: login.php");
+}
 ?>
 
 <html lang="en">
