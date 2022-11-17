@@ -1,9 +1,25 @@
 <?php
 // session_start();
 include "navbar.php";
+$have = false;
+
+//check ว่ามีสินต้าในตระกร้าหรือเปล่า
+foreach ($_SESSION['cart'] as $user => $cart){
+    if ($cart["User"] == $_SESSION["email"]){
+        $have = true;
+    }
+}
 
 if (!isset($_SESSION['email'])) {
     header("location: login.php");
+}
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    //
+    // array_pop($_SESSION["cart"]);
+    unset($_SESSION["cart"][$_POST['delete']]);
+    unset($_POST['detele']);
+    // header("Location: arraycart.php");
+
 }
 // array_push($_SESSION['cart'], array("User" => "Customer"));
 // print_r($_SESSION['cart']);
@@ -45,7 +61,10 @@ if (!isset($_SESSION['email'])) {
                                         <td>' . $cart['Proname'] . '</td>
                                         <td>' . $cart['Price'] . '</td>
                                         <td>' . $cart['Amount'] . '</td>
-                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                        <td><form="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+                                        <button type="submit" value="'.$user.'" name="delete" class="btn btn-danger">Delete</button>
+                                        </form>
+                                        </td>
                                     </tr>';
                             }
                         }
@@ -53,7 +72,15 @@ if (!isset($_SESSION['email'])) {
                     </tbody>
                 </table>
                 <h2 class="text-center">Checkout</h2>
-                <a href="checkout.php" name="order" class="btn btn-success m-3 pay-button">Checkout</a>
+                <!-- <a href="checkout.php" id ="order"name="order" class="btn btn-success m-3 pay-button">Checkout</a> -->
+                <?php
+                    if(!$have){
+                        echo '<a href="javascript:void(0)" id ="order"name="order" class="btn btn-success m-3 pay-button">Checkout</a>';
+                    }
+                    else{
+                        echo'<a href="checkout.php" id ="order"name="order" class="btn btn-success m-3 pay-button">Checkout</a>';
+                    }
+                ?>
                 <!-- <form action="<?php //htmlspecialchars($_SERVER["PHP_SELF"]); 
                                     ?>" method="post">
                     <button type="submit" name="order" class="btn btn-success m-3 pay-button">Pay with card</button>
