@@ -57,7 +57,6 @@ if (isset($_POST['logout'])) {
             </li>
             <li class="nav-item ms-5">
                 <a class="nav-link web-text-color fw-bold text-in-nav" href="filter.php?filter_type=Merchandise">Merchandises</a>
-
             </li>
         </ul>
         <form class="d-flex text-in-nav search-nav" role="search" method="post" action="filter.php">

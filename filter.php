@@ -43,6 +43,11 @@ if (isset($_POST['titleInput'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 </head>
 
 <body>
@@ -177,7 +182,7 @@ if (isset($_POST['titleInput'])) {
                                 ) {
                                     if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false) {
                                         echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
-                                        $ID=$row['ID'];
+                                        $ID = $row['ID'];
                                         echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
                                         foreach ($datajson as $good => $entry) {
                                             if ($datajson[$good]['id'] == $row['ID']) {
@@ -190,7 +195,7 @@ if (isset($_POST['titleInput'])) {
                                         echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
                                         echo "<hr>";
                                         echo "<div class='d-flex justify-content-end'>";
-                                        echo "<a href='addcart.php?addproid=".$row['ID']."' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
+                                        echo "<a href='addcart.php?addproid=" . $row['ID'] . "' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
                                         echo "</div></div></div></div>";
                                         $id_array[] = $row['ID'];
                                     }
@@ -203,7 +208,7 @@ if (isset($_POST['titleInput'])) {
                         if (($row['Type'] == $_SESSION["typeInput"] or strcmp($_SESSION["typeInput"], "None") == 0) and ($row['Title'] == $_SESSION["titleInput"] or strcmp($_SESSION["titleInput"], "None") == 0)) {
                             if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false) {
                                 echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
-                                $ID=$row['ID'];
+                                $ID = $row['ID'];
                                 echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
                                 foreach ($datajson as $good => $entry) {
                                     if ($datajson[$good]['id'] == $row['ID']) {
@@ -217,7 +222,7 @@ if (isset($_POST['titleInput'])) {
                                 echo "<hr>";
                                 echo "<div class='row'>";
                                 echo "<div class='col d-grid'>";
-                                echo "<a href='addcart.php?addproid=".$row['ID']."' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
+                                echo "<a href='addcart.php?addproid=" . $row['ID'] . "' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
                                 echo "</div></div></div></div></div>";
                             }
                         }
