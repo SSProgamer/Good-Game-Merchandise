@@ -125,7 +125,7 @@ $datajson = json_decode($jsonString, true);
                         echo "<h1 class='text-white fw-bold'>" . $row['NameProduct'] . "</h1><br>";
                         echo "<div class='bigpricetag'><h1 class='text-white'>฿" . number_format($row['Price']) . "</h1></div><br>";
                         //add to cart
-                        echo "<div class='d-grid gap-2'><button type='button' class='btn add-cart' onclick='addtocartPopUp()'><h4 class='mt-2 fw-bold'>Add to cart</h4></button>";
+                        echo "<div class='d-grid gap-2'><button type='button' class='btn add-cart' onclick='addtocartPopUp()'><a href='addcart.php?addproid=" . $row['ID'] . "' class='mt-2 fw-bold'>Add to cart</a></button>";
                         echo "<button type='button' class='btn add-wishlist' onclick='addtowishlistPopUp()'><h5 class='mt-1 fw-bold'>Add to wishlist</h5></button>";
                         echo "</div></div>";
                 ?>

@@ -11,11 +11,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $db->query($sql);
     if (!$result) {
         // $errmsg = $db->lastErrorMsg();
-        echo "<script>";
+        //echo "<script>";
         // echo "alert(\"".$errmsg."\");";
-        echo "alert(\" user หรือ  password ไม่ถูกต้อง\");";
-        echo "window.history.back()";
-        echo "</script>";
+        //echo "alert(\" user หรือ  password ไม่ถูกต้อง\");";
+        // echo "window.history.back()";
+        //echo "</script>";
+        header("Location: login.php");
     } else {
         session_start();
         while ($row = $result->fetchArray(SQLITE3_ASSOC)) {

@@ -13,12 +13,12 @@ foreach ($_SESSION['cart'] as $user => $cart){
 if (!isset($_SESSION['email'])) {
     header("location: login.php");
 }
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if(isset($_POST['delete'])){
     //
     // array_pop($_SESSION["cart"]);
     unset($_SESSION["cart"][$_POST['delete']]);
-    unset($_POST['detele']);
-    // header("Location: arraycart.php");
+    unset($_POST['delete']);
+    // header("Location: acart.php");
 
 }
 // array_push($_SESSION['cart'], array("User" => "Customer"));
@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                         <td>' . $cart['Price'] . '</td>
                                         <td>' . $cart['Amount'] . '</td>
                                         <td><form="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
-                                        <button type="submit" value="'.$user.'" name="delete" class="btn btn-danger">Delete</button>
+                                        <input type="submit" value="'.$user.'" name="delete" class="btn btn-danger">Delete
                                         </form>
                                         </td>
                                     </tr>';
