@@ -1,5 +1,8 @@
 <?php
 include "navbar.php";
+if (isset($_GET['idmer'])) {
+    $_SESSION["idmer"] = $_GET['idmer'];
+}
 ?>
 <html lang="en">
 
@@ -111,9 +114,9 @@ $datajson = json_decode($jsonString, true);
             <div class="row">
                 <?php
                 while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
-                    if ($row['ID'] == $_GET['idmer']) {
+                    if ($row['ID'] == $_SESSION["idmer"]) {
                         foreach ($datajson as $good => $entry) {
-                            if ($datajson[$good]['id'] == $_GET['idmer']) {
+                            if ($datajson[$good]['id'] == $_SESSION["idmer"]) {
                                 $strimage = $datajson[$good]['image'][1];
                                 echo "<div class='col-6 show-main-img'>";
                                 echo " <img class='merchaimage' src='$strimage' style='width: 100%; height: 100%; object-fit: scale-down;'>";
@@ -135,7 +138,7 @@ $datajson = json_decode($jsonString, true);
                     <div class="slides">
                         <?php
                         foreach ($datajson as $good => $entry) {
-                            if ($datajson[$good]['id'] == $_GET['idmer']) {
+                            if ($datajson[$good]['id'] == $_SESSION["idmer"]) {
                                 for ($x = 1; $x < sizeof($datajson[$good]['image']); $x++) {
                                     $strimage = $datajson[$good]["image"][$x];
                                     echo "<div id='slide-1'>";
