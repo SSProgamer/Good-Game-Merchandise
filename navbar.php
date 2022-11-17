@@ -14,6 +14,9 @@ if (!isset($_SESSION["titleInput"])) {
 if (!isset($_SESSION["searchName"])) {
     $_SESSION["searchName"] = "";
 }
+if (!isset($_SESSION["idmer"])) {
+    $_SESSION["idmer"] = "1";
+}
 if (!isset($_SESSION["cart"])) {
     $_SESSION["cart"] = array();
 }
