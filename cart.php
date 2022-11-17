@@ -13,12 +13,12 @@ foreach ($_SESSION['cart'] as $user => $cart){
 if (!isset($_SESSION['email'])) {
     header("location: login.php");
 }
-if(isset($_POST['delete'])){
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     //
     // array_pop($_SESSION["cart"]);
-    unset($_SESSION["cart"][$_POST['delete']]);
-    unset($_POST['delete']);
-    // header("Location: acart.php");
+    unset($_SESSION["cart"][$_POST['deleted']]);
+    unset($_POST['deteled']);
+    header("Location: cart.php");
 
 }
 // array_push($_SESSION['cart'], array("User" => "Customer"));
@@ -37,6 +37,11 @@ if(isset($_POST['delete'])){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 </head>
 
 <body>
@@ -61,8 +66,8 @@ if(isset($_POST['delete'])){
                                         <td>' . $cart['Proname'] . '</td>
                                         <td>' . $cart['Price'] . '</td>
                                         <td>' . $cart['Amount'] . '</td>
-                                        <td><form="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
-                                        <input type="submit" value="'.$user.'" name="delete" class="btn btn-danger">Delete
+                                        <td><form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+                                            <input type="submit" value="'.$user.'" name="deleted" class="btn btn-danger">
                                         </form>
                                         </td>
                                     </tr>';
