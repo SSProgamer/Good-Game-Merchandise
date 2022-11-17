@@ -1,10 +1,14 @@
 <?php
 include "navbar.php";
-$sql = "SELECT * FROM Customer WHERE CustomerID =" . $_SESSION["ID"] . "";
+if(!isset($_SESSION['email'])){
+    header("location: login.php");
+}
+$sql = "SELECT * FROM 'Order' WHERE CustomerID =".$_SESSION["ID"]."";
 $result = $db->query($sql);
 if (!$result) {
-    // echo "bruh";
-    header("location: login.php");
+    echo "bruh";
+    echo $db->lastErrorMsg();
+    // header("location: login.php");
 }
 ?>
 
@@ -63,7 +67,7 @@ if (!$result) {
             <div class="card ms-3 me-3 mb-4">
                 <div class="card-header head-list">
                     <div class="row mt-3">
-                        <div class="col-8">
+                        <div class="col-5">
                             <p class="fw-bold text-white">PRODUCT</p>
                         </div>
                         <div class="col-2">
@@ -72,27 +76,56 @@ if (!$result) {
                         <div class="col-2">
                             <p class="fw-bold text-white">TOTAL</p>
                         </div>
+                        <div class="col-2">
+                            <p class="fw-bold text-white">STATUS</p>
+                        </div>
+                        <div class="col-2">
+                            <!-- <p class="fw-bold text-white">STATUS</p> -->
+                        </div>
                     </div>
                 </div>
                 <ul class="list-group list-group-flush">
                     <!-- List Example -->
-                    <li class="list-group-item">
+                    <!-- <li class="list-group-item">
                         <div class="row mt-3">
-                            <div class="col-8">
+                            <div class="col-8"> -->
                                 <!-- Product Name -->
-                                <p class="">Elder ring [Collector's Edition]</p>
+                                <!-- <p class="">Elder ring [Collector's Edition]</p>
                             </div>
-                            <div class="col-2">
+                            <div class="col-2"> -->
                                 <!-- Purchased Date -->
-                                <p class="">18/1/1944</p>
+                                <!-- <p class="">18/1/1944</p>
                             </div>
-                            <div class="col-2">
+                            <div class="col-2"> -->
                                 <!-- Price -->
-                                <p class="">$18,000</p>
+                                <!-- <p class="">$18,000</p>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
                     <!-- Example End -->
+                    <?php
+                        while($order = $result->fetchArray(SQLITE3_ASSOC)){
+                            echo '<li class="list-group-item">
+                            <div class="row mt-3">
+                                <div class="col-5">
+                                    <p class=""> Order Number: '.$order['Order_ID'].'</p>
+                                </div>
+                                <div class="col-2">
+                                    <p class="">'.$order['Ord_date'].'</p>
+                                </div>
+                                <div class="col-2">
+                                    <p class="">'.$order['Ord_total'].'</p>
+                                </div>
+                                <div class="col-2">
+                                    <p class="">'.$order['Order_Status'].'</p>
+                                </div>
+                                <div class="col-1">
+                                    <a href="#" class="button">See Detail</a>
+                                </div>
+                            </div>
+                        </li>';
+                        }
+                    ?>
                     <li class="list-group-item">
                         <div class="row mt-3">
                             <div class="col-8">

@@ -1,5 +1,6 @@
 <?php
     session_start();
+    date_default_timezone_set('Asia/Bangkok');
     include "db_connect.php";
     $total = $_POST['order'];
     $name = $_POST['fname'];
@@ -9,12 +10,13 @@
     $province = $_POST['province'];
     $postcode = $_POST['postcode'];
     $phone = $_POST['phone'];
+    $timestamp = date("D d-M-Y G:i:s");
 
 
     // print_r($_SESSION['cart']);
     // add order first
-    $sql = "INSERT INTO 'Order' (Order_ID, CustomerID, Order_Status, Ord_name, Ord_lname, Ord_address, Ord_city, Ord_province, Ord_post, Ord_phone, Ord_total)
-    VALUES (NULL,'".$_SESSION["ID"]."', 'wait_payment', '$name', '$lname', '$addr', '$city', '$province', '$postcode','$phone','$total')";
+    $sql = "INSERT INTO 'Order' (Order_ID, CustomerID, Order_Status, Ord_name, Ord_lname, Ord_address, Ord_city, Ord_province, Ord_post, Ord_phone, Ord_total, Ord_date)
+    VALUES (NULL,'".$_SESSION["ID"]."', 'wait_payment', '$name', '$lname', '$addr', '$city', '$province', '$postcode','$phone','$total','$timestamp')";
     $result = $db->query($sql);
     if(!$result){
         echo "Bruh";
