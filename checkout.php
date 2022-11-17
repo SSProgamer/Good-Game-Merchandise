@@ -63,18 +63,18 @@ if (!isset($_SESSION['email'])) {
                         ?>
                     </tbody>
                 </table>
-                <h3 class="text-center fw-bold"><?php echo "Total:".$alltotal." Baht";?></h3>
+                <h3 class="text-center fw-bold"><?php echo "Total : " . $alltotal . " Baht"; ?></h3>
             </div>
             <div class="card cart-card mt-3 mb-3">
-                <h3>Address for shipping</h3>
+                <h3 class="ps-3 pt-3 fw-bold">Address for shipping</h3>
                 <?php while ($info = $result->fetchArray(SQLITE3_ASSOC)) {
-                echo'<form action="order.php" method="post">
+                    echo '<form action="order.php" method="post">
                     <div class="row align-items-center mb-3 mt-3">
                         <div class="col-2">
                             <h5 class="fw-bold text-end"><label for="infofname" class="col-form-label">Firstname</label></h5>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="infofname" name="fname" class="form-control" value="'.$info["FirstName"].'">
+                            <input type="text" id="infofname" name="fname" class="form-control" value="' . $info["FirstName"] . '">
                         </div>
                     </div>
                     <div class="row align-items-center mb-3">
@@ -82,7 +82,7 @@ if (!isset($_SESSION['email'])) {
                             <h5 class="fw-bold text-end"><label for="infolname" class="col-form-label">Lastname</label></h5>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="infolname" name="lname" class="form-control" value="'.$info["LastName"].'">
+                            <input type="text" id="infolname" name="lname" class="form-control" value="' . $info["LastName"] . '">
                         </div>
                     </div>
                     <div class="row align-items-center mb-3">
@@ -90,7 +90,7 @@ if (!isset($_SESSION['email'])) {
                             <h5 class="fw-bold text-end"><label for="infoaddress" class="col-form-label">Address</label></h5>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="infoaddress" name="address" class="form-control" value="'.$info["Address"].'">
+                            <input type="text" id="infoaddress" name="address" class="form-control" value="' . $info["Address"] . '">
                         </div>
                     </div>
                     <div class="row align-items-center mb-3">
@@ -98,7 +98,7 @@ if (!isset($_SESSION['email'])) {
                             <h5 class="fw-bold text-end"><label for="infocity" class="col-form-label">City</label></h5>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="infocity" name="city" class="form-control" value="'.$info["City"].'">
+                            <input type="text" id="infocity" name="city" class="form-control" value="' . $info["City"] . '">
                         </div>
                     </div>
                     <div class="row align-items-center mb-3">
@@ -106,7 +106,7 @@ if (!isset($_SESSION['email'])) {
                             <h5 class="fw-bold text-end"><label for="infoprovince" class="col-form-label">Province</label></h5>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="infoprovince" name="province" class="form-control" value="'.$info["Province"].'">
+                            <input type="text" id="infoprovince" name="province" class="form-control" value="' . $info["Province"] . '">
                         </div>
                     </div>
                     <div class="row align-items-center mb-3">
@@ -114,7 +114,7 @@ if (!isset($_SESSION['email'])) {
                             <h5 class="fw-bold text-end"><label for="infopostcode" class="col-form-label">Postcode</label></h5>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="infopostcode" name="postcode" class="form-control" value="'.$info["Postcode"].'">
+                            <input type="text" id="infopostcode" name="postcode" class="form-control" value="' . $info["Postcode"] . '">
                         </div>
                     </div>
                     <div class="row align-items-center">
@@ -122,12 +122,14 @@ if (!isset($_SESSION['email'])) {
                             <h5 class="fw-bold text-end"><label for="infophone" class="col-form-label">Phone Number</label></h5>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="infophone" name="phone" class="form-control" value="'.$info["phonenumber"].'">
+                            <input type="text" id="infophone" name="phone" class="form-control" value="' . $info["phonenumber"] . '">
                         </div>
                     </div>
-                    <button type="submit" name="order" value="'.$alltotal.'" class="btn btn-success m-3 pay-button">Order</button>
+                    <div class="d-grid ms-3 me-3 mt-3">
+                    <button type="submit" name="order" value="' . $alltotal . '" class="btn btn-success pay-button">Order</button>
+                    </div>
                 </form>';
-            }?>
+                } ?>
                 <!-- <a href="#" name="order" class="btn btn-success m-3 pay-button">Pay with card</a> -->
                 <!-- <form action="<?php //htmlspecialchars($_SERVER["PHP_SELF"]); 
                                     ?>" method="post">
