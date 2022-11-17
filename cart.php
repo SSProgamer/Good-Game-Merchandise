@@ -16,9 +16,9 @@ if (!isset($_SESSION['email'])) {
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     //
     // array_pop($_SESSION["cart"]);
-    unset($_SESSION["cart"][$_POST['delete']]);
-    unset($_POST['detele']);
-    // header("Location: arraycart.php");
+    unset($_SESSION["cart"][$_POST['deleted']]);
+    unset($_POST['deteled']);
+    header("Location: cart.php");
 
 }
 // array_push($_SESSION['cart'], array("User" => "Customer"));
@@ -37,6 +37,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 </head>
 
 <body>
@@ -61,8 +66,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                         <td>' . $cart['Proname'] . '</td>
                                         <td>' . $cart['Price'] . '</td>
                                         <td>' . $cart['Amount'] . '</td>
-                                        <td><form="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
-                                        <button type="submit" value="'.$user.'" name="delete" class="btn btn-danger">Delete</button>
+                                        <td><form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+                                            <input type="submit" value="'.$user.'" name="deleted" class="btn btn-danger">
                                         </form>
                                         </td>
                                     </tr>';
