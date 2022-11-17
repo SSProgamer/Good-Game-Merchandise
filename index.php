@@ -10,7 +10,7 @@ if (isset($_POST['additem'])) {
     } else {
         $sql2 = "SELECT * FROM Merchandise WHERE ID = " . $_POST['additem'] . "";
         $result2 = $db->query($sql2);
-        if(!$result2){
+        if (!$result2) {
             print "bruh";
         }
         if (!isset($_SESSION["cart"])) {
@@ -41,6 +41,11 @@ if (isset($_POST['additem'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 </head>
 
 <body>
@@ -96,7 +101,7 @@ if (isset($_POST['additem'])) {
             while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                 if ($row['Type'] == "Box Set") {
                     echo "<div class='col-lg-4 col-md-6 col-sm-12 mb-3'>";
-                    $ID=$row['ID'];
+                    $ID = $row['ID'];
                     echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
                     foreach ($datajson as $good => $entry) {
                         if ($datajson[$good]['id'] == $row['ID']) {
@@ -130,8 +135,8 @@ if (isset($_POST['additem'])) {
             while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                 if ($row['Type'] == "Merchandise") {
                     echo "<div class='col-lg-4 col-md-6 col-sm-12 mb-3'>";
-                    
-                    $ID=$row['ID'];
+
+                    $ID = $row['ID'];
                     echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
                     foreach ($datajson as $good => $entry) {
                         if ($datajson[$good]['id'] == $row['ID']) {
