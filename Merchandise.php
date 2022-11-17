@@ -106,28 +106,6 @@ $datajson = json_decode($jsonString, true);
 ?>
 
 <body>
-    <div id="overlay"></div>
-    <div id="popup">
-        <nav class="popupnav">
-            <div>
-                <span class="popupclose" onclick="closepopup()">X</span>
-                <div class="navhead"><i style="font-size:36px" class="fa">&#xf07a;</i>Now i'm gay<div>
-                    </div>
-        </nav>
-    </div>
-    <div id="popupaddcart">
-        <div class="popupcontrols">
-            <span class="popupclose" onclick="closepopup()">X</span>
-        </div>
-        <div class="popupcontentaddcart">
-            <h2>Item had been added to your cart! c:</h2>
-        </div>
-    </div>
-
-
-
-
-
     <div class="container-fluid main-container">
         <div class="container mt-5">
             <div class="row">
@@ -148,7 +126,7 @@ $datajson = json_decode($jsonString, true);
                         echo "<div class='bigpricetag'><h1 class='text-white'>฿" . number_format($row['Price']) . "</h1></div><br>";
                         //add to cart
                         echo "<div class='d-grid gap-2'><button type='button' class='btn add-cart' onclick='addtocartPopUp()'><h4 class='mt-2 fw-bold'>Add to cart</h4></button>";
-                        echo "<button type='button' class='btn add-wishlist' onclick='addtocartPopUp()'><h5 class='mt-1 fw-bold'>Add to wishlist</h5></button>";
+                        echo "<button type='button' class='btn add-wishlist' onclick='addtowishlistPopUp()'><h5 class='mt-1 fw-bold'>Add to wishlist</h5></button>";
                         echo "</div></div>";
                 ?>
             </div>

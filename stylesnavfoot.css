@@ -45,3 +45,74 @@
     background-color: rgb(33, 37, 41) !important;
     border-color: rgb(206, 212, 218) !important;
 }
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.521);
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+#popupaddcart {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: rgb(239, 242, 251);
+    width: 1000px;
+    height: 100px;
+    margin-left: -500px;
+    /*Half the value of width to center div*/
+    margin-top: -100px;
+    /*Half the value of height to center div*/
+    z-index: 200;
+    border-radius: 10px;
+}
+
+#popupaddwishlist {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: rgb(239, 242, 251);
+    width: 1000px;
+    height: 100px;
+    margin-left: -500px;
+    /*Half the value of width to center div*/
+    margin-top: -100px;
+    /*Half the value of height to center div*/
+    z-index: 200;
+    border-radius: 10px;
+}
+
+.popupclose {
+    color: rgb(207, 207, 207);
+    transform: translate(-0.2em, 0);
+    float: right;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.popupclose:hover {
+    box-shadow: 3px 6px;
+    background-color: rgb(255, 255, 255);
+    transform: translate(-0.4em, -0.2em);
+    transition: ease-in-out 0.1s;
+    color: rgb(255, 0, 0);
+}
+
+.popupclose:active {
+    color: rgb(255, 144, 144);
+    box-shadow: 1px 3px;
+    transform: translate(-0.2em, -0.1em);
+}
+
+.popupcontent {
+    height: 224px;
+    text-align: center;
+    padding-top: 25px;
+}

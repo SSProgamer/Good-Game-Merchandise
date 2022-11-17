@@ -93,7 +93,7 @@ if (isset($_POST['logout'])) {
             </a>
             <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm">
                 <li><a class="dropdown-item text-white user-dropdown-list-item mt-2" href="user.php">Account</a></li>
-                <li><a class="dropdown-item text-white user-dropdown-list-item" href="purchases.php">Purchases</a></li>
+                <li><a class="dropdown-item text-white user-dropdown-list-item" href="orders.php">Purchases</a></li>
                 <li><a class="dropdown-item text-white user-dropdown-list-item" href="wishlist.php">Wish List</a></li>
                 <li>
                     <form action="' . $sent . '" method="post">
@@ -106,6 +106,24 @@ if (isset($_POST['logout'])) {
         }
         ?>
     </nav>
+
+    <div id="overlay"></div>
+    <div id="popupaddcart">
+        <div class="popupcontrols">
+            <span class="popupclose" onclick="closepopup()">X</span>
+        </div>
+        <div class="popupcontent">
+            <h2>An item has been added to your cart.</h2>
+        </div>
+    </div>
+    <div id="popupaddwishlist">
+        <div class="popupcontrols">
+            <span class="popupclose" onclick="closepopup()">X</span>
+        </div>
+        <div class="popupcontent">
+            <h2>An item has been added to your wishlist.</h2>
+        </div>
+    </div>
 
     <!-- <footer class="card-footer">
             <div class="container-fluid">
