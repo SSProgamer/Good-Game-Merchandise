@@ -191,15 +191,22 @@ $datajson = json_decode($jsonString, true);
             <h3 class="recommended-text fw-bold mt-5">Recommended Merchandise</h3>
             <div class="row mt-2">
                 <?php
-                for ($x = 1; $x < 5; $x++) {
-                    $randomnum = rand(1, 65);
+
+                $randomarray[] = [];
+                while(sizeof($randomarray) <= 4){
+                    $numramdom = rand(1, 65);
+                    if ($numramdom != $_SESSION["idmer"] and !(in_array($numramdom, $randomarray))){
+                    $randomarray[] = $numramdom;
+                    }
+                }
+                for ($x = 0; $x < 5; $x++) {
                     while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
-                        if ($row['ID'] == $randomnum) {
+                        if ($row['ID'] == $randomarray[$x]) {
                             echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-5 mincol'>";
                             $ID = $row['ID'];
                             echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
                             foreach ($datajson as $good => $entry) {
-                                if ($datajson[$good]['id'] == $randomnum) {
+                                if ($datajson[$good]['id'] == $randomarray[$x]) {
                                     $strimage = $datajson[$good]['image'][0];
                                     echo "<img src='$strimage' alt='' class='card-img-top'>";
                                 }
