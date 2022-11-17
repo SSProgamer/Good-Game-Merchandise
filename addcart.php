@@ -1,5 +1,6 @@
 <?php
 session_start();
+$dupli = false;
 include "db_connect.php";
 echo $_GET['addproid'];
 if (isset($_GET['addproid'])) {
@@ -16,15 +17,26 @@ if (isset($_GET['addproid'])) {
             $_SESSION["cart"] = array();
         }
         else{
-            // array_push($_SESSION['cart'], array("User" => "Customer"));
-            while ($item = $result2->fetchArray(SQLITE3_ASSOC)) {
-                array_push($_SESSION["cart"], array("User" => $_SESSION['email'], "ProductID" => $item["ID"], "Proname" => $item["NameProduct"], "Price" => $item["Price"], "Amount" => 1));
+            while ($check = $result2->fetchArray(SQLITE3_ASSOC)) {
+            //checking duplicate cart item
+            foreach ($_SESSION['cart'] as $user => $cart) {
+                if ($cart["ProductID"] == $check["ID"]) {
+                 $dupli = true;
+                }
             }
+            }
+            //if not find a duplicate add it in cart   
+            if(!$dupli){
+                while ($item = $result2->fetchArray(SQLITE3_ASSOC)) {
+                    array_push($_SESSION["cart"], array("User" => $_SESSION['email'], "ProductID" => $item["ID"], "Proname" => $item["NameProduct"], "Price" => $item["Price"], "Amount" => 1));
+                }
+            }
+            //after add item to cart อยากทำอะไรหลังเพิ่มเสร็จ
             unset($_GET['addproid']);
-            header("location: cart.php");
+            // header("location: cart.php");
+            
+        
+        
         }
-        
-        
     }
 }
-?>
