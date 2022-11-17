@@ -114,33 +114,6 @@ $datajson = json_decode($jsonString, true);
                 <div class="navhead"><i style="font-size:36px" class="fa">&#xf07a;</i>Now i'm gay<div>
                     </div>
         </nav>
-        <div class="popupcontent overflow-auto">
-            <table class="table border-secondary " id="cart">
-                <tbody>
-                    <tr>
-                        <td class="cartitem">Mark</td>
-                        <td class="cartprice">$69</td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-        <table class="totalborder">
-            <tbody>
-                <tr>
-                    <td id="cartitemtotal">Total:</td>
-                    <td id="cartpricetotal">$idk lol</td>
-                </tr>
-            </tbody>
-        </table>
-        <br>
-        <br>
-        <nav class="popupnav">
-            <div>
-                <div class="navhead">Checkout<div>
-                    </div>
-                    <button type="button" class="customsmallpopupbut" onclick="">confirm</button>
-        </nav>
     </div>
     <div id="popupaddcart">
         <div class="popupcontrols">
@@ -242,7 +215,7 @@ $datajson = json_decode($jsonString, true);
                     while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                         if ($row['ID'] == $randomnum) {
                             echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-5 mincol'>";
-                            $ID=$row['ID'];
+                            $ID = $row['ID'];
                             echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
                             foreach ($datajson as $good => $entry) {
                                 if ($datajson[$good]['id'] == $randomnum) {
@@ -261,7 +234,6 @@ $datajson = json_decode($jsonString, true);
                         }
                     }
                 }
-
                 ?>
             </div>
         </div>

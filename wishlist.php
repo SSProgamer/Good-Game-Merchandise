@@ -68,6 +68,7 @@ if (!$result) {
                             <hr>
                             <div class="row">
                                 <div class="col d-grid"><a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a></div>
+                                <div class="col d-grid"><a href="" class="btn border border-dark delete-wish fw-bold"><span>Delete</span></a></div>
                             </div>
                         </div>
                     </div>
@@ -79,6 +80,7 @@ if (!$result) {
                             <hr>
                             <div class="row">
                                 <div class="col d-grid"><a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a></div>
+                                <div class="col d-grid"><a href="" class="btn border border-dark delete-wish fw-bold"><span>Delete</span></a></div>
                             </div>
                         </div>
                     </div>
@@ -90,6 +92,7 @@ if (!$result) {
                             <hr>
                             <div class="row">
                                 <div class="col d-grid"><a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a></div>
+                                <div class="col d-grid"><a href="" class="btn border border-dark delete-wish fw-bold"><span>Delete</span></a></div>
                             </div>
                         </div>
                     </div>
@@ -101,6 +104,7 @@ if (!$result) {
                             <hr>
                             <div class="row">
                                 <div class="col d-grid"><a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a></div>
+                                <div class="col d-grid"><a href="" class="btn border border-dark delete-wish fw-bold"><span>Delete</span></a></div>
                             </div>
                         </div>
                     </div>
@@ -112,6 +116,7 @@ if (!$result) {
                             <hr>
                             <div class="row">
                                 <div class="col d-grid"><a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a></div>
+                                <div class="col d-grid"><a href="" class="btn border border-dark delete-wish fw-bold"><span>Delete</span></a></div>
                             </div>
                         </div>
                     </div>
