@@ -13,22 +13,40 @@ foreach ($_SESSION['cart'] as $user => $cart){
 if (!isset($_SESSION['email'])) {
     header("location: login.php");
 }
-if(isset($_POST['deleted'])){
-    //
-    // array_pop($_SESSION["cart"]);
-    unset($_SESSION["cart"][$_POST['deleted']]);
-    unset($_POST['deteled']);
-    // header("Location: cart.php");
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    if(isset($_POST['deleted'])){
+        //
+        // array_pop($_SESSION["cart"]);
+        unset($_SESSION["cart"][$_POST['deleted']]);
+        unset($_POST['deteled']);
+        // header("Location: cart.php");
+    
+    }
+    if(isset($_POST['de_qtn'])){
+        $qtn = $_SESSION['cart'][$_POST['de_qtn']]['Amount'];
+        // print_r($qtn);
+        if($qtn <= 1 ){
+            $_SESSION['cart'][$_POST['de_qtn']]['Amount'] = 1;
+        }
+        else{
+            $_SESSION['cart'][$_POST['de_qtn']]['Amount'] = $qtn - 1;
+        }
+        
+        
+        
+    }
+    if(isset($_POST['add_qtn'])){
+        $qtn = $_SESSION['cart'][$_POST['add_qtn']]['Amount'];
+        // print_r($qtn);
+        $_SESSION['cart'][$_POST['add_qtn']]['Amount'] = $qtn + 1;
+        // $qtn['Amount'] = $qtn['Amount']+1;
+        // print_r($_SESSION['cart'][$_POST['add_qtn']]);
+        
+        
+        
+    }
+}
 
-}
-if(isset($_POST['de_qtn'])){
-    $_SESSION["cart"][$POST['de_qtn']]['Amount'] -= 1;
-    // header("Location: postest.php");
-}
-if(isset($_POST['add_qtn'])){
-    $_SESSION["cart"][$POST['add_qtn']]['Amount'] += 1;
-    // header("Location: postest.php");
-}
 
 // array_push($_SESSION['cart'], array("User" => "Customer"));
 // print_r($_SESSION['cart']);
@@ -74,21 +92,26 @@ if(isset($_POST['add_qtn'])){
                                 echo '<tr>
                                         <td>' . $cart['Proname'] . '</td>
                                         <td>' . $cart['Price'] . '</td>
-                                        <form action="'.$_SERVER["PHP_SELF"].'" method="post">
-                                        <td><button name="de_qtn" value="'.$user.'">-</button>' . $cart['Amount'] . '<button name="add_qtn" value="'.$user.'">+</button></td>
+                                        <td><form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+                                            <button name="de_qtn" value="'.$user.'">-</button>
+                                            <input value="'.$cart['Amount'].'" disabled>
+                                            <button name="add_qtn" value="'.$user.'">+</button></form></td>
                                         <td>
+
+                                        <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
                                             <button type="submit" value="'.$user.'" name="deleted" class="btn btn-danger">X</button>
+                                            </form>
                                         </td>
-                                        </form>
+                                        
                                     </tr>';
                                 $total += $cart['Price']*$cart['Amount'];
                             }
                         }
-                        echo $total;
+                        
                         ?>
                     </tbody>
                 </table>
-                
+                <?php echo $total;?>
                 <h2 class="text-center">Checkout</h2>
                 <!-- <a href="checkout.php" id ="order"name="order" class="btn btn-success m-3 pay-button">Checkout</a> -->
                 <?php
