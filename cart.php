@@ -65,9 +65,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 echo '<tr>
                                         <td>' . $cart['Proname'] . '</td>
                                         <td>' . $cart['Price'] . '</td>
-                                        <td>' . $cart['Amount'] . '</td>
+                                        <td><button onclick="#">-</button><p id="#">' . $cart['Amount'] . '</p><button onclick="#">+</button></td>
                                         <td><form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
-                                            <input type="submit" value="'.$user.'" name="deleted" class="btn btn-danger">
+                                            <button type="submit" value="'.$user.'" name="deleted" class="btn btn-danger">X</button>
                                         </form>
                                         </td>
                                     </tr>';
@@ -113,5 +113,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </footer>
 </body>
-
+<script>
+    function addqtn(){
+        document
+    }
+</script>
 </html>
