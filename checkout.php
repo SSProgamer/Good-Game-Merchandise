@@ -54,7 +54,7 @@ if (!isset($_SESSION['email'])) {
                             if ($cart["User"] == $_SESSION["email"]) {
                                 echo '<tr>
                                         <td><h5>' . $cart['Proname'] . '</h5></td>
-                                        <td><h5>' . $cart['Price'] . '</h5></td>
+                                        <td><h5>' . number_format($cart['Price']) . '</h5></td>
                                         <td><h5>' . $cart['Amount'] . '</h5></td>
                                     </tr>';
                                 $alltotal += $cart['Price'];
@@ -63,7 +63,7 @@ if (!isset($_SESSION['email'])) {
                         ?>
                     </tbody>
                 </table>
-                <h3 class="text-center fw-bold"><?php echo "Total : " . $alltotal . " Baht"; ?></h3>
+                <h3 class="text-center fw-bold"><?php echo "Total : " . number_format($alltotal) . " Baht"; ?></h3>
             </div>
             <div class="card cart-card mt-3 mb-3">
                 <h3 class="ps-3 pt-3 fw-bold">Address for shipping</h3>

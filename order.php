@@ -11,8 +11,6 @@
     $postcode = $_POST['postcode'];
     $phone = $_POST['phone'];
     $timestamp = date("D d-M-Y G:i:s");
-
-
     // print_r($_SESSION['cart']);
     // add order first
     $sql = "INSERT INTO 'Order' (Order_ID, CustomerID, Order_Status, Ord_name, Ord_lname, Ord_address, Ord_city, Ord_province, Ord_post, Ord_phone, Ord_total, Ord_date)
@@ -48,30 +46,17 @@
                     else{
                         unset($_SESSION['cart'][$no]);
                     }
-                    
                         // if(!isset($no)){
                         //     echo "sus";
                         // }
-                    
-                    
                 } 
             }
             echo "<script>
                 alert('done!');
             </script>";
             header("location: cart.php");
-        
     }
-    
-    
-        
-        
-        
-        
-        
         // echo($item["User"]);
         // if($item["User"] == $_SESSION["email"]){
-            
         // }
     }
-?>

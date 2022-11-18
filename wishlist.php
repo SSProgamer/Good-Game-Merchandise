@@ -7,7 +7,7 @@ if (!$result) {
     header("location: login.php");
 }
 //delete wishlist
-if (isset($_GET['delwishlist'])){
+if (isset($_GET['delwishlist'])) {
     $jsonString = file_get_contents('wishlist.json');
     $datajson = json_decode($jsonString, true);
     foreach ($datajson as $mywishlist => $entry) {
@@ -18,7 +18,6 @@ if (isset($_GET['delwishlist'])){
             }
             sort($array_del);
             $datajson[$mywishlist]['wishlist'] = $array_del;
-            
         }
     }
     $newJsonString = json_encode($datajson);
@@ -93,33 +92,33 @@ if (isset($_GET['delwishlist'])){
                         if ($datajson[$mywishlist]['customerID'] == $_SESSION["ID"]) {
                             for ($x = 0; $x < sizeof($datajson[$mywishlist]['wishlist']); $x++) {
                                 $wishlistID = $datajson[$mywishlist]["wishlist"][$x];
-                           
-                                if ($row['ID'] == $wishlistID){
-                            echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
-                            $ID = $row['ID'];
-                            echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
-                            foreach ($dataMerchandise as $good => $entry) {
-                                if ($dataMerchandise[$good]['id'] == $row['ID']) {
-                                    $strimage = $dataMerchandise[$good]['image'][0];
-                                    echo "<img src='$strimage' alt='' class='card-img-top'>";
+
+                                if ($row['ID'] == $wishlistID) {
+                                    echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
+                                    $ID = $row['ID'];
+                                    echo "<div class='card style-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
+                                    foreach ($dataMerchandise as $good => $entry) {
+                                        if ($dataMerchandise[$good]['id'] == $row['ID']) {
+                                            $strimage = $dataMerchandise[$good]['image'][0];
+                                            echo "<img src='$strimage' alt='' class='card-img-top'>";
+                                        }
+                                    }
+                                    //echo "<img src='image/1/preview.webp' class='card-img-top'>";
+                                    echo "<div class='card-body'>";
+                                    echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
+                                    echo "<hr>";
+                                    echo "<div class='row'>";
+                                    echo "<div class='col d-grid'>";
+                                    echo "<a href='addcart.php?addproid=" . $row['ID'] . "' class='btn border border-dark price fw-bold' onclick='addtocartPopUp()'><span>฿" . number_format($row['Price']) . "</span></a>";
+                                    echo "<div class='col d-grid'><a href='wishlist.php?delwishlist=" . $row['ID'] . "' class='btn border border-dark delete-wish fw-bold mt-1'><span>Delete</span></a></div>";
+                                    echo "</div></div></div></div></div>";
                                 }
                             }
-                            //echo "<img src='image/1/preview.webp' class='card-img-top'>";
-                            echo "<div class='card-body'>";
-                            echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
-                            echo "<hr>";
-                            echo "<div class='row'>";
-                            echo "<div class='col d-grid'>";
-                            echo "<a href='addcart.php?addproid=" . $row['ID'] . "' class='btn border border-dark price fw-bold' onclick='addtocartPopUp()'><span>฿" . number_format($row['Price']) . "</span></a>";
-                            echo "<div class='col d-grid'><a href='wishlist.php?delwishlist=" . $row['ID'] . "' class='btn border border-dark delete-wish fw-bold'><span>Delete</span></a></div>";
-                            echo "</div></div></div></div></div>";
+                        }
                     }
                 }
-                }
-            }
-        }
-                    
-                
+
+
                 /*
                 foreach ($datajson as $mywishlist => $entry) {
                     if ($datajson[$mywishlist]['customerID'] == 8) {
@@ -146,7 +145,7 @@ if (isset($_GET['delwishlist'])){
                     }
                 }
             }*/
-            ?>
+                ?>
             </div>
         </div>
     </div>
@@ -169,6 +168,7 @@ if (isset($_GET['delwishlist'])){
             </div>
         </div>
     </footer>
+    <script src="scriptmerchandise.js"></script>
 </body>
 
 </html>

@@ -7,7 +7,7 @@ if (!$result2) {
     echo $db->lastErrorMsg();
     // header("location: login.php");
 }
-if(!isset($_SESSION["email"])){
+if (!isset($_SESSION["email"])) {
     header("location: login.php");
 }
 ?>
@@ -91,7 +91,7 @@ if(!isset($_SESSION["email"])){
                                                 //อาจมีการดึงรูปด้วยนะ
                                                 echo "<tr>";
                                                 echo "<td>" . $product['NameProduct'] . "</td>";
-                                                echo "<td>" . $product['Price'] . "</td>";
+                                                echo "<td>" . number_format($product['Price']) . "</td>";
                                                 echo "<td>" . $item['Order_qtn'] . "</td>";
                                                 echo "</tr>";
                                                 // echo $product['NameProduct']+"<br>";

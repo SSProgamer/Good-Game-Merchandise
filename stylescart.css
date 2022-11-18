@@ -16,6 +16,18 @@ body {
     border-color: rgb(199, 203, 212);
 }
 
+.cart-list-product {
+    width: 50%;
+}
+
+.cart-list-price {
+    width: 20%;
+}
+
+.cart-list-unit {
+    width: 25%;
+}
+
 .cart-list-delete {
     width: 5%;
 }

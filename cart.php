@@ -4,8 +4,8 @@ include "navbar.php";
 $have = false;
 $total = 0;
 //check ว่ามีสินต้าในตระกร้าหรือเปล่า
-foreach ($_SESSION['cart'] as $user => $cart){
-    if ($cart["User"] == $_SESSION["email"]){
+foreach ($_SESSION['cart'] as $user => $cart) {
+    if ($cart["User"] == $_SESSION["email"]) {
         $have = true;
     }
 }
@@ -13,41 +13,32 @@ foreach ($_SESSION['cart'] as $user => $cart){
 if (!isset($_SESSION['email'])) {
     header("location: login.php");
 }
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(isset($_POST['deleted'])){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['deleted'])) {
         //
         // array_pop($_SESSION["cart"]);
         unset($_SESSION["cart"][$_POST['deleted']]);
         unset($_POST['deteled']);
         // header("Location: cart.php");
-    
+
     }
-    if(isset($_POST['de_qtn'])){
+    if (isset($_POST['de_qtn'])) {
         $qtn = $_SESSION['cart'][$_POST['de_qtn']]['Amount'];
         // print_r($qtn);
-        if($qtn <= 1 ){
+        if ($qtn <= 1) {
             $_SESSION['cart'][$_POST['de_qtn']]['Amount'] = 1;
-        }
-        else{
+        } else {
             $_SESSION['cart'][$_POST['de_qtn']]['Amount'] = $qtn - 1;
         }
-        
-        
-        
     }
-    if(isset($_POST['add_qtn'])){
+    if (isset($_POST['add_qtn'])) {
         $qtn = $_SESSION['cart'][$_POST['add_qtn']]['Amount'];
         // print_r($qtn);
         $_SESSION['cart'][$_POST['add_qtn']]['Amount'] = $qtn + 1;
         // $qtn['Amount'] = $qtn['Amount']+1;
         // print_r($_SESSION['cart'][$_POST['add_qtn']]);
-        
-        
-        
     }
 }
-
-
 // array_push($_SESSION['cart'], array("User" => "Customer"));
 // print_r($_SESSION['cart']);
 ?>
@@ -79,9 +70,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <table class="table cart-table">
                     <thead>
                         <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Unit</th>
+                            <th class="cart-list-product">Product</th>
+                            <th class="cart-list-price">Price</th>
+                            <th class="cart-list-unit">Unit</th>
                             <th class="cart-list-delete"></th>
                         </tr>
                     </thead>
@@ -91,36 +82,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             if ($cart["User"] == $_SESSION["email"]) {
                                 echo '<tr>
                                         <td>' . $cart['Proname'] . '</td>
-                                        <td>' . $cart['Price'] . '</td>
-                                        <td><form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
-                                            <button name="de_qtn" value="'.$user.'">-</button>
-                                            <input value="'.$cart['Amount'].'" disabled>
-                                            <button name="add_qtn" value="'.$user.'">+</button></form></td>
+                                        <td>' . number_format($cart['Price']) . '</td>
+                                        <td><form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="post">
+                                            <button name="de_qtn" value="' . $user . '" class="btn">-</button>
+                                            <input value="' . $cart['Amount'] . '" disabled>
+                                            <button name="add_qtn" value="' . $user . '" class="btn">+</button></form></td>
                                         <td>
 
-                                        <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
-                                            <button type="submit" value="'.$user.'" name="deleted" class="btn btn-danger">X</button>
+                                        <form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="post">
+                                            <button type="submit" value="' . $user . '" name="deleted" class="btn btn-danger">X</button>
                                             </form>
                                         </td>
                                         
                                     </tr>';
-                                $total += $cart['Price']*$cart['Amount'];
+                                $total += $cart['Price'] * $cart['Amount'];
                             }
                         }
-                        
+
                         ?>
                     </tbody>
                 </table>
-                <?php echo $total;?>
-                <h2 class="text-center">Checkout</h2>
+                <h2 class="text-center fw-bold">
+                    Total :
+                    <?php echo number_format($total); ?>
+                    Baht
+                </h2>
+                <h2 class="text-center mt-2">Checkout</h2>
                 <!-- <a href="checkout.php" id ="order"name="order" class="btn btn-success m-3 pay-button">Checkout</a> -->
                 <?php
-                    if(!$have){
-                        echo '<a href="javascript:void(0)" id ="order"name="order" class="btn btn-success m-3 pay-button">Checkout</a>';
-                    }
-                    else{
-                        echo'<a href="checkout.php" id ="order"name="order" class="btn btn-success m-3 pay-button">Checkout</a>';
-                    }
+                if (!$have) {
+                    echo '<a href="javascript:void(0)" id ="order"name="order" class="btn btn-success m-3 pay-button">Checkout</a>';
+                } else {
+                    echo '<a href="checkout.php" id ="order"name="order" class="btn btn-success m-3 pay-button">Checkout</a>';
+                }
                 ?>
                 <!-- <form action="<?php //htmlspecialchars($_SERVER["PHP_SELF"]); 
                                     ?>" method="post">

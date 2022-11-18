@@ -111,24 +111,26 @@ $ret = $db->query($sql);
 //set up json
 $jsonString = file_get_contents('merchandise.json');
 $datajson = json_decode($jsonString, true);
-
 if (isset($_GET['wishlistID'])) {
     // add wishlist
-    if (strcmp($_SESSION["ID"], 'null') != 0){
-    $jsonString = file_get_contents('wishlist.json');
-    $wishlistjson = json_decode($jsonString, true);
-    foreach ($wishlistjson as $key => $entry) {
-          if ($wishlistjson[$key]['customerID'] == $_SESSION["ID"]) {
-            $a = $wishlistjson[$key]['wishlist'];
-            if (!(in_array($_GET['wishlistID'], $a))){
-                array_push($a,$_GET['wishlistID']);
+    if (strcmp($_SESSION["ID"], 'null') != 0) {
+        sleep(1.5);
+        $jsonString = file_get_contents('wishlist.json');
+        $wishlistjson = json_decode($jsonString, true);
+        foreach ($wishlistjson as $key => $entry) {
+            if ($wishlistjson[$key]['customerID'] == $_SESSION["ID"]) {
+                $a = $wishlistjson[$key]['wishlist'];
+                if (!(in_array($_GET['wishlistID'], $a))) {
+                    array_push($a, $_GET['wishlistID']);
+                }
+                sort($a);
+                $wishlistjson[$key]['wishlist'] = $a;
             }
-            sort($a);
-            $wishlistjson[$key]['wishlist'] = $a;
-          }
         }
-    $newJsonString = json_encode($wishlistjson);
-  file_put_contents('wishlist.json', $newJsonString);
+        $newJsonString = json_encode($wishlistjson);
+        file_put_contents('wishlist.json', $newJsonString);
+    } else {
+        echo ("<script>location.href = 'login.php';</script>");
     }
 }
 ?>
@@ -153,8 +155,8 @@ if (isset($_GET['wishlistID'])) {
                         echo "<h1 class='text-white fw-bold'>" . $row['NameProduct'] . "</h1><br>";
                         echo "<div class='bigpricetag'><h1 class='text-white'>฿" . number_format($row['Price']) . "</h1></div><br>";
                         //add to cart
-                        echo "<div class='d-grid gap-2'><button type='button' class='btn add-cart' onclick='addtocartPopUp()'><a href='addcart.php?addproid=" . $row['ID'] . "' class='mt-2 fw-bold'>Add to cart</a></button>";
-                        echo "<button type='button' class='btn add-wishlist' onclick='addtowishlistPopUp()'><a href='Merchandise.php?wishlistID=".$row['ID']."'<h5 class='mt-1 fw-bold'>Add to wishlist</h5></a></button>";
+                        echo "<div class='d-grid gap-2'><a href='addcart.php?addproid=" . $row['ID'] . "' class='btn add-cart' onclick='addtocartPopUp()'><h5 class='mt-2 fw-bold'>Add to cart</h5></a>";
+                        echo "<a href='Merchandise.php?wishlistID=" . $row['ID'] . "' class='btn add-wishlist' onclick='addtowishlistPopUp()'><h5 class='mt-1 fw-bold'>Add to wishlist</h5></a>";
                         echo "</div></div>";
                 ?>
             </div>
@@ -218,10 +220,10 @@ if (isset($_GET['wishlistID'])) {
                 <?php
 
                 $randomarray[] = [];
-                while(sizeof($randomarray) <= 4){
+                while (sizeof($randomarray) <= 4) {
                     $numramdom = rand(1, 65);
-                    if ($numramdom != $_SESSION["idmer"] and !(in_array($numramdom, $randomarray))){
-                    $randomarray[] = $numramdom;
+                    if ($numramdom != $_SESSION["idmer"] and !(in_array($numramdom, $randomarray))) {
+                        $randomarray[] = $numramdom;
                     }
                 }
                 for ($x = 0; $x < 5; $x++) {

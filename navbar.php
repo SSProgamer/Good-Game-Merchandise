@@ -115,17 +115,11 @@ if (isset($_POST['logout'])) {
 
     <div id="overlay"></div>
     <div id="popupaddcart">
-        <div class="popupcontrols">
-            <span class="popupclose" onclick="closepopup()">X</span>
-        </div>
         <div class="popupcontent">
             <h2>An item has been added to your cart.</h2>
         </div>
     </div>
     <div id="popupaddwishlist">
-        <div class="popupcontrols">
-            <span class="popupclose" onclick="closepopup()">X</span>
-        </div>
         <div class="popupcontent">
             <h2>An item has been added to your wishlist.</h2>
         </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["email"])){
+if (!isset($_SESSION["email"])) {
     header("location: login.php");
 }
 $dupli = false;
@@ -36,7 +36,7 @@ if (isset($_GET['addproid'])) {
             //after add item to cart อยากทำอะไรหลังเพิ่มเสร็จ
             unset($_GET['addproid']);
             // header("location: cart.php");
-            sleep(2);
+            sleep(1.5);
             $referer = $_SERVER['HTTP_REFERER'];
             header("Location: $referer");
         }

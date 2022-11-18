@@ -114,7 +114,7 @@ if (!$result) {
                                     <p class="">' . $order['Ord_date'] . '</p>
                                 </div>
                                 <div class="col-2">
-                                    <p class="">' . $order['Ord_total'] . '</p>
+                                    <p class="">' . number_format($order['Ord_total']) . '</p>
                                 </div>
                                 <div class="col-2">
                                     <p class="">' . $order['Order_Status'] . '</p>
@@ -126,7 +126,6 @@ if (!$result) {
                         </li>';
                     }
                     ?>
-
                     <!-- Insert New List Here -->
                 </ul>
             </div>
