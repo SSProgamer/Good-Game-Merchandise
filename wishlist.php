@@ -6,6 +6,24 @@ if (!$result) {
     // echo "bruh";
     header("location: login.php");
 }
+//delete wishlist
+if (isset($_GET['delwishlist'])){
+    $jsonString = file_get_contents('wishlist.json');
+    $datajson = json_decode($jsonString, true);
+    foreach ($datajson as $mywishlist => $entry) {
+        if ($datajson[$mywishlist]['customerID'] == $_SESSION["ID"]) {
+            $array_del = $datajson[$mywishlist]['wishlist'];
+            if (($key = array_search($_GET['delwishlist'], $array_del)) !== false) {
+                unset($array_del[$key]);
+            }
+            sort($array_del);
+            $datajson[$mywishlist]['wishlist'] = $array_del;
+            
+        }
+    }
+    $newJsonString = json_encode($datajson);
+    file_put_contents('wishlist.json', $newJsonString);
+}
 ?>
 
 <html lang="en">
@@ -61,66 +79,74 @@ if (!$result) {
         <div class="container mt-5 mb-5">
             <h3>My Wish List</h3>
             <div class="row mt-5">
-                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
-                    <div class="card style-card"><img src="image/1/preview.webp" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title custom-height info fw-bold">Elder ring [Collector's Edition]</h5>
-                            <hr>
-                            <div class="row">
-                                <div class="col d-grid"><a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a></div>
-                                <div class="col d-grid"><a href="" class="btn border border-dark delete-wish fw-bold"><span>Delete</span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
-                    <div class="card style-card"><img src="image/1/preview.webp" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title custom-height info fw-bold">Elder ring [Collector's Edition]</h5>
-                            <hr>
-                            <div class="row">
-                                <div class="col d-grid"><a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a></div>
-                                <div class="col d-grid"><a href="" class="btn border border-dark delete-wish fw-bold"><span>Delete</span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
-                    <div class="card style-card"><img src="image/1/preview.webp" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title custom-height info fw-bold">Elder ring [Collector's Edition]</h5>
-                            <hr>
-                            <div class="row">
-                                <div class="col d-grid"><a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a></div>
-                                <div class="col d-grid"><a href="" class="btn border border-dark delete-wish fw-bold"><span>Delete</span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
-                    <div class="card style-card"><img src="image/1/preview.webp" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title custom-height info fw-bold">Elder ring [Collector's Edition]</h5>
-                            <hr>
-                            <div class="row">
-                                <div class="col d-grid"><a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a></div>
-                                <div class="col d-grid"><a href="" class="btn border border-dark delete-wish fw-bold"><span>Delete</span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
-                    <div class="card style-card"><img src="image/1/preview.webp" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title custom-height info fw-bold">Elder ring [Collector's Edition]</h5>
-                            <hr>
-                            <div class="row">
-                                <div class="col d-grid"><a href="" class="btn border border-dark price fw-bold"><span>฿18,000</span></a></div>
-                                <div class="col d-grid"><a href="" class="btn border border-dark delete-wish fw-bold"><span>Delete</span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                $sqlm = "SELECT * from Merchandise";
+                $ret = $db->query($sqlm);
+                //set up json
+                $jsonString = file_get_contents('wishlist.json');
+                $datajson = json_decode($jsonString, true);
+
+                $jsonString = file_get_contents('merchandise.json');
+                $dataMerchandise = json_decode($jsonString, true);
+                while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+                    foreach ($datajson as $mywishlist => $entry) {
+                        if ($datajson[$mywishlist]['customerID'] == $_SESSION["ID"]) {
+                            for ($x = 0; $x < sizeof($datajson[$mywishlist]['wishlist']); $x++) {
+                                $wishlistID = $datajson[$mywishlist]["wishlist"][$x];
+                           
+                                if ($row['ID'] == $wishlistID){
+                            echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
+                            $ID = $row['ID'];
+                            echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
+                            foreach ($dataMerchandise as $good => $entry) {
+                                if ($dataMerchandise[$good]['id'] == $row['ID']) {
+                                    $strimage = $dataMerchandise[$good]['image'][0];
+                                    echo "<img src='$strimage' alt='' class='card-img-top'>";
+                                }
+                            }
+                            //echo "<img src='image/1/preview.webp' class='card-img-top'>";
+                            echo "<div class='card-body'>";
+                            echo "<h5 class='card-title custom-height info fw-bold'>" . $row['NameProduct'] . "</h5>";
+                            echo "<hr>";
+                            echo "<div class='row'>";
+                            echo "<div class='col d-grid'>";
+                            echo "<a href='addcart.php?addproid=" . $row['ID'] . "' class='btn border border-dark price fw-bold' onclick='addtocartPopUp()'><span>฿" . number_format($row['Price']) . "</span></a>";
+                            echo "<div class='col d-grid'><a href='wishlist.php?delwishlist=" . $row['ID'] . "' class='btn border border-dark delete-wish fw-bold'><span>Delete</span></a></div>";
+                            echo "</div></div></div></div></div>";
+                    }
+                }
+                }
+            }
+        }
+                    
+                
+                /*
+                foreach ($datajson as $mywishlist => $entry) {
+                    if ($datajson[$mywishlist]['customerID'] == 8) {
+                        for ($x = 0; $x < sizeof($datajson[$mywishlist]['wishlist']); $x++) {
+                            echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
+                            
+                            $wishlistID = $datajson[$mywishlist]["wishlist"][$x];
+                            echo "$wishlistID";
+                            foreach ($dataMerchandise as $good => $entry) {
+                                if ($dataMerchandise[$good]['id'] == $wishlistID) {
+                                    $strimage = $dataMerchandise[$good]['image'][1];
+                                    
+                            echo "<div class='card style-card'><img src='$strimage' alt=''>";
+                                }
+                            }
+                        echo "<div class='card-body'>";
+                            echo "<h5 class='card-title custom-height info fw-bold'>Elder ring [Collector's Edition]</h5>";
+                            echo "<hr>";
+                            echo "<div class='row'>";
+                                echo "<div class='col d-grid'><a href='' class='btn border border-dark price fw-bold'><span>฿18,000</span></a></div>";
+                                echo "<div class='col d-grid'><a href='' class='btn border border-dark delete-wish fw-bold'><span>Delete</span></a></div>";
+                            echo "</div></div></div></div>";
+                        
+                    }
+                }
+            }*/
+            ?>
             </div>
         </div>
     </div>

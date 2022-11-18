@@ -111,6 +111,26 @@ $ret = $db->query($sql);
 //set up json
 $jsonString = file_get_contents('merchandise.json');
 $datajson = json_decode($jsonString, true);
+
+if (isset($_GET['wishlistID'])) {
+    // add wishlist
+    if (strcmp($_SESSION["ID"], 'null') != 0){
+    $jsonString = file_get_contents('wishlist.json');
+    $wishlistjson = json_decode($jsonString, true);
+    foreach ($wishlistjson as $key => $entry) {
+          if ($wishlistjson[$key]['customerID'] == $_SESSION["ID"]) {
+            $a = $wishlistjson[$key]['wishlist'];
+            if (!(in_array($_GET['wishlistID'], $a))){
+                array_push($a,$_GET['wishlistID']);
+            }
+            sort($a);
+            $wishlistjson[$key]['wishlist'] = $a;
+          }
+        }
+    $newJsonString = json_encode($wishlistjson);
+  file_put_contents('wishlist.json', $newJsonString);
+    }
+}
 ?>
 
 <body>
@@ -134,7 +154,7 @@ $datajson = json_decode($jsonString, true);
                         echo "<div class='bigpricetag'><h1 class='text-white'>฿" . number_format($row['Price']) . "</h1></div><br>";
                         //add to cart
                         echo "<div class='d-grid gap-2'><button type='button' class='btn add-cart' onclick='addtocartPopUp()'><a href='addcart.php?addproid=" . $row['ID'] . "' class='mt-2 fw-bold'>Add to cart</a></button>";
-                        echo "<button type='button' class='btn add-wishlist' onclick='addtowishlistPopUp()'><h5 class='mt-1 fw-bold'>Add to wishlist</h5></button>";
+                        echo "<button type='button' class='btn add-wishlist' onclick='addtowishlistPopUp()'><a href='Merchandise.php?wishlistID=".$row['ID']."'<h5 class='mt-1 fw-bold'>Add to wishlist</h5></a></button>";
                         echo "</div></div>";
                 ?>
             </div>

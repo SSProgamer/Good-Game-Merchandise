@@ -1,8 +1,45 @@
 [
     {
-        "email" : "sunsun12217@gmail",
-        "wishlist" :[
-            1
+        "customerID": 1,
+        "wishlist": []
+    },
+    {
+        "customerID": 2,
+        "wishlist": []
+    },
+    {
+        "customerID": 3,
+        "wishlist": []
+    },
+    {
+        "customerID": 4,
+        "wishlist": []
+    },
+    {
+        "customerID": 5,
+        "wishlist": []
+    },
+    {
+        "customerID": 6,
+        "wishlist": []
+    },
+    {
+        "customerID": 7,
+        "wishlist": []
+    },
+    {
+        "customerID": 8,
+        "wishlist": [
+            "1",
+            "4"
         ]
+    },
+    {
+        "customerID": 9,
+        "wishlist": []
+    },
+    {
+        "customerID": 10,
+        "wishlist": []
     }
 ]

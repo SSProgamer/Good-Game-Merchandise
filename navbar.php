@@ -20,6 +20,9 @@ if (!isset($_SESSION["idmer"])) {
 if (!isset($_SESSION["cart"])) {
     $_SESSION["cart"] = array();
 }
+if (!isset($_SESSION["ID"])) {
+    $_SESSION["ID"] = 'null';
+}
 
 if (isset($_SESSION["email"])) {
 }

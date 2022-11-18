@@ -40,10 +40,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO Customer (CustomerID, Email, Password)
             VALUES (NULL,'" . $email . "', '" . $password . "')";
         $result = $db->query($sql);
+
         if (!$result) {
             echo $db->lastErrorMsg();
         } else {
+            //add new customerID in wishlist.json
+            $jsonString = file_get_contents('wishlist.json');
+            $wishlistjson = json_decode($jsonString, true);
+            $end = (end($wishlistjson)['customerID']);
+            array_push($wishlistjson,["customerID" => $end+1,"wishlist" => []]);
+            $newJsonString = json_encode($wishlistjson);
+            file_put_contents('wishlist.json', $newJsonString);
+
             header("Location: Login.php");
+            
         }
     }
 }
