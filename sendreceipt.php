@@ -14,12 +14,12 @@
             <option value="1">1</option>
             <option value="1">1</option>
         </select>
-    <form action="" method="post" id="receipt">
+    <form action="#" method="post" id="receipt">
         
-        <input type="file" name="" id="">
-        <input type="text" name="" id="">
-        <input type="text" name="" id="">
-        <input type="datetime-local" name="" id="">
+        <input type="file" name="image" id="image">
+        <input type="text" name="account" id="account">
+        <input type="text" name="amount" id="amount">
+        <input type="datetime-local" name="date" id="date">
         <button type="submit">Submit your reciept</button>
         
     </form>
