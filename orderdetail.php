@@ -71,9 +71,9 @@ if (!isset($_SESSION["email"])) {
                             <table class="table cart-table">
                                 <thead>
                                     <tr>
-                                        <th>Product</th>
-                                        <th>Price</th>
-                                        <th>Unit</th>
+                                        <th class="orderdetail-list-product">Product</th>
+                                        <th class="orderdetail-list-price">Price</th>
+                                        <th class="orderdetail-list-unit">Unit</th>
                                         <th class="cart-list-delete"></th>
                                     </tr>
                                 </thead>

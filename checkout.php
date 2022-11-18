@@ -36,13 +36,13 @@ if (!isset($_SESSION['email'])) {
                 <table class="table cart-table">
                     <thead>
                         <tr>
-                            <th>
+                            <th class="checkout-list-product">
                                 <h3 class="fw-bold">Product</h3>
                             </th>
-                            <th>
+                            <th class="checkout-list-price">
                                 <h3 class="fw-bold">Price</h3>
                             </th>
-                            <th>
+                            <th class="checkout-list-unit">
                                 <h3 class="fw-bold">Unit</h3>
                             </th>
                         </tr>

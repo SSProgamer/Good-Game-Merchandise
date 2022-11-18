@@ -29,3 +29,15 @@ body {
 .pay-button:active {
     background-color: rgb(74, 86, 36) !important;
 }
+
+.checkout-list-product {
+    width: 80%;
+}
+
+.checkout-list-price {
+    width: 10%;
+}
+
+.checkout-list-unit {
+    width: 10%;
+}

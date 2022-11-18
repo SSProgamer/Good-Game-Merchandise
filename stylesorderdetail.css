@@ -11,3 +11,15 @@ body {
 textarea {
     resize: none;
 }
+
+.orderdetail-list-product {
+    width: 80%;
+}
+
+.orderdetail-list-price {
+    width: 10%;
+}
+
+.orderdetail-list-unit {
+    width: 10%;
+}
