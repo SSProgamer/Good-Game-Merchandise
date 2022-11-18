@@ -2,7 +2,7 @@
 // session_start();
 include "navbar.php";
 $have = false;
-
+$total = 0;
 //check ว่ามีสินต้าในตระกร้าหรือเปล่า
 foreach ($_SESSION['cart'] as $user => $cart){
     if ($cart["User"] == $_SESSION["email"]){
@@ -13,14 +13,23 @@ foreach ($_SESSION['cart'] as $user => $cart){
 if (!isset($_SESSION['email'])) {
     header("location: login.php");
 }
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if(isset($_POST['deleted'])){
     //
     // array_pop($_SESSION["cart"]);
     unset($_SESSION["cart"][$_POST['deleted']]);
     unset($_POST['deteled']);
-    header("Location: cart.php");
+    // header("Location: cart.php");
 
 }
+if(isset($_POST['de_qtn'])){
+    $_SESSION["cart"][$POST['de_qtn']]['Amount'] -= 1;
+    // header("Location: postest.php");
+}
+if(isset($_POST['add_qtn'])){
+    $_SESSION["cart"][$POST['add_qtn']]['Amount'] += 1;
+    // header("Location: postest.php");
+}
+
 // array_push($_SESSION['cart'], array("User" => "Customer"));
 // print_r($_SESSION['cart']);
 ?>
@@ -65,17 +74,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 echo '<tr>
                                         <td>' . $cart['Proname'] . '</td>
                                         <td>' . $cart['Price'] . '</td>
-                                        <td>' . $cart['Amount'] . '</td>
-                                        <td><form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
-                                            <input type="submit" value="'.$user.'" name="deleted" class="btn btn-danger">
-                                        </form>
+                                        <form action="'.$_SERVER["PHP_SELF"].'" method="post">
+                                        <td><button name="de_qtn" value="'.$user.'">-</button>' . $cart['Amount'] . '<button name="add_qtn" value="'.$user.'">+</button></td>
+                                        <td>
+                                            <button type="submit" value="'.$user.'" name="deleted" class="btn btn-danger">X</button>
                                         </td>
+                                        </form>
                                     </tr>';
+                                $total += $cart['Price']*$cart['Amount'];
                             }
                         }
+                        echo $total;
                         ?>
                     </tbody>
                 </table>
+                
                 <h2 class="text-center">Checkout</h2>
                 <!-- <a href="checkout.php" id ="order"name="order" class="btn btn-success m-3 pay-button">Checkout</a> -->
                 <?php
