@@ -12,16 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (strlen($email) < 8) {
         //if username < 8
         echo "<script>";
-        echo "alert(\"nlength < 8\")";
+        echo "alert(\"Incorrect email format.\")";
         echo "</script>";
     } else if (strlen($password) < 8) {
         //if password < 8
         echo "<script>";
-        echo "alert(\"plength < 9\")";
+        echo "alert(\"The password must contain more than 8 characters.\")";
         echo "</script>";
     } else if (!$upcase || !$lowcase || !$number) {
         echo "<script>";
-        echo "window.alert(\" Password should atleast 1 lower&highercase character and number\");";
+        echo "window.alert(\"Passwords must contain at least one lowercase, one uppercase, and one number.\");";
         echo "</script>";
     }
     // else if(){
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else if ($password != $_POST['c_pass']) {
         //if confirm != password
         echo "<script>";
-        echo "alert(\"password not match\")";
+        echo "alert(\"The password does not match.\")";
         echo "</script>";
     } else {
         // echo $username, $password;
@@ -100,8 +100,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="mb-3">
                                     <input type="password" class="form-control" placeholder="Confirm Password" name="c_pass">
                                 </div>
+                                <h5 class="text-center mb-3">* The password must contain more than 8 characters.</h5>
+                                <h5 class="text-center mb-3">* Passwords must contain at least one lowercase, one uppercase, and one number.</h5>
                                 <button type="submit" class="btn fw-bold p-3 container-fluid our-card-button text-white">SIGN UP</button>
                             </form>
+
                         </div>
                     </div>
                 </div>
