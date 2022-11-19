@@ -42,15 +42,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // upload สำเร็จ ทำSQL
             echo "The file ". htmlspecialchars( basename( $_FILES["image"]["name"])). " has been uploaded.";
             $sqlinsert = "INSERT INTO 'Receipt' (ID, CustomerID, Ord_id, Re_amount, Re_image, Re_date, Re_account)
-            VALUES (NULL, ".$_SESSION['ID'].", ".$_POST['order'].", ".$_POST['amount'].", ".basename( $_FILES['image']['name']).",".$_POST['date'].", ".$_POST['accouunt']."";
+            VALUES (NULL, ".$_SESSION['ID'].", ".$_POST['order'].", ".$_POST['amount'].", '".basename( $_FILES['image']['name'])."', '".$_POST['date']."', '".$_POST['account']."')";
             $result3 = $db->query($sqlinsert);
             if(!$result3){
                 echo $db->lastErrorMsg();
                 echo "error";
             }
             else{
-                $update = "UPDATE Order
-                SET Order_Status = 'Pending' 
+                $update = "UPDATE 'Order'
+                SET Order_Status = 'Pending'
                 WHERE Order_ID = ".$_POST['order']."";
                 $result2 = $db->query($update);
                 if(!$result2){
