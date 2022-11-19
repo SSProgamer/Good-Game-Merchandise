@@ -48,12 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $jsonString = file_get_contents('wishlist.json');
             $wishlistjson = json_decode($jsonString, true);
             $end = (end($wishlistjson)['customerID']);
-            array_push($wishlistjson,["customerID" => $end+1,"wishlist" => []]);
+            array_push($wishlistjson, ["customerID" => $end + 1, "wishlist" => []]);
             $newJsonString = json_encode($wishlistjson);
             file_put_contents('wishlist.json', $newJsonString);
 
             header("Location: Login.php");
-            
         }
     }
 }
@@ -83,34 +82,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
 
     <!-- main content -->
-    <div class="container-fluid main-container d-flex justify-content-center">
-        <div class="row">
-            <div class="row col-12">
-                <div class="col"></div>
-                <div class="card mx-auto mt-5 mb-3 main-card col-12">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold text-center mb-3 mt-3">Create an account</h5>
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                            <div class="mb-3">
-                                <input class="form-control" type="email" placeholder="Email" name="email">
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" class="form-control" placeholder="Password" name="password">
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" class="form-control" placeholder="Confirm Password" name="c_pass">
-                            </div>
-                            <button type="submit" class="btn fw-bold p-3 container-fluid our-card-button text-white">SIGN UP</button>
-                        </form>
+    <div class="container-fluid main-container">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="card mx-auto mt-5 mb-3 main-card col-12">
+                        <div class="card-body ms-4 me-4">
+                            <h5 class="card-title fw-bold text-center mb-3 mt-3">Create an account</h5>
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                <div class="mb-3">
+                                    <input class="form-control" type="email" placeholder="Email" name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" placeholder="Confirm Password" name="c_pass">
+                                </div>
+                                <button type="submit" class="btn fw-bold p-3 container-fluid our-card-button text-white">SIGN UP</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <div class="col"></div>
-            </div>
-            <div class="row col-12">
-                <div class="col">
+                <div class="col-3"></div>
+                <div class="col-3"></div>
+                <div class="col-6">
                     <h5 class="fw-bold text-center mb-3">Already have an account?</h5>
-                    <button type="button" class="btn btn-dark mb-5 page-change" onClick="location.href='login.php'">LOG IN</button>
+                    <button type="button" class="btn btn-dark page-change pt-3 pb-3" onClick="location.href='login.php'">LOG IN</button>
                 </div>
+                <div class="col-3"></div>
             </div>
         </div>
     </div>
