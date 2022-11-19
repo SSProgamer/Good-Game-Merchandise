@@ -1,0 +1,26 @@
+body {
+    font-family: 'Chakra Petch', sans-serif !important;
+}
+
+.main-container {
+    background-color: rgb(228, 231, 237);
+    display: flex;
+    min-height: 70%;
+}
+
+.reciept-button {
+    background-color: rgb(135, 158, 66);
+    color: white;
+    border: transparent;
+}
+
+.reciept-button:hover {
+    background-color: rgb(104, 122, 51);
+    color: white;
+    border: transparent;
+}
+
+.reciept-button:active {
+    background-color: rgb(74, 86, 36) !important;
+    color: rgb(204, 204, 204) !important;
+}

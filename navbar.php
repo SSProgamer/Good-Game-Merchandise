@@ -100,6 +100,7 @@ if (isset($_POST['logout'])) {
             <ul class="dropdown-menu dropdown-menu-end user-dropdown-list shadow-sm">
                 <li><a class="dropdown-item text-white user-dropdown-list-item mt-2" href="user.php">Account</a></li>
                 <li><a class="dropdown-item text-white user-dropdown-list-item" href="orders.php">Purchases</a></li>
+                <li><a class="dropdown-item text-white user-dropdown-list-item" href="sendreceipt.php">Payment</a></li>
                 <li><a class="dropdown-item text-white user-dropdown-list-item" href="wishlist.php">Wish List</a></li>
                 <li>
                     <form action="' . $sent . '" method="post">

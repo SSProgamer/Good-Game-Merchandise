@@ -129,6 +129,9 @@ if (!$result) {
                     <!-- Insert New List Here -->
                 </ul>
             </div>
+            <div class="d-flex justify-content-end">
+                <a class="btn btn-primary change-button me-3" href="sendreceipt.php">Confirm Payment</a>
+            </div>
         </div>
     </div>
 
