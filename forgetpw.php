@@ -1,6 +1,18 @@
 <?php
 include "db_connect.php";
 //หน้าถามอีเมลเพื่อReset Password ที่ resetpw.php
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $sql = "SELECT Email FROM Customer WHERE Email = '".$_POST['email']."'";
+    $result = $db->query($sql);
+    if(!$result){
+        //แจ้งว่าไม่มีอีเมลนี้
+        echo $db->lastErrorMsg();
+    }
+    else{
+        $_SESSION['femail'] = $_POST['email'];
+        header("location: resetpw.php");
+    }
+}
 ?>
 
 <html lang="en">
@@ -36,7 +48,7 @@ include "db_connect.php";
                     <div class="card mx-auto mt-5 mb-3 main-card col-12">
                         <div class="card-body ms-4 me-4">
                             <h5 class="card-title fw-bold text-center mb-3 mt-3">Enter Email</h5>
-                            <form action="#" method="post">
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                                 <div class="mb-3">
                                     <input class="form-control" type="email" placeholder="Email" name="email" id="email">
                                 </div>

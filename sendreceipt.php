@@ -3,7 +3,7 @@ include "navbar.php";
 // $sql = "INSERT INTO 'Receipt' (ID, CustomerID, Ord_id, Re_amount, Re_image, Re_date, Re_account)
 // VALUES (NULL, $_SESSION['ID'], $_POST['order'], $_POST['amount'], image,$_POST['date'], $_POST['accouunt'])";
 if (!isset($_SESSION['email'])) {
-    header("location: header.php");
+    header("location: login.php");
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Directory ที่จะใส่รูป

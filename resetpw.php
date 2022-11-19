@@ -1,6 +1,39 @@
 <?php
 include "db_connect.php";
+if(!isset($_SESSION['femail'])){
+    header("location: forgetpw.php");
+}
 //หน้าreset password
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $password = $_POST['password'];
+    if (strlen($password) < 8) {
+        //if password < 8
+        echo "<script>";
+        echo "alert(\"plength < 9\")";
+        echo "</script>";
+    } else if (!$upcase || !$lowcase || !$number) {
+        echo "<script>";
+        echo "window.alert(\" Password should at least 1 lower&highercase character and number\");";
+        echo "</script>";
+    } else if ($password != $_POST['c_pass']) {
+        //if confirm != password
+        echo "<script>";
+        echo "alert(\"password not match\")";
+        echo "</script>";
+    } else {
+        $sql = "UPDATE Customer
+    SET 'Password' ='" . $password . "'
+    WHERE Email = '" . $_SESSION['femail'] . "'";
+        $result = $db->query($sql);
+        if (!$result) {
+            //แจ้งว่าไม่มีอีเมลนี้
+            echo $db->lastErrorMsg();
+        } else {
+            unset($_SESSION['femail']);
+            header("location: login.php");
+        }
+    }
+}
 ?>
 
 <html lang="en">
@@ -36,7 +69,7 @@ include "db_connect.php";
                     <div class="card mx-auto mt-5 mb-3 main-card col-12">
                         <div class="card-body ms-4 me-4">
                             <h5 class="card-title fw-bold text-center mb-3 mt-3">Reset Password</h5>
-                            <form action="#" method="post">
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                 <div class="mb-3">
                                     <input class="form-control" type="password" placeholder="New Password" name="password" id="password">
                                 </div>
