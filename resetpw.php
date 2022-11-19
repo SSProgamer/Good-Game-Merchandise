@@ -1,11 +1,15 @@
 <?php
 include "db_connect.php";
+session_start();
 if(!isset($_SESSION['femail'])){
     header("location: forgetpw.php");
 }
 //หน้าreset password
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
+    $upcase = preg_match('@[A-Z]@', $password);
+    $lowcase = preg_match('@[a-z]@', $password);
+    $number = preg_match('@[0-9]@', $password);
     if (strlen($password) < 8) {
         //if password < 8
         echo "<script>";
@@ -15,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>";
         echo "window.alert(\" Password should at least 1 lower&highercase character and number\");";
         echo "</script>";
-    } else if ($password != $_POST['c_pass']) {
+    } else if ($password != $_POST['c_password']) {
         //if confirm != password
         echo "<script>";
         echo "alert(\"password not match\")";

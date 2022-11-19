@@ -9,6 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo $db->lastErrorMsg();
     }
     else{
+        session_start();
         $_SESSION['femail'] = $_POST['email'];
         header("location: resetpw.php");
     }
