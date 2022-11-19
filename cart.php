@@ -10,6 +10,7 @@ foreach ($_SESSION['cart'] as $user => $cart) {
     }
 }
 
+
 if (!isset($_SESSION['email'])) {
     header("location: login.php");
 }
@@ -19,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // array_pop($_SESSION["cart"]);
         unset($_SESSION["cart"][$_POST['deleted']]);
         unset($_POST['deteled']);
-        // header("Location: cart.php");
+        header("Location: cart.php");
 
     }
     if (isset($_POST['de_qtn'])) {
