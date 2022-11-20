@@ -218,7 +218,7 @@ if (isset($_GET['wishlistID'])) {
                     </div>
                 </div>
             </div>
-            <h3 class="recommended-text fw-bold mt-5">Recommended Merchandise</h3>
+            <h3 class="recommended-text fw-bold mt-5">Recommended Merchandises</h3>
             <div class="row mt-2">
                 <?php
 
