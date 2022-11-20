@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         WHERE Email='$email'
         AND Password='$password'";
     // echo $email . $password;
-    $result = $db->querySingle($sql,true);
+    $result = $db->querySingle($sql, true);
     if (!$result) {
         // $errmsg = $db->lastErrorMsg();
         //echo "<script>";
@@ -17,13 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // echo "window.history.back()";
         //echo "</script>";
         // header("Location: login.php");
+        echo "<script>";
+        echo "alert(\"Incorrect email or password.\")";
+        echo "</script>";
     } else {
         session_start();
-            $_SESSION["ID"] = $result["CustomerID"];
-            $_SESSION["email"] = $result["Email"];
-            // echo $row["Username"];
-            // $_SESSION["cart"] = array();
-            // array_push($_SESSION["cart"], "user" => $row["Email"]);
+        $_SESSION["ID"] = $result["CustomerID"];
+        $_SESSION["email"] = $result["Email"];
+        // echo $row["Username"];
+        // $_SESSION["cart"] = array();
+        // array_push($_SESSION["cart"], "user" => $row["Email"]);
         header("Location: index.php");
     }
 }

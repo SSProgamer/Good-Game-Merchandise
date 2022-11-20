@@ -12,7 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //add query for check exist email
     $check = "SELECT * FROM Customer WHERE Email='$email'";
     $result_check = $db->querySingle($check);
-    if (strlen($email) < 8) {
+    if ($result_check) {
+        echo "<script>";
+        echo "window.alert(\"This email has already been registered; please try to login.\");";
+        echo "</script>";
+    } else if (strlen($email) < 8) {
         //if username < 8
         echo "<script>";
         echo "alert(\"Incorrect email format.\")";
@@ -27,11 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "window.alert(\"Passwords must contain at least one lowercase, one uppercase, and one number.\");";
         echo "</script>";
     }
-    else if($result_check){
-        echo "<script>";
-        echo "window.alert(\"This email has already registered please try to login.\");";
-        echo "</script>";
-    }
+
     // else if($password){
 
     // }
