@@ -3,7 +3,7 @@ include "db_connect.php";
 //หน้าถามอีเมลเพื่อReset Password ที่ resetpw.php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $sql = "SELECT Email FROM Customer WHERE Email = '".$_POST['email']."'";
-    $result = $db->query($sql);
+    $result = $db->querySingle($sql);
     if(!$result){
         //แจ้งว่าไม่มีอีเมลนี้
         echo $db->lastErrorMsg();
