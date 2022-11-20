@@ -244,7 +244,7 @@ if (isset($_GET['wishlistID'])) {
                             echo "<hr>";
                             echo "<div class='row'>";
                             echo "<div class='col d-grid'>";
-                            echo "<a href='addcart.php?addproid=" . $row['ID'] . "' class='btn border border-dark price fw-bold'><span>฿" . number_format($row['Price']) . "</span></a>";
+                            echo "<a href='addcart.php?addproid=" . $row['ID'] . "' class='btn border border-dark price fw-bold' onclick='addtocartPopUp()'><span>฿" . number_format($row['Price']) . "</span></a>";
                             echo "</div></div></div></div></div>";
                         }
                     }

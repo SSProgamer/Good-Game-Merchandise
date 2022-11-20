@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         unset($_SESSION["cart"][$_POST['deleted']]);
         unset($_POST['deteled']);
         header("Location: cart.php");
-
     }
     if (isset($_POST['de_qtn'])) {
         $qtn = $_SESSION['cart'][$_POST['de_qtn']]['Amount'];
@@ -65,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="container-fluid main-container">
-        <div class="container">
+        <div class="container mb-3">
             <h2 class="mt-3 mb-3 fw-bold"><img src="image/webelement/cartpage.png" alt=""> Shopping Cart</h2>
             <div class="card cart-card">
                 <table class="table cart-table">
