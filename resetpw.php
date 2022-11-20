@@ -1,7 +1,7 @@
 <?php
 include "db_connect.php";
 session_start();
-if(!isset($_SESSION['femail'])){
+if (!isset($_SESSION['femail'])) {
     header("location: forgetpw.php");
 }
 //หน้าreset password
@@ -13,16 +13,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (strlen($password) < 8) {
         //if password < 8
         echo "<script>";
-        echo "alert(\"plength < 9\")";
+        echo "alert(\"The password must contain more than 8 characters.\")";
         echo "</script>";
     } else if (!$upcase || !$lowcase || !$number) {
         echo "<script>";
-        echo "window.alert(\" Password should at least 1 lower&highercase character and number\");";
+        echo "window.alert(\"Passwords must contain at least one lowercase, one uppercase, and one number.\");";
         echo "</script>";
     } else if ($password != $_POST['c_password']) {
         //if confirm != password
         echo "<script>";
-        echo "alert(\"password not match\")";
+        echo "alert(\"The password does not match.\")";
         echo "</script>";
     } else {
         $sql = "UPDATE Customer
@@ -80,6 +80,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="mb-3">
                                     <input class="form-control" type="password" placeholder="Confirm New Password" name="c_password" id="c_password">
                                 </div>
+                                <h5 class="text-center mb-3">* The password must contain more than 8 characters.</h5>
+                                <h5 class="text-center mb-3">* Passwords must contain at least one lowercase, one uppercase, and one number.</h5>
                                 <button type="submit" name="submit" class="btn fw-bold p-3 container-fluid our-card-button text-white">Reset</button>
                             </form>
                         </div>
