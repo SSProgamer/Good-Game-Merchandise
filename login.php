@@ -5,10 +5,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     //
     $sql = "SELECT * FROM Customer 
-        WHERE Email='" . $email . "'
-        AND Password='" . $password . "' ";
-    echo $email . $password;
-    $result = $db->query($sql);
+        WHERE Email='$email'
+        AND Password='$password'";
+    // echo $email . $password;
+    $result = $db->querySingle($sql,true);
     if (!$result) {
         // $errmsg = $db->lastErrorMsg();
         //echo "<script>";
@@ -16,16 +16,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //echo "alert(\" user หรือ  password ไม่ถูกต้อง\");";
         // echo "window.history.back()";
         //echo "</script>";
-        header("Location: login.php");
+        // header("Location: login.php");
     } else {
         session_start();
-        while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
-            $_SESSION["ID"] = $row["CustomerID"];
-            $_SESSION["email"] = $row["Email"];
+            $_SESSION["ID"] = $result["CustomerID"];
+            $_SESSION["email"] = $result["Email"];
             // echo $row["Username"];
             // $_SESSION["cart"] = array();
             // array_push($_SESSION["cart"], "user" => $row["Email"]);
-        }
         header("Location: index.php");
     }
 }
