@@ -42,16 +42,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // upload สำเร็จ ทำSQL
             echo "The file " . htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
             $sqlinsert = "INSERT INTO 'Receipt' (ID, CustomerID, Ord_id, Re_amount, Re_image, Re_date, Re_account)
-            VALUES (NULL, ".$_SESSION['ID'].", ".$_POST['order'].", ".$_POST['amount'].", '".basename( $_FILES['image']['name'])."', '".$_POST['date']."', '".$_POST['account']."')";
+            VALUES (NULL, " . $_SESSION['ID'] . ", " . $_POST['order'] . ", " . $_POST['amount'] . ", '" . basename($_FILES['image']['name']) . "', '" . $_POST['date'] . "', '" . $_POST['account'] . "')";
             $result3 = $db->query($sqlinsert);
             if (!$result3) {
                 echo $db->lastErrorMsg();
                 echo "error";
-            }
-            else{
+            } else {
                 $update = "UPDATE 'Order'
                 SET Order_Status = 'Pending'
-                WHERE Order_ID = ".$_POST['order']."";
+                WHERE Order_ID = " . $_POST['order'] . "";
                 $result2 = $db->query($update);
                 if (!$result2) {
                     echo $db->lastErrorMsg();
@@ -93,7 +92,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="card mt-3 mb-3 col-6">
                     <div class="card-body">
                         <h2 class="card-title text-center fw-bold mt-3 mb-4">Confirm Transaction</h2>
-                        <label for="order" class="form-label">
+                        <img src="image/webelement/qrcode.png" alt="" class="rounded mx-auto d-block">
+                        <label for="order" class="form-label mt-3">
                             <h5>Order</h5>
                         </label>
                         <select name="order" id="order" form="receipt" required class="form-select">
