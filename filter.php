@@ -180,7 +180,7 @@ if (isset($_POST['titleInput'])) {
                                 if (($row['Type'] == $_SESSION["typeInput"] or strcmp($_SESSION["typeInput"], "None") == 0) and ($row['Title'] == $_SESSION["titleInput"] or strcmp($_SESSION["titleInput"], "None") == 0)
                                     and !in_array($row['ID'], $id_array)
                                 ) {
-                                    if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false) {
+                                    if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) != false) {
                                         echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
                                         $ID = $row['ID'];
                                         echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";
@@ -206,7 +206,7 @@ if (isset($_POST['titleInput'])) {
                 } else {
                     while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
                         if (($row['Type'] == $_SESSION["typeInput"] or strcmp($_SESSION["typeInput"], "None") == 0) and ($row['Title'] == $_SESSION["titleInput"] or strcmp($_SESSION["titleInput"], "None") == 0)) {
-                            if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) !== false) {
+                            if (strpos(strtolower($row['NameProduct']), strtolower($_SESSION['searchName'])) != false) {
                                 echo "<div class='col-lg-3 col-md-4 col-sm-6 col-12 mb-3'>";
                                 $ID = $row['ID'];
                                 echo "<div class='card merchandises-card' onclick=\"location.href = 'Merchandise.php?idmer=$ID';\">";

@@ -12,7 +12,7 @@ if (!isset($_SESSION["titleInput"])) {
     $_SESSION["titleInput"] = "None";
 }
 if (!isset($_SESSION["searchName"])) {
-    $_SESSION["searchName"] = " ";
+    $_SESSION["searchName"] = "";
 }
 if (!isset($_SESSION["idmer"])) {
     $_SESSION["idmer"] = "1";

@@ -205,6 +205,9 @@ if (isset($_GET['wishlistID'])) {
                         while ($row[$strDetails] != NULL) {
 
                             echo "<li><h5>$row[$strDetails]</h5></li>";
+                            if ($numDetails == 10){
+                                break;
+                            }
                             $numDetails += 1;
                             $strDetails = 'Details' . $numDetails;
                         }
